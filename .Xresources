@@ -41,7 +41,7 @@
 URxvt.letterSpace: 0
 URxvt.font:xft:Monospace:pixelsize=13
 URxvt.lineSpace: 0
-URxvt.geometry: 92x24
+URxvt.geometry: 100x30
 URxvt.internalBorder: 15
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
