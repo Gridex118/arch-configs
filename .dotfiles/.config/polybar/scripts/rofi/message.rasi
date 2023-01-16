@@ -5,14 +5,14 @@
 * {
     background-color:       @bg;
     text-color:             @fg;
-	font:				 	"Terminus 9";
+	font:				 	"Iosevka Nerd Font 10";
 }
 
 window {
     width:      			320px;
     padding:    			25px;
-    border:					1px;
-    border-radius:          0px;
+    border:					0px;
+    border-radius:          12px;
     border-color:           @bg1;
     location:               center;
     y-offset:               -2em;

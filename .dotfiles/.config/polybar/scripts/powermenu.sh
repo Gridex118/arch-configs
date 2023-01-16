@@ -5,7 +5,7 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-dir="~/.config/polybar/shades/scripts/rofi"
+dir="~/.config/polybar/shapes/scripts/rofi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 rofi_command="rofi -no-config -theme $dir/powermenu.rasi"
@@ -20,8 +20,8 @@ logout=" Logout"
 # Confirmation
 confirm_exit() {
 	rofi -dmenu\
-		-no-config\
-        -i\
+        -no-config\
+		-i\
 		-no-fixed-num-lines\
 		-p "Are You Sure? : "\
 		-theme $dir/confirm.rasi

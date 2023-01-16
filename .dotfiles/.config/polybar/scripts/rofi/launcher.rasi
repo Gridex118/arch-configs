@@ -8,7 +8,7 @@
  */
 
 configuration {
-	font:							"Terminus 9";
+	font:							"Iosevka Nerd Font 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
     display-drun: 					"";
@@ -27,8 +27,8 @@ window {
     text-color:                     @fg;
 	border:							0px;
 	border-color:					@ac;
-    border-radius:                  0px;
-	width:							550px;
+    border-radius:                  12px;
+	width:							350px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;
@@ -39,7 +39,7 @@ prompt {
 	padding: 						10px 15px 10px 15px;
 	background-color: 				@bg1;
 	text-color: 					#FFFFFF;
-	font:							"Iosevka Nerd Font 8";
+	font:							"Iosevka Nerd Font 10";
 }
 
 entry {
@@ -49,19 +49,18 @@ entry {
     expand:                         true;
     horizontal-align:               0;
     placeholder:                    "Search...";
-    padding:                        12px 10px 10px 10px;
-    margin:                         0px 250px 0px 0px;
-    border-radius:                  0px 50px 50px 0px;
+    padding:                        10px;
+    border-radius:                  0px 12px 12px 0px;
     blink:                          true;
 }
 
 inputbar {
 	children: 						[ prompt, entry ];
-    background-color:               @bg3;
+    background-color:               @bg2;
     text-color:                     #FFFFFF;
     expand:                         false;
 	border:							0px;
-    border-radius:                  0px;
+    border-radius:                  12px;
 	border-color:					@ac;
     spacing:                        0px;
 }
@@ -69,8 +68,8 @@ inputbar {
 listview {
     background-color:               @al;
     padding:                        10px 10px 10px 10px;
-    columns:                        2;
-    lines:                          7;
+    columns:                        1;
+    lines:                          10;
     spacing:                        5px;
     cycle:                          true;
     dynamic:                        true;
@@ -112,9 +111,9 @@ element-text {
 }
 
 element selected {
-    background-color:               @bg4;
+    background-color:               @bg3;
     text-color:                     @bg;
-	border:							0px;
-    border-radius:                  0px;
-    border-color:                  	@bg;
+	border:							0px 0px 0px 0px;
+    border-radius:                  12px;
+    border-color:                  	@bg1;
 }

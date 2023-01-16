@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Color files
-PFILE="$HOME/.config/polybar/shades/colors.ini"
-RFILE="$HOME/.config/polybar/shades/scripts/rofi/colors.rasi"
+PFILE="$HOME/.config/polybar/shapes/colors.ini"
+RFILE="$HOME/.config/polybar/shapes/scripts/rofi/colors.rasi"
 WFILE="$HOME/.cache/wal/colors.sh"
 
 # Get colors
@@ -35,7 +35,6 @@ change_color() {
 	  bg1:   ${SH2}FF;
 	  bg2:   ${SH3}FF;
 	  bg3:   ${SH4}FF;
-	  bg4:   ${SH5}FF;
 	  fg:    ${FG}FF;
 	}
 	EOF
@@ -58,7 +57,7 @@ if [[ -x "`which wal`" ]]; then
 
 		BG=`printf "%s\n" "$background"`
 		FG=`printf "%s\n" "$foreground"`
-		FGA=`printf "%s\n" "$color8"`
+		FGA=`printf "%s\n" "$foreground"`
 		SH1=`printf "%s\n" "$color1"`
 		SH2=`printf "%s\n" "$color2"`
 		SH3=`printf "%s\n" "$color1"`

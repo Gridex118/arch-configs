@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Color files
-PFILE="$HOME/.config/polybar/shades/colors.ini"
-RFILE="$HOME/.config/polybar/shades/scripts/rofi/colors.rasi"
+PFILE="$HOME/.config/polybar/shapes/colors.ini"
+RFILE="$HOME/.config/polybar/shapes/scripts/rofi/colors.rasi"
 
 # Change colors
 change_color() {
@@ -29,7 +29,6 @@ change_color() {
 	  bg1:   ${SH2}FF;
 	  bg2:   ${SH3}FF;
 	  bg3:   ${SH4}FF;
-	  bg4:   ${SH5}FF;
 	  fg:    ${FG}FF;
 	}
 	EOF
@@ -72,7 +71,7 @@ get_random_color() {
 # Main
 BG='#1f1f1f'	# change to light bg
 FG='#FFFFFF'	# change to dark fg
-FGA='#656565'	# change to gray fg
+FGA='#FFFFFF'	# change to gray fg
 SH1=`get_random_color`
 SH2=`get_random_color`
 SH3=`get_random_color`
