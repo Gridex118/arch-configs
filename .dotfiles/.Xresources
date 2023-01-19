@@ -39,7 +39,7 @@
 
 !! URxvt Appearance
 URxvt.letterSpace: 0
-URxvt.font:xft:Monospace:pixelsize=13
+URxvt.font:xft:Monospace:pixelsize=13,xft:Source\ Code\ Pro\ for\ Powershell:pixelsize=13
 URxvt.lineSpace: 0
 URxvt.geometry: 95x25
 URxvt.internalBorder: 15

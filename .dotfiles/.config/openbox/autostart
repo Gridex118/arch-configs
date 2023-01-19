@@ -18,3 +18,4 @@
 # start polybar
 ~/.config/polybar/launch.sh
 picom -b
+lxpanel &
