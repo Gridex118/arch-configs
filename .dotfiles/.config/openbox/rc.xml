@@ -177,6 +177,12 @@
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
+    <!-- Netlogin Shortcut -->
+    <keybind key="W-F1">
+        <action name="Execute">
+            <command>netlogin.sh</command>
+        </action>
+    </keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
@@ -227,22 +233,22 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="W-F1">
+    <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
       </action>
     </keybind>
-    <keybind key="W-F2">
+    <keybind key="W-2">
       <action name="GoToDesktop">
         <to>2</to>
       </action>
     </keybind>
-    <keybind key="W-F3">
+    <keybind key="W-3">
       <action name="GoToDesktop">
         <to>3</to>
       </action>
     </keybind>
-    <keybind key="W-F4">
+    <keybind key="W-4">
       <action name="GoToDesktop">
         <to>4</to>
       </action>
@@ -271,8 +277,14 @@
     <keybind key="W-Shift-q">
       <action name="Close"/>
     </keybind>
-    <keybind key="W-Shift-i">
+    <keybind key="W-z">
       <action name="Iconify"/>
+    </keybind>
+    <keybind key="W-a">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Restore"/>
     </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
@@ -336,7 +348,7 @@
         <command>kfmclient openProfile filemanagement</command>
       </action>
     </keybind>
-    <keybind key="W-S-p">
+    <keybind key="C-Print">
       <action name="Execute">
         <command>flameshot full -p ~/Screenshots</command>
       </action>
@@ -414,7 +426,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleMaximize"/>
+        <action name="ToggleToggleMaximize"/>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">
@@ -560,7 +572,7 @@
         <action name="Iconify"/>
       </mousebind>
     </context>
-    <context name="Maximize">
+    <context name="ToggleMaximize">
       <mousebind button="Left" action="Press">
         <action name="Focus"/>
         <action name="Raise"/>
@@ -577,15 +589,15 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind button="Left" action="Click">
-        <action name="ToggleMaximize"/>
+        <action name="ToggleToggleMaximize"/>
       </mousebind>
       <mousebind button="Middle" action="Click">
-        <action name="ToggleMaximize">
+        <action name="ToggleToggleMaximize">
           <direction>vertical</direction>
         </action>
       </mousebind>
       <mousebind button="Right" action="Click">
-        <action name="ToggleMaximize">
+        <action name="ToggleToggleMaximize">
           <direction>horizontal</direction>
         </action>
       </mousebind>
