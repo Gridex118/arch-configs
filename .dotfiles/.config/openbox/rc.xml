@@ -183,6 +183,12 @@
             <command>netlogin.sh</command>
         </action>
     </keybind>
+    <!-- Reconfiguration Shortcut -->
+    <keybind key="W-F2">
+        <action name="Execute">
+            <command>openbox --reconfigure</command>
+        </action>
+    </keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
@@ -263,7 +269,7 @@
         <command>rofi -show window</command>
       </action>
     </keybind>
-    <keybind key="W-S-e">
+    <keybind key="W-Esc">
       <action name="Execute">
         <command>openbox --exit</command>
       </action>
@@ -274,7 +280,7 @@
       </action>
     </keybind>
     <!-- Keybindings for windows -->
-    <keybind key="W-Shift-q">
+    <keybind key="W-Shift-x">
       <action name="Close"/>
     </keybind>
     <keybind key="W-z">
@@ -284,12 +290,7 @@
       <action name="ToggleMaximize"/>
     </keybind>
     <keybind key="W-s">
-      <action name="Restore"/>
-    </keybind>
-    <keybind key="A-Escape">
-      <action name="Lower"/>
-      <action name="FocusToBottom"/>
-      <action name="Unfocus"/>
+      <action name="ToggleFullScreen"/>
     </keybind>
     <keybind key="A-space">
       <action name="ShowMenu">
