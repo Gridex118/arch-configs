@@ -153,22 +153,22 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>0</top>
-    <bottom>0</bottom>
-    <left>0</left>
-    <right>0</right>
+    <top>22</top>
+    <bottom>5</bottom>
+    <left>5</left>
+    <right>5</right>
   </margins>
   <dock>
-    <position>TopLeft</position>
+    <position>Bottom</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
-    <noStrut>no</noStrut>
-    <stacking>Above</stacking>
+    <noStrut>yes</noStrut>
+    <stacking>Normal</stacking>
     <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Vertical</direction>
     <!-- 'Vertical' or 'Horizontal' -->
-    <autoHide>no</autoHide>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <showDelay>300</showDelay>
@@ -179,15 +179,15 @@
   <keyboard>
     <!-- Netlogin Shortcut -->
     <keybind key="W-F1">
-        <action name="Execute">
-            <command>netlogin.sh</command>
-        </action>
+      <action name="Execute">
+        <command>netlogin.sh</command>
+      </action>
     </keybind>
     <!-- Reconfiguration Shortcut -->
     <keybind key="W-F2">
-        <action name="Execute">
-            <command>openbox --reconfigure</command>
-        </action>
+      <action name="Execute">
+        <command>openbox --reconfigure</command>
+      </action>
     </keybind>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
@@ -269,7 +269,7 @@
         <command>rofi -show window</command>
       </action>
     </keybind>
-    <keybind key="W-Esc">
+    <keybind key="W-Escape">
       <action name="Execute">
         <command>openbox --exit</command>
       </action>
