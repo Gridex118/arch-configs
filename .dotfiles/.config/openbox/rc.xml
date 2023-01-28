@@ -279,6 +279,11 @@
         <command>urxvt</command>
       </action>
     </keybind>
+    <keybind key="W-b">
+      <action name="Execute">
+        <command>onboard</command>
+      </action>
+    </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-Shift-x">
       <action name="Close"/>
