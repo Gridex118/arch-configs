@@ -14,7 +14,8 @@ augroup end
 
 colorscheme habamax
 
-set tabstop=4 expandtab shiftwidth=4
+set tabstop=4 shiftwidth=4
+set nowrap
 
 syntax on
 filetype plugin indent on
