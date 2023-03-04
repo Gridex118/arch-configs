@@ -20,6 +20,6 @@ set nowrap
 syntax on
 filetype plugin indent on
 
-inoremap <A-z> <esc>
+inoremap jj <esc>
 noremap <S-Right> :tabn <Return>
 noremap <S-left> :tabp <Return>

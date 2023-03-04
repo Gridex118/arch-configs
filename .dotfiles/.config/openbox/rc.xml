@@ -266,7 +266,7 @@
     </keybind>
     <keybind key="A-Tab">
       <action name="Execute">
-        <command>rofi -show window</command>
+        <command>rofi -show window -no-lazy-grab</command>
       </action>
     </keybind>
     <keybind key="W-Escape">
