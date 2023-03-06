@@ -1,5 +1,5 @@
 function! SetHabamaxColors() abort
-    highlight Normal ctermbg=black ctermfg=white
+    highlight Normal ctermbg=none ctermfg=white
     highlight Type ctermfg=81
     highlight Statement ctermfg=140
     highlight PreProc ctermfg=204

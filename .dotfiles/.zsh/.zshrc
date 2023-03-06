@@ -7,10 +7,12 @@ setopt autocd
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/alex/.zshrc'
 
-autoload -Uz compinit promptinit
-promptinit
+autoload -Uz compinit
+#promptinit
 compinit
 # End of lines added by compinstall
 
 eval "$(zoxide init zsh)"
-prompt adam2
+
+THEMES=$HOME/.zsh/themes
+source $THEMES/agnoster.zsh-theme

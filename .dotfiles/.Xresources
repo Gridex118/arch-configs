@@ -1,8 +1,8 @@
 !! Colorscheme
 
 ! special
-*.foreground: #93a1a1
-*.background: #000000
+*.foreground: #657b83
+*.background: #002b36
 *.cursorColor: #afbfbf
 
 ! black
@@ -39,9 +39,9 @@
 
 !! URxvt Appearance
 URxvt.letterSpace: 0
-URxvt.font:xft:Monospace:pixelsize=13,xft:Source\ Code\ Pro\ for\ Powershell:pixelsize=13
+URxvt.font:xft:Monospace:pixelsize=13,xft:Inconsolata\ for\ Powerline:size=13:style=g,Iosevka\ Nerd\ Font,IPAMincho
 URxvt.lineSpace: 0
-URxvt.geometry: 95x25
+URxvt.geometry: 98x25
 URxvt.internalBorder: 15
 URxvt.cursorBlink: false
 URxvt.cursorUnderline: false
@@ -52,3 +52,6 @@ URxvt.urgentOnBell: true
 URxvt.depth: 24
 URxvt.iso14755: false
 
+!! URxvt Input
+URxvt.inputMethod: ibus 
+URxvt.preeditType: OverTheSpot 
