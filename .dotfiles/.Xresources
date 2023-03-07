@@ -5,37 +5,37 @@
 *.background: #002b36
 *.cursorColor: #afbfbf
 
-! black
-*.color0: #000000
-*.color8: #4a697d
+!! black dark/light 
+*color0: #073642 
+*color8: #002b36 
 
-! red
-*.color1: #d12f2c
-*.color9: #fa3935
+!! red dark/light 
+*color1: #dc322f 
+*color9: #cb4b16 
 
-! green
-*.color2: #819400
-*.color10: #a4bd00
+!! green dark/light 
+*color2: #859900 
+*color10: #586e75 
 
-! yellow
-*.color3: #b08500
-*.color11: #d9a400
+!! yellow dark/light 
+*color3: #b58900 
+*color11: #657b83 
 
-! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
+!! blue dark/light 
+*color4: #268bd2 
+*color12: #839496 
 
-! magenta
-*.color5: #696ebf
-*.color13: #8086e8
+!! magenta dark/light 
+*color5: #d33682 
+*color13: #6c71c4 
 
-! cyan
-*.color6: #289c93
-*.color14: #33c5ba
+!! cyan dark/light 
+*color6: #2aa198 
+*color14: #93a1a1 
 
-! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+!! white dark/light 
+*color7: #eee8d5 
+*color15: #fdf6e3
 
 !! URxvt Appearance
 URxvt.letterSpace: 0
