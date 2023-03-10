@@ -20,5 +20,5 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 ibus-daemon -dr
 
-# start Openbox
+# start Awesome
 exec awesome 
