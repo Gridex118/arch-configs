@@ -90,7 +90,7 @@ awful.layout.layouts = {
 myawesomemenu = {
    { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
    { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
+   { "edit config", editor_cmd .. " -p  " .. awesome.conffile .. " " .. gears.filesystem.get_configuration_dir() .. "/modules/rules.lua" .. " " .. gears.filesystem.get_configuration_dir() .. "/modules/globalkeys.lua".. " " .. gears.filesystem.get_configuration_dir() .. "/modules/clientkeys.lua"},
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end },
 }
