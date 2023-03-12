@@ -8,7 +8,6 @@ setopt autocd histignorespace
 zstyle :compinstall filename '/home/alex/.zshrc'
 
 autoload -Uz compinit
-#promptinit
 compinit
 # End of lines added by compinstall
 
@@ -16,3 +15,6 @@ eval "$(zoxide init zsh)"
 
 THEMES=$HOME/.zsh/themes
 source $THEMES/agnoster.zsh-theme
+
+# aliases
+source $HOME/.zsh/.zalias
