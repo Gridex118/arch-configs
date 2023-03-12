@@ -17,6 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Revelation
+local revelation = require("revelation")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -46,6 +48,9 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_configuration_dir() .. "zenburn/theme.lua")
+
+-- Init Revelation
+revelation.init()
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -268,7 +273,7 @@ globalkeys = gears.table.join(
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
-    awful.key({ modkey,           }, "Tab",
+    --[[ awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -276,6 +281,8 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+	--]]
+	awful.key({ modkey, }, "Tab", revelation, {description = "Revelation", group = "awesome"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -313,10 +320,6 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
-
-    -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-              {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey },            "d",     function () awful.spawn.with_shell("dmenu_run") end,
               {description = "run dmenu", group = "launcher"}),
@@ -360,7 +363,7 @@ clientkeys = gears.table.join(
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
-    awful.key({ modkey,           }, "m",
+    awful.key({ modkey,           }, "a",
         function (c)
             c.maximized = not c.maximized
             c:raise()
@@ -575,3 +578,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+-- autorun
+awful.spawn.with_shell("~/.config/awesome/autorun.sh")
