@@ -382,4 +382,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- attempt to add padding
-awful.screen.focused().padding = { top=25, bottom=7, left=7, right=7 }
+awful.screen.focused().padding = { top=25, bottom=9, left=9, right=9 }

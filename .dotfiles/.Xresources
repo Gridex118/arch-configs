@@ -55,3 +55,6 @@ URxvt.iso14755: false
 !! URxvt Input
 URxvt.inputMethod: ibus 
 URxvt.preeditType: OverTheSpot 
+
+!! Cursor
+Xcursor.theme: Nordzy-cursors
