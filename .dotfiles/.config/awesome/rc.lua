@@ -66,9 +66,9 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     -- awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    awful.layout.suit.floating,
     awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.fair,
@@ -382,4 +382,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
 -- attempt to add padding
-awful.screen.focused().padding = { top=25, bottom=9, left=9, right=9 }
+awful.screen.focused().padding = { top=26, bottom=7, left=7, right=7 }

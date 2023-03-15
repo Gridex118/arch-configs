@@ -23,3 +23,7 @@ filetype plugin indent on
 inoremap jj <esc>
 noremap <S-Right> :tabn <Return>
 noremap <S-left> :tabp <Return>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap (<CR> (<CR>)<Esc>O
+inoremap " ""<Esc>i
+inoremap ' ''<Esc>i
