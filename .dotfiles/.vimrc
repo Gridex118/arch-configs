@@ -20,10 +20,12 @@ set nowrap
 syntax on
 filetype plugin indent on
 
+set laststatus=2
+
 inoremap jj <esc>
 noremap <S-Right> :tabn <Return>
 noremap <S-left> :tabp <Return>
 inoremap {<CR> {<CR>}<Esc>O
-inoremap (<CR> (<CR>)<Esc>O
+inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i
