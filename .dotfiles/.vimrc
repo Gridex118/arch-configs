@@ -14,7 +14,7 @@ augroup end
 
 colorscheme habamax
 
-set tabstop=4 shiftwidth=4
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set nowrap
 
 syntax on
@@ -27,5 +27,6 @@ noremap <S-Right> :tabn <Return>
 noremap <S-left> :tabp <Return>
 inoremap {<CR> {<CR>}<Esc>O
 inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
 inoremap " ""<Esc>i
 inoremap ' ''<Esc>i

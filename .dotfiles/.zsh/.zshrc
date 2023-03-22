@@ -11,10 +11,14 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# zoxide
 eval "$(zoxide init zsh)"
 
-THEMES=$HOME/.zsh/themes
-source $THEMES/agnoster.zsh-theme
+# theme
+source ~/.zsh/themes/agnoster.zsh-theme
 
 # aliases
-source $HOME/.zsh/.zalias
+source ~/.zsh/.zalias
+
+# keybindings
+source ~/.zsh/.zkeys
