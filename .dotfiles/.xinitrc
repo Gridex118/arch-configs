@@ -21,8 +21,5 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 ibus-daemon -dr
 
-nitrogen --restore &
-numlockx &
-
-# start openbox
-exec openbox-session
+# start awesome
+exec awesome

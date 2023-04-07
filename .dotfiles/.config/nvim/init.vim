@@ -1,8 +1,10 @@
+set termguicolors
+
 " Plugins
 lua require('plugins')
-" lua require('lualine').setup { options = { theme = 'material' } }
-lua require('bubbles')
-lua require('lualine').setup()
+lua require('feline_nightfox')
+lua require('feline').setup()
+lua require('feline').winbar.setup()
 
 " Other
 colorscheme nightfox
