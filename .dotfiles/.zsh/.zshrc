@@ -15,7 +15,7 @@ compinit
 eval "$(zoxide init zsh)"
 
 # theme
-source ~/.zsh/themes/agnoster.zsh-theme
+source ~/.zsh/themes/p10k/powerlevel10k.zsh-theme
 
 # aliases
 source ~/.zsh/.zalias

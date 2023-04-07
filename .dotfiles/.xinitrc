@@ -1,4 +1,5 @@
 #!/bin/sh
+
 export XDG_SESSION_TYPE=x11
 
 # setup input devices
@@ -20,5 +21,8 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 ibus-daemon -dr
 
-# start Awesome
-exec awesome 
+nitrogen --restore &
+numlockx &
+
+# start openbox
+exec openbox-session

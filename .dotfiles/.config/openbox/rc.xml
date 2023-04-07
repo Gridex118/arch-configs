@@ -276,7 +276,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvt</command>
+        <command>alacritty</command>
       </action>
     </keybind>
     <keybind key="W-b">

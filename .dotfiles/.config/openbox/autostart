@@ -18,4 +18,3 @@
 # start polybar
 ~/.config/polybar/launch.sh
 picom -b
-plank /usr/share/plank/themes/Transparent/dock.theme &
