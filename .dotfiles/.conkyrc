@@ -53,15 +53,17 @@ conky.config = {
 }
 
 conky.text = [[
-${color grey}Uptime:$color $uptime
+$alignr ${color grey}Uptime:$color $uptime
+System $hr
 ${color grey}RAM Usage:$color $mem/$memmax - $memperc% 
 # ${color grey}Swap Usage:$color $swap/$swapmax - $swapperc% ${swapbar 4}
 ${color grey}CPU Usage:$color $cpu% ${cpubar 4}
-$hr
-${color grey}File systems:
- / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
-${color grey}Networking: $color ${wireless_essid wlo1}
+${color grey}Temp:$color $acpitemp/C
+${color grey}Battery:$color ${battery_percent BAT1}%
+Disk Space $hr
+${color grey}${fs_used /}/${fs_size /}$color ${fs_bar 6 /}
+Networking $hr
+${color grey}wlo1:$color ${wireless_essid wlo1}
 Up:$color ${upspeed wlo1} ${color grey} - Down:$color ${downspeed wlo1}
-${color grey}Battery:
-$color ${battery BAT1}
+${downspeedgraph wlo1 30,195 00ffff 19a094}
 ]]

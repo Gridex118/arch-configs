@@ -70,6 +70,7 @@ awful.layout.layouts = {
 
 awful.screen.connect_for_each_screen(function(s)
    awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
+   require('components/left_bar').create(s)
 end)
 
 local screen_height = awful.screen.focused().geometry.height
