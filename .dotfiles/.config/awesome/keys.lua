@@ -109,7 +109,7 @@ keys.globalkeys = gears.table.join(
    -- Screenshot on prtscn using flameshot 
    awful.key({}, "Print",
       function()
-         awful.util.spawn.with_shell(apps.screenshot, false)
+         awful.spawn.with_shell(apps.screenshot, false)
       end
    ),
 

@@ -28,7 +28,7 @@ end
 apps = {
     terminal = "alacritty",
     lock = "i3lock",
-    screenshot = "flameshot full ~/Screenshots/",
+    screenshot = "flameshot full -p ~/Screenshots/",
     launcher = "dmenu_run"
 }
 
@@ -71,7 +71,8 @@ awful.layout.layouts = {
 awful.screen.connect_for_each_screen(function(s)
     gears.wallpaper.maximized(gears.filesystem.get_configuration_dir() .. 'neon.png',s, true)
     awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
-    require('components/left_bar').create(s)
+    require('components/taglist_holder').create(s)
+    require('components/clock_n_layout_holder').create(s)
 end)
 
 local screen_height = awful.screen.focused().geometry.height

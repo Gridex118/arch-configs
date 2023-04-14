@@ -6,15 +6,15 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 
-local left_bar = {}
+local taglist_holder = {}
 
-local unfocus_icon = " "
+local unfocus_icon = ""
 local unfocus_color = "#585b70"
 
-local empty_icon = " "
+local empty_icon = ""
 local empty_color = "#585b70"
 
-local focus_icon = " "
+local focus_icon = ""
 local focus_color = "#b4befe"
 
 local taglist_buttons = gears.table.join(
@@ -45,7 +45,8 @@ local update_tags = function(self, c3)
     end
 end
 
-left_bar.create = function (s)
+taglist_holder.create = function (s)
+
 	s.mytaglist = awful.widget.taglist {
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
@@ -73,29 +74,21 @@ left_bar.create = function (s)
 		buttons = taglist_buttons
 	}
 
-    s.wibox = wibox {
-         width = dpi(35),
-         screen = s,
-         expand = false,
-         shape = gears.shape.rounded_bar,
-         bg = '#000000',
-         visible = true,
-         max_widget_size = 500,
-         height = s.geometry.height * 0.25,
-         x = 5,
-         y = s.geometry.height * 0.15,
-    }
-
-     s.wibox:setup {
+    s.taglist_holder = require('components/wibar_float').create(
+        beautiful.taglist_holder_color,
+        s.geometry.height * 0.25,
+        s.geometry.height * 0.15
+    )
+     s.taglist_holder:setup {
          {
              s.mytaglist,
              layout = wibox.container.margin,
-             top = 21,
-             left = 10
+             top = dpi(21),
+             left = dpi(10)
          },
          layout  = wibox.layout.fixed.vertical,
      }
 
 end
 
-return left_bar
+return taglist_holder
