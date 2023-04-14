@@ -41,12 +41,12 @@ theme.border_normal = theme.bg_normal
 theme.border_focus = "#ff8a65"
 theme.border_marked = theme.fg_urgent
 
+-- Taglist
+theme.taglist_holder_color = '#000000'
+theme.taglist_bg_focus = theme.taglist_holder_color 
+
 -- Notification Sizing
 theme.notification_max_width = dpi(350)
-
--- System Tray
-theme.bg_systray = theme.bg_normal
-theme.systray_icon_spacing = dpi(5)
 
 -- Titlebars
 theme.titlebars_enabled = false

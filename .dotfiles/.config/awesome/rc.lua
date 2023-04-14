@@ -69,7 +69,7 @@ awful.layout.layouts = {
 }
 
 awful.screen.connect_for_each_screen(function(s)
-    gears.wallpaper.maximized('neon.png',s, true)
+    gears.wallpaper.maximized(gears.filesystem.get_configuration_dir() .. 'neon.png',s, true)
     awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
     require('components/left_bar').create(s)
 end)
