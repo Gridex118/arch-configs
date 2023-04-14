@@ -422,16 +422,8 @@ keys.clientkeys = gears.table.join(
          c:kill()
       end,
       {description = "close", group = "client"}
-   ),
-
-   -- Maximize
-   awful.key({modkey}, "s",
-      function(c)
-         c.maximized = not c.maximized
-         c:raise()
-      end,
-      {description = "(un)maximize", group = "client"}
    )
+
 )
 
 -- Bind all key numbers to tags

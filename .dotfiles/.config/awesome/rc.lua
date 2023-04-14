@@ -1,6 +1,7 @@
 -- Preliminaries
 pcall(require, "luarocks.loader")
 local awful = require('awful')
+local gears = require('gears')
 local naughty = require('naughty')
 local beautiful = require('beautiful')
 
@@ -35,7 +36,6 @@ apps = {
 local autostart_apps = {
     "unclutter",
     "picom -b",
-    "nitrogen --restore",
     "conky",
     "numlockx"
 }
@@ -53,7 +53,7 @@ end
 
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
-awful.screen.focused().padding = { top=5, bottom=5, left=5, right=5 }
+awful.screen.focused().padding = { top=5, bottom=5, left=37, right=5 }
 
 
 -- Functionality
@@ -69,8 +69,9 @@ awful.layout.layouts = {
 }
 
 awful.screen.connect_for_each_screen(function(s)
-   awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
-   require('components/left_bar').create(s)
+    gears.wallpaper.maximized('neon.png',s, true)
+    awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
+    require('components/left_bar').create(s)
 end)
 
 local screen_height = awful.screen.focused().geometry.height
