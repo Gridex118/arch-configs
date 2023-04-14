@@ -47,22 +47,14 @@ theme.taglist_bg_focus = theme.taglist_holder_color
 
 -- Clock and Layout Holder
 theme.cnlh_color = '#1A1A1A'
+theme.layout_tile = "~/.config/awesome/icons/tiled.png"
+theme.layout_floating = "~/.config/awesome/icons/floating.png"
 
 -- Notification Sizing
 theme.notification_max_width = dpi(350)
 
 -- Titlebars
 theme.titlebars_enabled = false
-
-
--- ===================================================================
--- Icons
--- ===================================================================
-
-
--- Define layout icons
-theme.layout_tile = "~/.config/awesome/icons/tiled.png"
-theme.layout_floating = "~/.config/awesome/icons/floating.png"
 
 -- return theme
 return theme

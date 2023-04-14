@@ -10,8 +10,8 @@ local clock_n_layout_holder = {}
 clock_n_layout_holder.create = function (s)
 
     s.mylayoutbox = awful.widget.layoutbox(s)
-    my_hour_text = wibox.widget.textclock('%H')
-    my_min_text = wibox.widget.textclock('%M')
+    s.mylayoutbox.forced_width = 6
+    mytextclock = wibox.widget.textclock('<span font = "Roboto 15">%H %M</span>')
 
     s.clock_n_layout_holder = require('components/wibar_float').create(
         beautiful.cnlh_color,
@@ -21,24 +21,16 @@ clock_n_layout_holder.create = function (s)
 
     s.clock_n_layout_holder:setup {
          {
-             my_hour_text,
+             mytextclock,
              layout = wibox.container.margin,
              top = dpi(15),
              left = dpi(7)
          },
          layout = wibox.layout.fixed.vertical,
          {
-             my_min_text,
-             layout = wibox.container.margin,
-             top = dpi(7),
-             left = dpi(7)
-         },
-         layout = wibox.layout.fixed.vertical,
-         {
              s.mylayoutbox,
              layout = wibox.container.margin,
-             top = dpi(21),
-             left = dpi(2)
+             top = dpi(17),
          },
          layout  = wibox.layout.fixed.vertical,
      }
