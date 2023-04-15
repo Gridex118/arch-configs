@@ -31,6 +31,8 @@ clock_n_layout_holder.create = function (s)
              s.mylayoutbox,
              layout = wibox.container.margin,
              top = dpi(17),
+             left = dpi(4),
+             right = dpi(4)
          },
          layout  = wibox.layout.fixed.vertical,
      }
