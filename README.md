@@ -1,1 +1,4 @@
-Dots for my openbox/awesome setup on arch; made with stuff I found on the internet
+<div align="center">
+    <h1> Dotfiles </h1>
+</div>
+Dotfiles for my AwesomeWM workflow

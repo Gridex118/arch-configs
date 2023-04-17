@@ -126,7 +126,12 @@ keys.globalkeys = gears.table.join(
    -- Quit Awesome
    awful.key({modkey}, "Escape",
       function()
-         -- emit signal to show the exit screen
+         awesome.quit()
+      end,
+      {description = "toggle exit screen", group = "hotkeys"}
+   ),
+   awful.key({}, "XF86PowerOff",
+      function()
          awesome.quit()
       end,
       {description = "toggle exit screen", group = "hotkeys"}

@@ -5,6 +5,8 @@ lua require('plugins')
 lua require('feline_nightfox')
 lua require('feline').setup()
 lua require('feline').winbar.setup()
+lua require('lspconfig_settings')
+lua require('cmpletion')
 
 " Other
 colorscheme nightfox
