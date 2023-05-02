@@ -7,6 +7,7 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 xinput set-prop "SynPS/2 Synaptics Touchpad" "libinput Scrolling Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.2
 xset r rate 270 30
+xinput disable 10
 
 # setup screen saver
 xset s 1200 1200

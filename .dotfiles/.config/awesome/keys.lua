@@ -11,6 +11,7 @@ local altkey = "Mod1"
 -- define module table
 local keys = {}
 
+local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
 
 -- ===================================================================
 -- Movement Functions (Called by some keybinds)
@@ -89,7 +90,13 @@ keys.globalkeys = gears.table.join(
    -- =========================================
    -- SPAWN APPLICATION KEY BINDINGS
    -- =========================================
-
+---[[
+   awful.key({modkey}, "m",
+        function()
+            awful.spawn.with_shell(scripts .. "mouse.sh")
+        end
+   ),
+--]]
    -- Spawn terminal
    awful.key({modkey}, "Return",
       function()

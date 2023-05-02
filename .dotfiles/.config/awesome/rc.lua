@@ -36,6 +36,7 @@ apps = {
 local autostart_apps = {
     "unclutter",
     "picom -b",
+    "polybar",
     "conky",
     "numlockx"
 }
@@ -53,7 +54,7 @@ end
 
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
-awful.screen.focused().padding = { top=5, bottom=5, left=37, right=5 }
+awful.screen.focused().padding = { top=20, bottom=5, left=37, right=5 }
 
 
 -- Functionality
