@@ -13,7 +13,6 @@ TopBar.create = function(s)
     
     local new_bar = awful.wibar {
         height = 18,
-        bg = '#000000',
     }
 
     new_bar:setup{

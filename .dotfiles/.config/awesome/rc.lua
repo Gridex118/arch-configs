@@ -36,7 +36,6 @@ apps = {
 local autostart_apps = {
     "unclutter",
     "picom -b",
-    "polybar",
     "conky",
     "numlockx"
 }
@@ -54,7 +53,7 @@ end
 
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
-awful.screen.focused().padding = { top=20, bottom=5, left=37, right=5 }
+awful.screen.focused().padding = { top=5, bottom=5, left=38, right=5 }
 
 
 -- Functionality
@@ -74,6 +73,7 @@ awful.screen.connect_for_each_screen(function(s)
     awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
     require('components/taglist_holder').create(s)
     require('components/clock_n_layout_holder').create(s)
+    require('components/topbar').create(s)
 end)
 
 local screen_height = awful.screen.focused().geometry.height
