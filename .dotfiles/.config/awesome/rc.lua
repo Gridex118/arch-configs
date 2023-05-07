@@ -53,7 +53,7 @@ end
 
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
-awful.screen.focused().padding = { top=5, bottom=5, left=38, right=5 }
+awful.screen.focused().padding = { top=25, bottom=5, left=38, right=5 }
 
 
 -- Functionality

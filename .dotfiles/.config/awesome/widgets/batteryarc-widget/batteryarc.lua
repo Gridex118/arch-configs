@@ -15,7 +15,7 @@ local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 
 local HOME = os.getenv("HOME")
-local WIDGET_DIR = HOME .. '/.config/awesome/awesome-wm-widgets/batteryarc-widget'
+local WIDGET_DIR = HOME .. '/.config/awesome/widgets/batteryarc-widget'
 
 local batteryarc_widget = {}
 
@@ -26,7 +26,7 @@ local function worker(user_args)
     local font = args.font or 'Play 6'
     local arc_thickness = args.arc_thickness or 2
     local show_current_level = args.show_current_level or false
-    local size = args.size or 18
+    local size = args.size or 14
     local timeout = args.timeout or 10
     local show_notification_mode = args.show_notification_mode or 'on_hover' -- on_hover / on_click
     local notification_position = args.notification_position or 'top_right' -- see naughty.notify position argument
@@ -43,7 +43,7 @@ local function worker(user_args)
     local warning_msg_icon = args.warning_msg_icon or WIDGET_DIR .. '/spaceman.jpg'
     local enable_battery_warning = args.enable_battery_warning
     if enable_battery_warning == nil then
-        enable_battery_warning = true
+        enable_battery_warning = false
     end
 
     local text = wibox.widget {
@@ -57,7 +57,7 @@ local function worker(user_args)
 
     batteryarc_widget = wibox.widget {
         text_with_background,
-        max_value = 100,
+        max_value = 99,
         rounded_edge = true,
         thickness = arc_thickness,
         start_angle = 4.71238898, -- 2pi*3/4
