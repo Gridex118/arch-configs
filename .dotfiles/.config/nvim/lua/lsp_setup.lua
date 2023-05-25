@@ -11,6 +11,7 @@ lspconfig.cmake.setup {
 }
 
 lspconfig.ccls.setup {
+    capabilities = capabilities,
     init_options = {
         compilationDatabaseDirectory = "build";
         index = {
@@ -69,3 +70,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
     end,
 })
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    signs = false
+}
+)

@@ -417,7 +417,6 @@ local c = {
 local active = {
   { -- left
     c.vimode,
-    c.fileinfo,
     c.default, -- must be last
   },
   { -- right

@@ -14,6 +14,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
-    use 'ggandor/lightspeed.nvim'
+    use 'ggandor/leap.nvim'
     use 'tpope/vim-repeat'
+    use 'kylechui/nvim-surround'
+    use 'Houl/repmo-vim'
 end)

@@ -11,6 +11,9 @@ lua require('tabby')
 lua require('lsp_setup')
 lua require('autocmp')
 
+lua require('leap').add_default_mappings()
+lua require('leap_setup')
+
 set nowrap
 syntax on
 filetype plugin indent on
@@ -21,7 +24,9 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 inoremap " ""<Esc>i
+inoremap '' ''<Esc>i
 
 inoremap {<CR> {<CR>}<Esc>O
+inoremap jj <Esc>
 
 noremap zz :noh<Enter>
