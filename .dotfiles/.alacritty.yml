@@ -18,3 +18,7 @@ font:
     style: Regular
   size: 9.0
 
+colors:
+  primary:
+    background: "#232136"
+    foreground: "#c5c9c5"

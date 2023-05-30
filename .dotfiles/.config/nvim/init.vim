@@ -2,10 +2,10 @@ lua require('plugins')
 
 colorscheme duskfox
 
-lua require('feline_setup')
+lua require('ui/feline')
 lua require('feline').setup()
 
-lua require('tabby_setup')
+lua require('ui/tabby')
 lua require('tabby')
 
 lua require('lsp_setup')
@@ -32,3 +32,5 @@ inoremap {<CR> {<CR>}<Esc>O
 inoremap jj <Esc>
 
 noremap zz :noh<Enter>
+
+noremap <F5> :NERDTreeToggle <CR>
