@@ -18,4 +18,5 @@ return require('packer').startup(function(use)
     use 'tpope/vim-repeat'
     use 'kylechui/nvim-surround'
     use 'Houl/repmo-vim'
+    use 'preservim/nerdtree'
 end)

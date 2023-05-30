@@ -10,7 +10,7 @@ local taglist = {}
 local unfocus_icon = ""
 local unfocus_color = "#585b70"
 
-local empty_icon = ""
+local empty_icon = ""
 local empty_color = "#585b70"
 
 local focus_icon = ""
@@ -56,7 +56,7 @@ taglist.create = function(s)
 				id = 'margin_role',
 				top = dpi(0),
 				bottom = dpi(0),
-				left = dpi(2),
+				left = dpi(1),
 				right = dpi(2),
 				widget = wibox.container.margin
 			},

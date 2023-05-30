@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/al/.local/share/nvim/site/pack/packer/start/leap.nvim",
     url = "https://github.com/ggandor/leap.nvim"
   },
+  nerdtree = {
+    loaded = true,
+    path = "/home/al/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/preservim/nerdtree"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/home/al/.local/share/nvim/site/pack/packer/start/nightfox.nvim",

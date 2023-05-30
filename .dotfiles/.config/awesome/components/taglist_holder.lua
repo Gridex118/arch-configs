@@ -24,6 +24,7 @@ taglist_holder.create = function(s)
              left = dpi(10)
          },
          layout  = wibox.layout.fixed.vertical,
+         expand = "none"
      }
 
 end

@@ -14,6 +14,8 @@ lua require('autocmp')
 lua require('leap').add_default_mappings()
 lua require('leap_setup')
 
+lua require('nvim-surround').setup{}
+
 set nowrap
 syntax on
 filetype plugin indent on
