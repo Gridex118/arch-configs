@@ -7,6 +7,8 @@ lua require('lualine').setup{}
 lua require('ui/tabby')
 lua require('tabby')
 
+lua require('treesitter_setup')
+
 lua require('lsp_setup')
 lua require('autocmp')
 

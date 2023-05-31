@@ -36,6 +36,7 @@ local conditions = {
 -- Config
 local config = {
   options = {
+    disabled_filetypes = { 'packer', 'nerdtree' },
     -- Disable sections and component separators
     component_separators = '',
     section_separators = '',

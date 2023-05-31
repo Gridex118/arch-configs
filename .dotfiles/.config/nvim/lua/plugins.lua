@@ -19,4 +19,5 @@ return require('packer').startup(function(use)
     use 'kylechui/nvim-surround'
     use 'Houl/repmo-vim'
     use 'preservim/nerdtree'
+    use 'nvim-treesitter/nvim-treesitter'
 end)
