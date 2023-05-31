@@ -2,10 +2,10 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'EdenEast/nightfox.nvim'
+    use 'rebelot/kanagawa.nvim'
     use 'nvim-tree/nvim-web-devicons'
-    use 'famiu/feline.nvim'
     use 'nanozuki/tabby.nvim'
+    use 'nvim-lualine/lualine.nvim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'

@@ -1,10 +1,9 @@
 lua require('plugins')
 
-colorscheme duskfox
+colorscheme kanagawa-dragon
 
-lua require('ui/feline')
-lua require('feline').setup()
-
+lua require('ui/lualine')
+lua require('lualine').setup{}
 lua require('ui/tabby')
 lua require('tabby')
 
