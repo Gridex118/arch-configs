@@ -6,6 +6,10 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+lspconfig.html.setup {
+    capabilities = capabilities
+}
+
 lspconfig.cmake.setup {
     capabilities = capabilities
 }

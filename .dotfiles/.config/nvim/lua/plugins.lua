@@ -20,4 +20,9 @@ return require('packer').startup(function(use)
     use 'Houl/repmo-vim'
     use 'preservim/nerdtree'
     use 'nvim-treesitter/nvim-treesitter'
+    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-lua/plenary.nvim'
+    use 'BurntSushi/ripgrep'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
 end)

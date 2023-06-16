@@ -22,5 +22,3 @@ source ~/.zsh/.zalias
 
 # keybindings
 source ~/.zsh/.zkeys
-
-export PATH=~/.local/bin:$PATH
