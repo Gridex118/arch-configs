@@ -10,6 +10,10 @@ lspconfig.html.setup {
     capabilities = capabilities
 }
 
+lspconfig.cssls.setup {
+    capabilities = capabilities
+}
+
 lspconfig.cmake.setup {
     capabilities = capabilities
 }
