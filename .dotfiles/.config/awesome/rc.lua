@@ -37,7 +37,8 @@ local autostart_apps = {
     "unclutter",
     "picom -b",
     "conky",
-    "numlockx"
+    "numlockx",
+    "lxqt-policykit-agent"
 }
 
 for _, app in ipairs(autostart_apps) do
