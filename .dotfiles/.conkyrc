@@ -1,0 +1,88 @@
+conky.config = {
+    alignment = 'bottom_right',
+    background = true,
+    border_width = 1,
+	border_inner_margin = 15,
+    color1 = '19A094',
+    color2 = 'FF5252',
+    cpu_avg_samples = 2,
+	default_color = 'grey',
+    default_outline_color = 'grey',
+    default_shade_color = 'grey',
+	double_buffer = true,    
+	draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=12',
+    gap_x = 20,
+    gap_y = 30,
+    minimum_height = 5,
+    maximum_width = 400,
+    net_avg_samples = 2,
+    no_buffers = true,
+    out_to_console = false,
+    out_to_stderr = false,
+    extra_newline = false,
+    own_window = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 20,
+    stippled_borders = 0,
+    update_interval = 1.2,
+    uppercase = none,
+    use_spacer = 'right',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+
+$alignr ${color1}\
+Uptime:$color $uptime
+${color1}${font Roboto Mono:style=Bold}\
+SYSTEM$color $hr\
+${font}
+${color2}CPU : ${color1}${goto 240}\
+$cpu% ${goto 280}${cpubar cpu0 10,140}
+${color2}RAM :${color grey} $mem/$memmax\
+ ${color1}${goto 240}$memperc% ${goto 280}${membar 10,140}
+${color2}Battery :${color grey} \
+ ${color1}${goto 240}${battery_percent BAT1}% ${goto 280}${battery_bar 10,140 BAT1}
+${color2}Temp: ${color grey}${acpitemp}°C 
+
+${color white}CPU1: ${color1}${cpu cpu1}% ${cpubar cpu1 10,100}\
+  ${color white}${goto 220}CPU2: ${color1}${cpu cpu2}% ${cpubar cpu2 10,100}
+${color white}CPU3: ${color1}${cpu cpu3}% ${cpubar cpu3 10,100}\
+  ${color white}${goto 220}CPU4: ${color1}${cpu cpu4}% ${cpubar cpu4 10,100}
+
+${color2}Disk : ${color grey}\
+ ${goto 90}${fs_used /}/${fs_size /}${color}\
+ ${goto 250}${color grey}${color1}${fs_used_perc /}% ${fs_bar 10,120 /}
+${color1}${font Roboto Regular:style=Bold}\
+
+NETWORKING$color${font} $hr 
+${color2}${if_up wlan0}\
+${color}${font}\
+${color2}wlan0:\
+${color}${font} ${wireless_essid wlan0}
+${color2}Down: ${color}${downspeed wlan0} \
+${goto 250}${color2}Up: ${color}${upspeed wlan0}
+${downspeedgraph wlan0 30,195 00ffff 19A094} \
+${upspeedgraph wlan0 30,195 00ffff 19A094}
+
+${color1}${font Roboto Mono:style=Bold}\
+PROCESSES$color$font $hr
+Total:$processes  Running:$running_processes
+${color2} Name               PID   CPU%   MEM%
+${color} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color} ${top name 4} ${top pid 4} ${top cpu 4} ${top mem 4}
+
+]]
+
