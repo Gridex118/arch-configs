@@ -96,6 +96,13 @@ awful.rules.rules = {
             placement = awful.placement.centered
         }
     },
+  --[[
+  -- No Float for Firefox
+    {
+        rule = {class = "firefox"},
+        properties = {maximized = false, floating = false}
+    },
+  --]]
   -- Floating clients.
     {
          rule_any = {
