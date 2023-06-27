@@ -4,14 +4,17 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local batteryarc = require('widgets/batteryarc-widget/batteryarc')
+local batteryarc = require('street.batteryarc-widget.batteryarc')
 
 local TopBar = {}
 
 TopBar.create = function(s)
 
     mydate = wibox.widget.textclock('<span font = "Roboto 11">%a, %d %b</span>')
-    mybattery = batteryarc()
+    mybattery = batteryarc({
+        size = 15,
+        font = "MesloLGS NF"
+    })
     
     bar_width = s.geometry.width * 99/100
 
