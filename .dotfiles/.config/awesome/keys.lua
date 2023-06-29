@@ -90,13 +90,33 @@ keys.globalkeys = gears.table.join(
    -- =========================================
    -- SPAWN APPLICATION KEY BINDINGS
    -- =========================================
----[[
+   -- Toggle Touchpad
    awful.key({modkey}, "m",
         function()
             awful.spawn.with_shell(scripts .. "mouse.sh")
         end
    ),
---]]
+   awful.key({modkey}, "F12",
+        function()
+            awful.spawn.with_shell(scripts .. "nettoggle.sh")
+        end
+   ),
+   -- Sound control
+   awful.key({}, "XF86AudioMute",
+        function()
+            awful.spawn("amixer -D pulse set Master 1+ toggle")
+        end
+   ),
+   awful.key({}, "XF86AudioRaiseVolume",
+        function()
+            awful.spawn("amixer -D pulse sset Master 5%+")
+        end
+   ),
+   awful.key({}, "XF86AudioLowerVolume",
+        function()
+            awful.spawn("amixer -D pulse sset Master 5%-")
+        end
+   ),
    -- Spawn terminal
    awful.key({modkey}, "Return",
       function()
@@ -111,8 +131,6 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "application launcher", group = "launcher"}
    ),
-
-
    -- Screenshot on prtscn using flameshot 
    awful.key({}, "Print",
       function()
