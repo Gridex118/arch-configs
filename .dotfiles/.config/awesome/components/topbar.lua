@@ -5,6 +5,7 @@ local beautiful = require('beautiful')
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local batteryarc = require('street.batteryarc-widget.batteryarc')
+local volume = require('street.volume-widget.volume')
 
 local TopBar = {}
 
@@ -15,6 +16,12 @@ TopBar.create = function(s)
         size = 15,
         font = "MesloLGS NF"
     })
+---[[
+    myvolumebar = volume({
+        widget_type = "horizontal_bar",
+        with_icon = true
+    })
+--]]
     
     bar_width = s.geometry.width * 99/100
 
@@ -38,6 +45,14 @@ TopBar.create = function(s)
                layout = wibox.container.margin,
            },
            layout = wibox.layout.fixed.horizontal,
+---[[
+           {
+               layout = wibox.container.margin,
+               myvolumebar,
+               left = bar_width/2 - 170
+           },
+           layout = wibox.layout.fixed.horizontal,
+--]]
        }
 
        return new_bar
