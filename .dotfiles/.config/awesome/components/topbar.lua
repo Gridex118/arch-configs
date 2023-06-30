@@ -4,8 +4,8 @@ local awful = require('awful')
 local beautiful = require('beautiful')
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
-local batteryarc = require('street.batteryarc-widget.batteryarc')
-local volume = require('street.volume-widget.volume')
+local batteryarc = require('awesome-wm-widgets.batteryarc-widget.batteryarc')
+local volume = require('awesome-wm-widgets.volume-widget.volume')
 
 local TopBar = {}
 
@@ -49,7 +49,7 @@ TopBar.create = function(s)
            {
                layout = wibox.container.margin,
                myvolumebar,
-               left = bar_width/2 - 170
+               left = bar_width/2 - 155
            },
            layout = wibox.layout.fixed.horizontal,
 --]]
