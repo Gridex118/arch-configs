@@ -1,3 +1,6 @@
 [submodule ".dotfiles/.config/awesome/street"]
 	path = .dotfiles/.config/awesome/street
 	url = https://github.com/streetturtle/awesome-wm-widgets
+[submodule ".dotfiles/.config/awesome/awesome-wm-widgets"]
+	path = .dotfiles/.config/awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets
