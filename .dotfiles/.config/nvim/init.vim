@@ -1,4 +1,4 @@
-lua <<EOF
+lua << EOF
 
 require('plugins')
 
@@ -28,6 +28,8 @@ set nowrap
 syntax on
 filetype plugin indent on
 set tabstop=4 shiftwidth=4
+au FileType asm set tabstop=24 shiftwidth=24
+au BufNewFile,BufRead *.sasm setfiletype asm
 set expandtab
 
 set cmdheight=0
@@ -39,7 +41,7 @@ inoremap " ""<Esc>i
 inoremap '' ''<Esc>i
 
 inoremap {<CR> {<CR>}<Esc>O
-inoremap jj <Esc>
+"inoremap jj <Esc>
 
 noremap zz :noh<Enter>
 

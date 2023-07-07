@@ -1,3 +1,4 @@
-alias -g ls="ls --color"
-alias -g grep="grep --color"
+alias ls="ls --color"
+alias grep="grep --color"
 alias -g tmat="tmux attach -dt"
+alias qemu="qemu-system-x86_64"
