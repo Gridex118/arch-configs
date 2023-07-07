@@ -55,7 +55,7 @@ end
 
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
-awful.screen.focused().padding = { top=25, bottom=5, left=38, right=5 }
+awful.screen.focused().padding = { top=27, bottom=3, left=40, right=3 }
 
 
 -- Functionality
@@ -111,7 +111,7 @@ awful.rules.rules = {
                "DTA", "copyq",
             },
             class = {
-               "Nm-connection-editor"
+               "Nm-connection-editor", "Qemu-system-x86_64"
             },
             name = {
                "Event Tester",
