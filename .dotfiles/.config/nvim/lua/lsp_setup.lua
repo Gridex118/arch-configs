@@ -6,6 +6,18 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+lspconfig.vimls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.lua_ls.setup {
+    capabilities = capabilities
+}
+
+lspconfig.marksman.setup {
+    capabilities = capabilities
+}
+
 lspconfig.html.setup {
     capabilities = capabilities
 }

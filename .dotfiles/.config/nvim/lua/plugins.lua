@@ -25,4 +25,8 @@ return require('packer').startup(function(use)
     use 'BurntSushi/ripgrep'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
+    use 'preservim/vim-pencil'
+    use 'iamcco/markdown-preview.nvim'
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'akinsho/bufferline.nvim'
 end)
