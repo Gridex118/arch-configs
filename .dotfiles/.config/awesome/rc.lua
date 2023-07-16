@@ -111,7 +111,7 @@ awful.rules.rules = {
                "DTA", "copyq",
             },
             class = {
-               "Nm-connection-editor", "Qemu-system-x86_64"
+               "Nm-connection-editor", "Qemu-system-x86_64", "Citra"
             },
             name = {
                "Event Tester",
