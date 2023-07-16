@@ -37,7 +37,8 @@ set number
 set cursorline
 
 au BufNewFile,BufRead *.sasm setfiletype asm
-au FileType md PencilHard
+
+au FileType markdown noremap <F6> :MarkdownPreview <CR>
 
 set ignorecase
 
