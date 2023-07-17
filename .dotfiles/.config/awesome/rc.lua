@@ -29,7 +29,7 @@ apps = {
     terminal = "alacritty",
     lock = "i3lock",
     screenshot = "flameshot full -p ~/Screenshots/",
-    launcher = "dmenu_run"
+    launcher = "rofi -show run -theme Arc-Dark"
 }
 
 -- Autostart

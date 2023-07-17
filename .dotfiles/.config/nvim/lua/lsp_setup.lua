@@ -6,6 +6,10 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+lspconfig.yamlls.setup {
+    capabilities = capabilities
+}
+
 lspconfig.vimls.setup {
     capabilities = capabilities
 }

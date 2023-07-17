@@ -2,7 +2,6 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
-    use 'rebelot/kanagawa.nvim'
     use 'nvim-tree/nvim-web-devicons'
     use 'nanozuki/tabby.nvim'
     use 'nvim-lualine/lualine.nvim'
@@ -18,7 +17,6 @@ return require('packer').startup(function(use)
     use 'tpope/vim-repeat'
     use 'kylechui/nvim-surround'
     use 'Houl/repmo-vim'
-    use 'preservim/nerdtree'
     use 'nvim-treesitter/nvim-treesitter'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-lua/plenary.nvim'
@@ -28,5 +26,5 @@ return require('packer').startup(function(use)
     use 'preservim/vim-pencil'
     use 'iamcco/markdown-preview.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
-    use 'akinsho/bufferline.nvim'
+    use 'folke/tokyonight.nvim'
 end)

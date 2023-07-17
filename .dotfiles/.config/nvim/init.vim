@@ -1,12 +1,11 @@
-lua << EOF
+set termguicolors
 
-vim.opt.termguicolors = true
+lua << EOF
 
 require('plugins')
 
 require('ui/lualine')
 require('ui/tabby')
-
 require('ui/indent_blankline')
 
 require('treesitter_setup')
@@ -24,14 +23,7 @@ require('mason-lspconfig').setup{}
 
 EOF
 
-augroup Colors
-    autocmd!
-    autocmd ColorScheme kanagawa-dragon
-             \   highlight Normal guibg=none
-             \ | highlight LineNr guibg=none
-augroup END
-
-colorscheme kanagawa-dragon
+colorscheme tokyonight-night
 
 set number
 set cursorline
@@ -59,7 +51,6 @@ inoremap '' ''<Esc>i
 inoremap {<CR> {<CR>}<Esc>O
 "inoremap jj <Esc>
 
-noremap zz :noh<Enter>
+noremap zz :noh<CR>
 
-noremap <F5> :NERDTreeToggle <CR>
 noremap <F4> :Telescope live_grep <CR>
