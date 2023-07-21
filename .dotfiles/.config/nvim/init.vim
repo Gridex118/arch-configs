@@ -1,46 +1,44 @@
-set termguicolors
-
 lua << EOF
+
+vim.opt.termguicolors = true
+vim.loader.enable()
 
 require('plugins')
 
-require('ui/lualine')
-require('ui/tabby')
 require('ui/indent_blankline')
+require('ui/tokyonight')
 
-require('treesitter_setup')
+require('functionality/treesitter')
 
-require('lsp_setup')
-require('autocmp')
+require('functionality/lsp')
+require('functionality/cmp')
 
-require('leap').add_default_mappings()
-require('leap_setup')
-
-require('nvim-surround').setup{}
-
-require('mason').setup{}
-require('mason-lspconfig').setup{}
+require('mason').setup {}
+require('mason-lspconfig').setup {}
 
 EOF
 
-colorscheme tokyonight-night
+colorscheme tokyonight
 
 set number
 set cursorline
 
-au BufNewFile,BufRead *.sasm setfiletype asm
-
-au FileType markdown noremap <F6> :MarkdownPreview <CR>
-
 set ignorecase
 
 set nowrap
-syntax on
-filetype plugin indent on
-set tabstop=4 shiftwidth=4
-au FileType asm set tabstop=24 shiftwidth=24
+set tabstop=4 shiftwidth=4 softtabstop=4
 set expandtab
 set cmdheight=0
+
+syntax on
+filetype plugin indent on
+
+augroup FileTypeOptions
+    autocmd!
+    autocmd BufNewFile,BufRead *.sasm setfiletype asm
+    autocmd FileType markdown noremap <F6> :MarkdownPreview <CR>
+    autocmd FileType asm set tabstop=24 shiftwidth=24 softtabstop=24
+augroup END
 
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
