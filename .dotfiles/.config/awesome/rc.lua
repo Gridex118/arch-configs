@@ -100,7 +100,7 @@ awful.rules.rules = {
   --[[
   -- No Float for Firefox
     {
-        rule = {class = "firefox"},
+        rule = {class = "firefoxdeveloperedition"},
         properties = {maximized = false, floating = false}
     },
   --]]

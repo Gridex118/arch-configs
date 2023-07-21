@@ -8,6 +8,8 @@ vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
 vim.g.indent_blankline_filetype_exclude = {
     "asm",
     "packer",
+    "vim",
+    "help",
 }
 
 vim.opt.list = true

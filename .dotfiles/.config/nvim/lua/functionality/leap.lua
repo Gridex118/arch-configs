@@ -1,3 +1,4 @@
+require('leap').add_default_mappings()
 -- The below settings make Leap's highlighting closer to what you've beenlightspeed
 -- used to in Lightspeed.
 

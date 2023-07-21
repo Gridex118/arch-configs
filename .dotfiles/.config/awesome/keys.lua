@@ -155,9 +155,10 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "toggle exit screen", group = "hotkeys"}
    ),
-   awful.key({}, "XF86PowerOff",
+   
+   awful.key({modkey, "Shift"}, "Escape",
       function()
-         awesome.quit()
+        awful.spawn('systemctl suspend')
       end,
       {description = "toggle exit screen", group = "hotkeys"}
    ),
