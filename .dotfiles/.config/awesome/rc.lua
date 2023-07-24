@@ -16,9 +16,11 @@ do
     awesome.connect_signal("debug::error", function (err)
         if in_error then return end
         in_error = true
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = tostring(err) })
+        naughty.notify({
+             preset = naughty.config.presets.critical,
+             title = "Oops, an error happened!",
+             text = tostring(err) 
+        })
         in_error = false
     end)
 end
@@ -100,7 +102,7 @@ awful.rules.rules = {
   --[[
   -- No Float for Firefox
     {
-        rule = {class = "firefoxdeveloperedition"},
+        rule = {class = "firefox"},
         properties = {maximized = false, floating = false}
     },
   --]]

@@ -40,11 +40,6 @@ return require('packer').startup(function(use)
     use 'BurntSushi/ripgrep'
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use ({
-        'iamcco/markdown-preview.nvim',
-        cmd = 'MarkdownPreview',
-        event = 'CursorHold',
-        opt = true,
-    })
+    use 'iamcco/markdown-preview.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
 end)
