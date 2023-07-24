@@ -22,6 +22,7 @@ colorscheme tokyonight
 
 set number
 set cursorline
+set showtabline=2
 
 set ignorecase
 
@@ -45,6 +46,7 @@ inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 inoremap " ""<Esc>i
 inoremap '' ''<Esc>i
+inoremap -[ --[[<Esc>a
 
 inoremap {<CR> {<CR>}<Esc>O
 "inoremap jj <Esc>
