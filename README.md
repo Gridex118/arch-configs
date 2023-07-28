@@ -2,6 +2,8 @@
 
 Dotfiles for my AwesomeWM workflow.  
 
+![Screenshot](Screenshots/shots.png)
+
 ## Dependencies
 * Awesome
 * Rofi
