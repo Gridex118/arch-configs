@@ -29,7 +29,6 @@ end
 -- Apps
 apps = {
     terminal = "alacritty",
-    lock = "i3lock",
     screenshot = "flameshot full -p ~/Screenshots/",
     launcher = "rofi -show run -theme Arc-Dark"
 }
@@ -41,7 +40,7 @@ local autostart_apps = {
     "picom -b",
     "conky",
     "numlockx",
-    "lxqt-policykit-agent"
+    "lxqt-policykit-agent",
 }
 
 for _, app in ipairs(autostart_apps) do
@@ -113,11 +112,12 @@ awful.rules.rules = {
                "DTA", "copyq",
             },
             class = {
-               "Nm-connection-editor", "Qemu-system-x86_64", "Citra"
+               "Nm-connection-editor", "Qemu-system-x86_64", "AppRun.wrapped", "discord",
+               "feh", "Citra",
             },
             name = {
                "Event Tester",
-               "Steam Guard - Computer Authorization Required"
+               "Library"
             },
             role = {
                "pop-up", "GtkFileChooserDialog"
