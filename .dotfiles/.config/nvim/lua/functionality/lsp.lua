@@ -6,6 +6,13 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+lspconfig.jdtls.setup {
+    capabilities = capabilities,
+    filetypes = {
+        "java"
+    };
+}
+
 lspconfig.csharp_ls.setup {
     capabilities = capabilities
 }
