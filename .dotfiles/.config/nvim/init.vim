@@ -44,13 +44,16 @@ augroup END
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
+inoremap {<CR> {<CR>}<Esc>O
 inoremap " ""<Esc>i
 inoremap '' ''<Esc>i
 inoremap -[ --[[<Esc>a
 
-inoremap {<CR> {<CR>}<Esc>O
 "inoremap jj <Esc>
 
 noremap zz :noh<CR>
+
+noremap gb :bnext<CR>
+noremap gB :bprevious<CR>
 
 noremap <F4> :Telescope live_grep <CR>
