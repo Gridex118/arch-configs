@@ -41,6 +41,10 @@ augroup FileTypeOptions
     autocmd FileType asm set tabstop=24 shiftwidth=24 softtabstop=24
 augroup END
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+autocmd BufEnter * normal zR
+
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
@@ -57,3 +61,4 @@ noremap gb :bnext<CR>
 noremap gB :bprevious<CR>
 
 noremap <F4> :Telescope live_grep <CR>
+
