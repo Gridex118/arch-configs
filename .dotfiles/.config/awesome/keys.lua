@@ -123,6 +123,13 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "open a terminal", group = "launcher"}
    ),
+   -- Spawn browser
+   awful.key({modkey, "Shift"}, "Return",
+      function()
+         awful.spawn(apps.browser)
+      end,
+      {description = "open a terminal", group = "launcher"}
+   ),
    -- launch rofi
    awful.key({modkey}, "d",
       function()

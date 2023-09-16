@@ -52,6 +52,10 @@ cmp.setup.filetype('gitcommit', {
     })
 })
 
+cmp.setup.filetype('asm', {
+    sources = cmp.config.sources({ })
+})
+
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
