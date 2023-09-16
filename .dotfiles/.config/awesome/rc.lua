@@ -6,9 +6,11 @@ local naughty = require('naughty')
 local beautiful = require('beautiful')
 
 if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
+    naughty.notify({
+        preset = naughty.config.presets.critical,
+        title = "Oops, there were errors during startup!",
+        text = awesome.startup_errors,
+    })
 end
 
 do
@@ -30,7 +32,8 @@ end
 apps = {
     terminal = "alacritty",
     screenshot = "flameshot full -p ~/Screenshots/",
-    launcher = "rofi -show run -theme Arc-Dark"
+    launcher = "rofi -show run -theme Arc-Dark",
+    browser = "firefox",
 }
 
 -- Autostart
@@ -57,6 +60,7 @@ end
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
 awful.screen.focused().padding = { top=27, bottom=3, left=40, right=3 }
+wallpaper = gears.filesystem.get_configuration_dir() .. 'wallpaper1.png'
 
 
 -- Functionality
@@ -72,7 +76,7 @@ awful.layout.layouts = {
 }
 
 awful.screen.connect_for_each_screen(function(s)
-    gears.wallpaper.maximized(gears.filesystem.get_configuration_dir() .. 'neon.png',s, true)
+    gears.wallpaper.maximized(wallpaper,s, true)
     awful.tag({"1", "2", "3", "4", "5", "6", "7"}, s, awful.layout.layouts[1]) 
     require('components/taglist_holder').create(s)
     require('components/clock_n_layout_holder').create(s)
@@ -98,13 +102,11 @@ awful.rules.rules = {
             placement = awful.placement.centered
         }
     },
-  --[[
-  -- No Float for Firefox
+  --[[ No Float for Firefox
     {
         rule = {class = "firefox"},
         properties = {maximized = false, floating = false}
-    },
-  --]]
+    }, --]]
   -- Floating clients.
     {
          rule_any = {
