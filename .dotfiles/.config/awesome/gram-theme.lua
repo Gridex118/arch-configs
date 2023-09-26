@@ -44,6 +44,7 @@ theme.border_marked = theme.fg_urgent
 -- Taglist Holder
 theme.taglist_holder_color = '#1A1A1A'
 theme.taglist_bg_focus = theme.taglist_holder_color 
+theme.taglist_bg_error = theme.taglist_holder_color
 
 -- Clock and Layout Holder
 theme.cnlh_color = '#1A1A1A'

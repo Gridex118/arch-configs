@@ -1,0 +1,5 @@
+function runbinary {
+    NAME=$1
+    nasm -felf64 ${NAME}.asm -o bin/${NAME}.o && ld bin/${NAME}.o -o bin/${NAME}.out && bin/${NAME}.out
+    unset NAME
+}
