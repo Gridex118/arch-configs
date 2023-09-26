@@ -138,7 +138,7 @@ keys.globalkeys = gears.table.join(
       {description = "application launcher", group = "launcher"}
    ),
    -- Screenshot on prtscn using flameshot 
-   awful.key({}, "Print",
+   awful.key({modkey}, "Print",
       function()
          awful.spawn.with_shell(apps.screenshot, false)
       end

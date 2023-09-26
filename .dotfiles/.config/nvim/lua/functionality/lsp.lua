@@ -6,11 +6,8 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
-lspconfig.jdtls.setup {
-    capabilities = capabilities,
-    filetypes = {
-        "java"
-    };
+lspconfig.lemminx.setup {
+    capabilities = capabilities
 }
 
 lspconfig.csharp_ls.setup {

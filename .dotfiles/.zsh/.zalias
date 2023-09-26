@@ -3,7 +3,5 @@ alias grep="grep --color"
 alias -g tmat="tmux attach -dt"
 alias qemu="qemu-system-x86_64"
 alias -g pacsyu="pacman -Syu"
-alias chonet=" iwctl station wlan0 connect TooBothersome > /dev/null 2>&1\
-            || iwctl station wlan0 connect Asad > /dev/null 2>&1\
-            || iwctl station wlan0 connect Moba > /dev/null 2>&1\
-            || echo 'None of the home networks were available'"
+alias -g tmls="tmux list-sessions"
+alias -g tmks="tmux kill-session"
