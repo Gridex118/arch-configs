@@ -23,5 +23,8 @@ source ~/.zsh/lib/zsh-autosuggestions.zsh
 # aliases
 source ~/.zsh/.zalias
 
+#functions
+source ~/.zsh/.zfunctions
+
 # keybindings
 source ~/.zsh/.zkeys
