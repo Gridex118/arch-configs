@@ -48,6 +48,11 @@ augroup ZshHighlighting
     autocmd BufNewFile,BufRead .zfunctions setfiletype sh
 augroup END
 
+augroup LaTeX
+    autocmd!
+    autocmd FileType tex noremap ztx :!latexmk -quiet -pdf -auxdir=$HOME/.texbuild/ '%:t' 1>/dev/null 2>&1 <CR>
+augroup END
+
 augroup Folding
     autocmd!
     set foldmethod=expr
