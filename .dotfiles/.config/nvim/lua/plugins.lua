@@ -1,45 +1,125 @@
-vim.cmd [[packadd packer.nvim]]
+require("lazy").setup({
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        config = function()
+            require('ui.tokyonight')
+            vim.cmd([[colorscheme tokyonight]])
+        end,
+    },
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    use 'folke/tokyonight.nvim'
-    use 'nvim-tree/nvim-web-devicons'
-    use {
-        'nvim-lualine/lualine.nvim',
-        after = 'tokyonight.nvim',
-        event = 'BufEnter',
+    {
+        "nvim-tree/nvim-web-devicons",
+        lazy = true,
+    },
+
+    {
+        "nvim-lualine/lualine.nvim",
+        after = "tokyonight.nvim",
+        event = "BufEnter",
         config = function()
             require('ui.lualine')
         end,
-    }
-    use 'neovim/nvim-lspconfig'
-    use 'hrsh7th/nvim-cmp'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'hrsh7th/vim-vsnip'
-    use 'hrsh7th/vim-vsnip-integ'
-    use {
-        'ggandor/leap.nvim',
-        event = 'BufRead',
+    },
+
+    {
+        "neovim/nvim-lspconfig",
         config = function()
+            require('functionality.lsp')
+        end,
+    },
+
+    {
+        "hrsh7th/nvim-cmp",
+        config = function()
+            require('functionality.cmp')
+        end,
+    },
+
+    {
+        "hrsh7th/cmp-nvim-lsp",
+    },
+
+    {
+        "hrsh7th/cmp-buffer",
+    },
+
+    {
+        "hrsh7th/cmp-path",
+    },
+
+    {
+        "hrsh7th/cmp-cmdline",
+    },
+
+    {
+        "hrsh7th/vim-vsnip",
+    },
+
+    {
+        "hrsh7th/vim-vsnip-integ",
+    },
+
+    {
+        "ggandor/leap.nvim",
+        event = "BufEnter",
+        config = function ()
             require('functionality.leap')
         end,
-    }
-    use {
-        'kylechui/nvim-surround',
-        tag = '*',
+    },
+
+    {
+        "kylechui/nvim-surround",
+        version = '*',
+        event = "VeryLazy",
         config = function()
             require('nvim-surround').setup {}
         end,
-    }
-    use 'nvim-treesitter/nvim-treesitter'
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'BurntSushi/ripgrep'
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'iamcco/markdown-preview.nvim'
-    use 'lukas-reineke/indent-blankline.nvim'
-end)
+    },
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function()
+            require('functionality.treesitter')
+        end,
+    },
+
+    {
+        "nvim-telescope/telescope.nvim",
+    },
+
+    {
+        "nvim-lua/plenary.nvim",
+    },
+
+    {
+        "BurntSushi/ripgrep",
+    },
+
+    {
+        "williamboman/mason.nvim", 
+        config = function()
+            require('mason').setup {}
+        end,
+    },
+
+    {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require('mason-lspconfig').setup {}
+        end,
+    },
+
+    {
+        "iamcco/markdown-preview.nvim",
+    },
+
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require('ui.indent_blankline')
+        end,
+    },
+
+})

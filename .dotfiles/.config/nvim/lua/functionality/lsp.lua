@@ -14,7 +14,7 @@ lspconfig.lemminx.setup {
     capabilities = capabilities
 }
 
-lspconfig.csharp_ls.setup {
+lspconfig.lua_ls.setup {
     capabilities = capabilities
 }
 
