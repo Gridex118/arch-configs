@@ -1,15 +1,3 @@
-vim.opt.termguicolors = true
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.opt.ignorecase = true
-vim.opt.wrap = true
-vim.opt.showtabline = 2
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.cmdheight=0
-
 vim.loader.enable()
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -25,6 +13,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require('plugins')
+
+require('options')
 
 vim.cmd([[
 
@@ -60,20 +50,5 @@ vim.cmd([[
 
 ]])
 
-local key_opts = {noremap = true,}
-
-vim.keymap.set('i', '(', "()<Esc>i", key_opts)
-vim.keymap.set('i', '[', "[]<Esc>i", key_opts)
-vim.keymap.set('i', '{', "{}<Esc>i", key_opts)
-vim.keymap.set('i', "''", "''<Esc>i", key_opts)
-vim.keymap.set('i', '"', '""<Esc>i', key_opts)
-
-vim.keymap.set('i', "{<cr>", "{<cr>}<Esc>O", key_opts)
-vim.keymap.set('i', "-[", "-[[<Esc>a", key_opts)
-vim.keymap.set('i', "-]", "-]]<Esc>a", key_opts)
-
--- vim.keymap.set('n', "jj", "<Esc>", key_opts)
-vim.keymap.set('n', "zz", ":noh<cr>", key_opts)
-
-vim.keymap.set('n', "<F4>", ":Telescope live_grep <cr>", key_opts)
+require('keybinds')
 

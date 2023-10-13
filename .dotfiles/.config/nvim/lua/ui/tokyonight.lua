@@ -38,6 +38,9 @@ require('tokyonight').setup({
             bg = "#292e42",
             fg = "#737aa2"
         }
+        hl.WinSeparator = {
+            fg = "#3b4261",
+        }
         hl.TabLineSel = {
             bg = "#1a1b26",
             fg = "#0db9d7"
