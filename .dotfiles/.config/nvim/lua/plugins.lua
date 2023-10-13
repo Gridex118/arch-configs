@@ -87,6 +87,7 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
+        event = "VimEnter"
     },
 
     {
