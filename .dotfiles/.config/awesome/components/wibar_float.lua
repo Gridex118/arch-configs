@@ -19,7 +19,7 @@ FloatingWibar.create = function (bar_bg, bar_height, y_offset, bar_width, x_offs
         shape = bar_shape,
         bg = bar_bg, 
         visible = true,
-        height = bar_height,
+        height = dpi(bar_height),
         x = dpi(x_offset),
         y = y_offset,
     }

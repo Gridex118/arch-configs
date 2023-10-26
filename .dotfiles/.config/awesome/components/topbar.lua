@@ -1,7 +1,5 @@
 local gears = require('gears')
 local wibox = require('wibox')
-local awful = require('awful')
-local beautiful = require('beautiful')
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local batteryarc = require('awesome-wm-widgets.batteryarc-widget.batteryarc')
@@ -26,7 +24,7 @@ TopBar.create = function(s)
     bar_width = s.geometry.width * 99/100
 
     new_bar = require('components/wibar_float').create(
-       '#1a1a1a', 22, 5, bar_width, s.geometry.width * 1/200,
+       '#1a1a1a', 23, 5, bar_width, s.geometry.width * 1/200,
        function (cr, width, height)
            gears.shape.rounded_rect(cr, width, height, 7)
        end
