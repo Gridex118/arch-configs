@@ -11,6 +11,7 @@ local altkey = "Mod1"
 local keys = {}
 
 local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
+local fullscreen = false
 
 -- ===================================================================
 -- Movement Functions (Called by some keybinds)
@@ -93,6 +94,19 @@ keys.globalkeys = gears.table.join(
 awful.key({modkey}, "m",
 function()
     awful.spawn.with_shell(scripts .. "mouse.sh")
+end
+),
+-- Toggle repeat delay
+awful.key({modkey, "Shift"}, "t",
+function()
+    awful.spawn.with_shell("xset r rate 90 30")
+    require("naughty").notify { text = "Turbo Repeat" }
+end
+),
+awful.key({modkey, altkey}, "t",
+function()
+    awful.spawn.with_shell("xset r rate 310 30")
+    require("naughty").notify { text = "Normal Repeat" }
 end
 ),
 awful.key({modkey}, "F12",
@@ -442,6 +456,7 @@ end
 awful.key({modkey}, "a",
 function(c)
     c.fullscreen = not c.fullscreen
+    fullscreen = c.fullscreen
     if c.fullscreen then
         awful.spawn.with_shell("killall picom")    -- remove transparency in fullscreen mode
     else
@@ -469,7 +484,7 @@ for i = 1, 9 do
     function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
-        if tag then
+        if tag and not fullscreen then    -- Do not switch tags if current application is in fullscreen
             tag:view_only()
         end
     end,

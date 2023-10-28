@@ -39,7 +39,6 @@ apps = {
 -- Autostart
 local autostart_apps = {
     "unclutter",
-    "udiskie",
     "picom -b",
     "conky",
     "numlockx",
