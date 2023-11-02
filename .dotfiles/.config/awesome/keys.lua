@@ -81,6 +81,17 @@ local function raise_client()
     end
 end
 
+-- wrappers for awful.keys
+local keybind = awful.key
+local function keybind_no_fscr(leader, key, action)
+    return keybind(leader, key, function(...)
+        if not fullscreen then
+            action(...)
+        end
+    end)
+end
+
+
 -- ===================================================================
 -- Desktop Key bindings
 -- ===================================================================
@@ -91,68 +102,64 @@ keys.globalkeys = gears.table.join(
 -- SPAWN APPLICATION KEY BINDINGS
 -- =========================================
 -- Toggle Touchpad
-awful.key({modkey}, "m",
+keybind({modkey}, "m",
 function()
     awful.spawn.with_shell(scripts .. "mouse.sh")
 end
 ),
 -- Toggle repeat delay
-awful.key({modkey, "Shift"}, "t",
+keybind({modkey, "Shift"}, "t",
 function()
-    awful.spawn.with_shell("xset r rate 90 30")
+    awful.spawn.with_shell("xset r rate 90 25")
     require("naughty").notify { text = "Turbo Repeat" }
 end
 ),
-awful.key({modkey, altkey}, "t",
+keybind({modkey, altkey}, "t",
 function()
     awful.spawn.with_shell("xset r rate 310 30")
     require("naughty").notify { text = "Normal Repeat" }
 end
 ),
-awful.key({modkey}, "F12",
+keybind({modkey}, "F12",
 function()
     awful.spawn.with_shell(scripts .. "nettoggle.sh")
 end
 ),
 -- Sound control
-awful.key({}, "XF86AudioMute",
+keybind({}, "XF86AudioMute",
 function()
     awful.spawn("amixer -D pulse set Master 1+ toggle")
 end
 ),
-awful.key({}, "XF86AudioRaiseVolume",
+keybind({}, "XF86AudioRaiseVolume",
 function()
     awful.spawn("amixer -D pulse sset Master 5%+")
 end
 ),
-awful.key({}, "XF86AudioLowerVolume",
+keybind({}, "XF86AudioLowerVolume",
 function()
     awful.spawn("amixer -D pulse sset Master 5%-")
 end
 ),
 -- Spawn terminal
-awful.key({modkey}, "Return",
+keybind_no_fscr({modkey}, "Return",
 function()
     awful.spawn(apps.terminal)
-end,
-{description = "open a terminal", group = "launcher"}
+end
 ),
 -- Spawn browser
-awful.key({modkey, "Shift"}, "Return",
+keybind_no_fscr({modkey, "Shift"}, "Return",
 function()
     awful.spawn(apps.browser)
-end,
-{description = "open a terminal", group = "launcher"}
+end
 ),
 -- launch rofi
-awful.key({modkey}, "d",
+keybind_no_fscr({modkey}, "d",
 function()
     awful.spawn(apps.launcher)
-end,
-{description = "application launcher", group = "launcher"}
-),
+end),
 -- Screenshot on prtscn using flameshot 
-awful.key({modkey}, "Print",
+keybind({modkey}, "Print",
 function()
     awful.spawn.with_shell(apps.screenshot, false)
 end
@@ -163,103 +170,79 @@ end
 -- =========================================
 
 -- Reload Awesome
-awful.key({modkey, "Shift"}, "r",
-awesome.restart,
-{description = "reload awesome", group = "awesome"}
-),
+keybind({modkey, "Shift"}, "r",
+awesome.restart),
 
 -- Quit Awesome
-awful.key({modkey, "Shift"}, "Escape",
+keybind({modkey, "Shift"}, "Escape",
 function()
     awesome.quit()
-end,
-{description = "toggle exit screen", group = "hotkeys"}
-),
+end),
 
 -- =========================================
 -- CLIENT FOCUSING
 -- =========================================
 
 -- Focus client by direction (hjkl keys)
-awful.key({modkey}, "j",
+keybind_no_fscr({modkey}, "j",
 function()
     awful.client.focus.bydirection("down")
     raise_client()
-end,
-{description = "focus down", group = "client"}
-),
-awful.key({modkey}, "k",
+end),
+keybind_no_fscr({modkey}, "k",
 function()
     awful.client.focus.bydirection("up")
     raise_client()
-end,
-{description = "focus up", group = "client"}
-),
-awful.key({modkey}, "h",
+end),
+keybind_no_fscr({modkey}, "h",
 function()
     awful.client.focus.bydirection("left")
     raise_client()
-end,
-{description = "focus left", group = "client"}
-),
-awful.key({modkey}, "l",
+end),
+keybind_no_fscr({modkey}, "l",
 function()
     awful.client.focus.bydirection("right")
     raise_client()
-end,
-{description = "focus right", group = "client"}
-),
+end),
 
 -- Focus client by direction (arrow keys)
-awful.key({modkey}, "Down",
+keybind_no_fscr({modkey}, "Down",
 function()
     awful.client.focus.bydirection("down")
     raise_client()
-end,
-{description = "focus down", group = "client"}
-),
-awful.key({modkey}, "Up",
+end),
+keybind_no_fscr({modkey}, "Up",
 function()
     awful.client.focus.bydirection("up")
     raise_client()
-end,
-{description = "focus up", group = "client"}
-),
-awful.key({modkey}, "Left",
+end),
+keybind_no_fscr({modkey}, "Left",
 function()
     awful.client.focus.bydirection("left")
     raise_client()
-end,
-{description = "focus left", group = "client"}
-),
-awful.key({modkey}, "Right",
+end),
+keybind_no_fscr({modkey}, "Right",
 function()
     awful.client.focus.bydirection("right")
     raise_client()
-end,
-{description = "focus right", group = "client"}
-),
+end),
 
 -- Focus client by index (cycle through clients)
-awful.key({modkey}, "Tab",
+keybind_no_fscr({modkey}, "Tab",
 function()
     awful.client.focus.byidx(1)
-end,
-{description = "focus next by index", group = "client"}
-),
-awful.key({modkey, "Shift"}, "Tab",
+end),
+keybind_no_fscr({modkey, "Shift"}, "Tab",
 function()
     awful.client.focus.byidx(-1)
-end,
-{description = "focus previous by index", group = "client"}
-),
+end),
 
 -- =========================================
 -- SCREEN FOCUSING
 -- =========================================
 
 -- Focus screen by index (cycle through screens)
-awful.key({modkey}, "c",
+keybind_no_fscr({modkey}, "c",
 function()
     awful.screen.focus_relative(1)
 end
@@ -269,42 +252,42 @@ end
 -- CLIENT RESIZING
 -- =========================================
 
-awful.key({modkey, "Control"}, "Down",
+keybind_no_fscr({modkey, "Control"}, "Down",
 function(c)
     resize_client(client.focus, "down")
 end
 ),
-awful.key({modkey, "Control"}, "Up",
+keybind_no_fscr({modkey, "Control"}, "Up",
 function(c)
     resize_client(client.focus, "up")
 end
 ),
-awful.key({modkey, "Control"}, "Left",
+keybind_no_fscr({modkey, "Control"}, "Left",
 function(c)
     resize_client(client.focus, "left")
 end
 ),
-awful.key({modkey, "Control"}, "Right",
+keybind_no_fscr({modkey, "Control"}, "Right",
 function(c)
     resize_client(client.focus, "right")
 end
 ),
-awful.key({modkey, "Control"}, "j",
+keybind_no_fscr({modkey, "Control"}, "j",
 function(c)
     resize_client(client.focus, "down")
 end
 ),
-awful.key({ modkey, "Control" }, "k",
+keybind_no_fscr({ modkey, "Control" }, "k",
 function(c)
     resize_client(client.focus, "up")
 end
 ),
-awful.key({modkey, "Control"}, "h",
+keybind_no_fscr({modkey, "Control"}, "h",
 function(c)
     resize_client(client.focus, "left")
 end
 ),
-awful.key({modkey, "Control"}, "l",
+keybind_no_fscr({modkey, "Control"}, "l",
 function(c)
     resize_client(client.focus, "right")
 end
@@ -315,93 +298,69 @@ end
 -- =========================================
 
 -- Number of master clients
-awful.key({modkey, altkey}, "h",
+keybind_no_fscr({modkey, altkey}, "h",
 function()
     awful.tag.incnmaster( 1, nil, true)
-end,
-{description = "increase the number of master clients", group = "layout"}
-),
-awful.key({ modkey, altkey }, "l",
+end),
+keybind_no_fscr({ modkey, altkey }, "l",
 function()
     awful.tag.incnmaster(-1, nil, true)
-end,
-{description = "decrease the number of master clients", group = "layout"}
-),
-awful.key({ modkey, altkey }, "Left",
+end),
+keybind_no_fscr({ modkey, altkey }, "Left",
 function()
     awful.tag.incnmaster( 1, nil, true)
-end,
-{description = "increase the number of master clients", group = "layout"}
-),
-awful.key({ modkey, altkey }, "Right",
+end),
+keybind_no_fscr({ modkey, altkey }, "Right",
 function()
     awful.tag.incnmaster(-1, nil, true)
-end,
-{description = "decrease the number of master clients", group = "layout"}
-),
+end),
 
 -- Number of columns
-awful.key({modkey, altkey}, "k",
+keybind_no_fscr({modkey, altkey}, "k",
 function()
     awful.tag.incncol(1, nil, true)
-end,
-{description = "increase the number of columns", group = "layout"}
-),
-awful.key({modkey, altkey}, "j",
+end),
+keybind_no_fscr({modkey, altkey}, "j",
 function()
     awful.tag.incncol(-1, nil, true)
-end,
-{description = "decrease the number of columns", group = "layout"}
-),
-awful.key({modkey, altkey}, "Up",
+end),
+keybind_no_fscr({modkey, altkey}, "Up",
 function()
     awful.tag.incncol(1, nil, true)
-end,
-{description = "increase the number of columns", group = "layout"}
-),
-awful.key({modkey, altkey}, "Down",
+end),
+keybind_no_fscr({modkey, altkey}, "Down",
 function()
     awful.tag.incncol(-1, nil, true)
-end,
-{description = "decrease the number of columns", group = "layout"}
-),
+end),
 
 -- =========================================
 -- GAP CONTROL
 -- =========================================
 
 -- Gap control
-awful.key({modkey, "Shift"}, "minus",
+keybind_no_fscr({modkey, "Shift"}, "minus",
 function()
     awful.tag.incgap(5, nil)
-end,
-{description = "increment gaps size for the current tag", group = "gaps"}
-),
-awful.key({modkey}, "minus",
+end),
+keybind_no_fscr({modkey}, "minus",
 function()
     awful.tag.incgap(-5, nil)
-end,
-{description = "decrement gap size for the current tag", group = "gaps"}
-),
+end),
 
 -- =========================================
 -- LAYOUT SELECTION
 -- =========================================
 
 -- select next layout
-awful.key({modkey}, "space",
+keybind_no_fscr({modkey}, "space",
 function()
     awful.layout.inc(1)
-end,
-{description = "select next", group = "layout"}
-),
+end),
 -- select previous layout
-awful.key({modkey, "Shift"}, "space",
+keybind_no_fscr({modkey, "Shift"}, "space",
 function()
     awful.layout.inc(-1)
-end,
-{description = "select previous", group = "layout"}
-)
+end)
 
 )
 -- ===================================================================
@@ -411,49 +370,49 @@ end,
 
 keys.clientkeys = gears.table.join(
 -- Move to edge or swap by direction
-awful.key({modkey, "Shift"}, "Down",
+keybind_no_fscr({modkey, "Shift"}, "Down",
 function(c)
     move_client(c, "down")
 end
 ),
-awful.key({modkey, "Shift"}, "Up",
+keybind_no_fscr({modkey, "Shift"}, "Up",
 function(c)
     move_client(c, "up")
 end
 ),
-awful.key({modkey, "Shift"}, "Left",
+keybind_no_fscr({modkey, "Shift"}, "Left",
 function(c)
     move_client(c, "left")
 end
 ),
-awful.key({modkey, "Shift"}, "Right",
+keybind_no_fscr({modkey, "Shift"}, "Right",
 function(c)
     move_client(c, "right")
 end
 ),
-awful.key({modkey, "Shift"}, "j",
+keybind_no_fscr({modkey, "Shift"}, "j",
 function(c)
     move_client(c, "down")
 end
 ),
-awful.key({modkey, "Shift"}, "k",
+keybind_no_fscr({modkey, "Shift"}, "k",
 function(c)
     move_client(c, "up")
 end
 ),
-awful.key({modkey, "Shift"}, "h",
+keybind_no_fscr({modkey, "Shift"}, "h",
 function(c)
     move_client(c, "left")
 end
 ),
-awful.key({modkey, "Shift"}, "l",
+keybind_no_fscr({modkey, "Shift"}, "l",
 function(c)
     move_client(c, "right")
 end
 ),
 
 -- toggle fullscreen
-awful.key({modkey}, "a",
+keybind({modkey}, "a",
 function(c)
     c.fullscreen = not c.fullscreen
     fullscreen = c.fullscreen
@@ -462,17 +421,13 @@ function(c)
     else
         awful.spawn.with_shell("picom -b &")
     end
-end,
-{description = "toggle fullscreen", group = "client"}
-),
+end),
 
 -- close client
-awful.key({modkey}, "q",
+keybind_no_fscr({modkey}, "q",
 function(c)
     c:kill()
-end,
-{description = "close", group = "client"}
-)
+end)
 
 )
 
@@ -480,18 +435,16 @@ end,
 for i = 1, 9 do
     keys.globalkeys = gears.table.join(keys.globalkeys,
     -- Switch to tag
-    awful.key({modkey}, "#" .. i + 9,
+    keybind_no_fscr({modkey}, "#" .. i + 9,
     function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
-        if tag and not fullscreen then    -- Do not switch tags if current application is in fullscreen
+        if tag then    -- Do not switch tags if current application is in fullscreen
             tag:view_only()
         end
-    end,
-    {description = "view tag #"..i, group = "tag"}
-    ),
+    end    ),
     -- Move client to tag
-    awful.key({modkey, "Shift"}, "#" .. i + 9,
+    keybind_no_fscr({modkey, "Shift"}, "#" .. i + 9,
     function()
         if client.focus then
             local tag = client.focus.screen.tags[i]
@@ -499,9 +452,7 @@ for i = 1, 9 do
                 client.focus:move_to_tag(tag)
             end
         end
-    end,
-    {description = "move focused client to tag #"..i, group = "tag"}
-    )
+    end    )
     )
 end
 
