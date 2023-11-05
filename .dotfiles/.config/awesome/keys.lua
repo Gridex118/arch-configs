@@ -11,6 +11,8 @@ local altkey = "Mod1"
 local keys = {}
 
 local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
+local last_keypress = 0
+local normal_delay = true
 local fullscreen = false
 
 -- ===================================================================
@@ -110,16 +112,21 @@ end
 -- Toggle repeat delay
 keybind({modkey, "Shift"}, "t",
 function()
-    awful.spawn.with_shell("xset r rate 90 25")
-    require("naughty").notify { text = "Turbo Repeat" }
+    local current_time = os.time()
+    if (current_time - last_keypress) >= 1 then
+        last_keypress = current_time
+        if normal_delay then
+            awful.spawn("xset r rate 90 25")
+            require("naughty").notify { text = "Turbo Repeat" }
+        else
+            awful.spawn("xset r rate 300 30")
+            require("naughty").notify { text = "Normal Repeat" }
+        end
+        normal_delay = not normal_delay
+    end
 end
 ),
-keybind({modkey, altkey}, "t",
-function()
-    awful.spawn.with_shell("xset r rate 310 30")
-    require("naughty").notify { text = "Normal Repeat" }
-end
-),
+-- Toggle network
 keybind({modkey}, "F12",
 function()
     awful.spawn.with_shell(scripts .. "nettoggle.sh")

@@ -9,22 +9,22 @@ local TopBar = {}
 
 TopBar.create = function(s)
 
-    mydate = wibox.widget.textclock('<span font = "Roboto 11">%a, %d %b</span>')
-    mybattery = batteryarc({
+    local mydate = wibox.widget.textclock('<span font = "Roboto 11">%a, %d %b</span>')
+    local mybattery = batteryarc({
         size = 15,
         font = "MesloLGS NF"
     })
----[[
-    myvolumebar = volume({
+--[[
+    local myvolumebar = volume({
         widget_type = "horizontal_bar",
         with_icon = true
     })
 --]]
     
-    bar_width = s.geometry.width * 99/100
+    local bar_width = s.geometry.width * 13/100
 
-    new_bar = require('components/wibar_float').create(
-       '#1a1a1a', 23, 5, bar_width, s.geometry.width * 1/200,
+    local new_bar = require('components/wibar_float').create(
+       '#1a1a1a', 25, 5, bar_width, s.geometry.width * 1/100,
        function (cr, width, height)
            gears.shape.rounded_rect(cr, width, height, 7)
        end
@@ -34,8 +34,8 @@ TopBar.create = function(s)
            {
                layout = wibox.container.margin,
                mybattery,
-               left = bar_width/2 - 50,
-               right = dpi(25),
+               left = bar_width/2 - 65,
+               right = dpi(22),
            },
            layout = wibox.layout.fixed.horizontal,
            {
@@ -43,7 +43,7 @@ TopBar.create = function(s)
                layout = wibox.container.margin,
            },
            layout = wibox.layout.fixed.horizontal,
----[[
+--[[
            {
                layout = wibox.container.margin,
                myvolumebar,
