@@ -113,10 +113,6 @@ require("lazy").setup({
     },
 
     {
-        "iamcco/markdown-preview.nvim",
-    },
-
-    {
         "lukas-reineke/indent-blankline.nvim",
         config = function()
             require('ui.indent_blankline')
