@@ -11,9 +11,8 @@ local altkey = "Mod1"
 local keys = {}
 
 local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
-local last_keypress = 0
-local normal_delay = true
 local fullscreen = false
+local last_delay_toggle = 0
 
 -- ===================================================================
 -- Movement Functions (Called by some keybinds)
@@ -93,6 +92,16 @@ local function keybind_no_fscr(leader, key, action)
     end)
 end
 
+-- Watch repeat delay
+local function anti_turbo_repeat(action, ...)
+    local current_time = os.time()
+    if (current_time - last_delay_toggle) <= 1 then
+        return
+    end
+    last_delay_toggle = current_time
+    action(...)
+end
+
 
 -- ===================================================================
 -- Desktop Key bindings
@@ -106,24 +115,13 @@ keys.globalkeys = gears.table.join(
 -- Toggle Touchpad
 keybind({modkey}, "m",
 function()
-    awful.spawn.with_shell(scripts .. "mouse.sh")
+    anti_turbo_repeat(awful.spawn, scripts .. "mouse.sh")
 end
 ),
 -- Toggle repeat delay
 keybind({modkey, "Shift"}, "t",
 function()
-    local current_time = os.time()
-    if (current_time - last_keypress) >= 1 then
-        last_keypress = current_time
-        if normal_delay then
-            awful.spawn("xset r rate 90 25")
-            require("naughty").notify { text = "Turbo Repeat" }
-        else
-            awful.spawn("xset r rate 300 30")
-            require("naughty").notify { text = "Normal Repeat" }
-        end
-        normal_delay = not normal_delay
-    end
+    anti_turbo_repeat(awful.spawn, scripts .. "key_delay.sh")
 end
 ),
 -- Toggle network

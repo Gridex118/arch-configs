@@ -13,7 +13,7 @@ local theme = {}
 theme.name = "gram"
 
 -- Font
-theme.font = "Roboto  9"
+theme.font = "Roboto 9"
 theme.title_font = "SF Pro Display Medium 10"
 
 -- Background

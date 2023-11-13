@@ -25,7 +25,6 @@ vim.cmd([[
         autocmd!
         autocmd BufNewFile,BufRead *.sasm setfiletype asm
         autocmd BufNewFile,BufRead *.bf setfiletype text
-        autocmd FileType markdown noremap <F6> :MarkdownPreview <CR>
         autocmd FileType asm set tabstop=24 shiftwidth=24 softtabstop=24
     augroup END
 

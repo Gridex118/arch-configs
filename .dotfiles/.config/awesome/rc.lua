@@ -59,7 +59,8 @@ end
 -- Theme
 beautiful.init("~/.config/awesome/gram-theme.lua")
 awful.screen.focused().padding = { top=27, bottom=3, left=40, right=3 }
-wallpaper = gears.filesystem.get_configuration_dir() .. 'wallpaper1.png'
+local wallpaper_dir = gears.filesystem.get_configuration_dir() .. "wallpapers/"
+local wallpaper = wallpaper_dir .. "wallpaper1.png"
 
 
 -- Functionality
@@ -117,8 +118,8 @@ awful.rules.rules = {
                "feh", "Citra",
             },
             name = {
-               "Event Tester",
-               "Library"
+               "Event Tester", "Library",
+               ".*GLProjFloat",    -- All OpenGL projects that are supposed to have set window dimensions
             },
             role = {
                "pop-up", "GtkFileChooserDialog"
