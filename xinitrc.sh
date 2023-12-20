@@ -12,7 +12,7 @@ fi
 echo "# Set up input devices" >> ~/.xinitrc
 TOUCHPAD_ID="$(\
     xinput | grep -i 'touch' \
-    | awk '{print $6}' | awk -F'=' '{print $2}' \
+    | awk -F'=' '{print $2}' | awk '{print $1}' \
 )"
 ACCEL_PROP_ID="$(\
     xinput list-props $TOUCHPAD_ID | grep -i 'accel speed (' \
@@ -37,7 +37,7 @@ echo "" >> ~/.xinitrc
 echo "# start some nice programs" >> ~/.xinitrc
 echo "if [ -d /etc/X11/xinit/xinitrc.d ] ; then" >> ~/.xinitrc
 echo " for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do" >> ~/.xinitrc
-echo "  [ -x '\$f' ] && . '\$f'" >> ~/.xinitrc
+echo "  [ -x \"\$f\" ] && . \"\$f\"" >> ~/.xinitrc
 echo " done" >> ~/.xinitrc
 echo " unset f" >> ~/.xinitrc
 echo "fi" >> ~/.xinitrc

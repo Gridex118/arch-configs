@@ -93,7 +93,7 @@ local function keybind_no_fscr(leader, key, action)
 end
 
 -- Watch repeat delay
-local function anti_turbo_repeat(action, ...)
+local function no_turbo_repeat(action, ...)
     local current_time = os.time()
     if (current_time - last_delay_toggle) <= 1 then
         return
@@ -115,13 +115,13 @@ keys.globalkeys = gears.table.join(
 -- Toggle Touchpad
 keybind({modkey}, "m",
 function()
-    anti_turbo_repeat(awful.spawn, scripts .. "mouse.sh")
+    no_turbo_repeat(awful.spawn, scripts .. "mouse.sh")
 end
 ),
 -- Toggle repeat delay
 keybind({modkey, "Shift"}, "t",
 function()
-    anti_turbo_repeat(awful.spawn, scripts .. "key_delay.sh")
+    no_turbo_repeat(awful.spawn, scripts .. "key_delay.sh")
 end
 ),
 -- Toggle network
@@ -158,6 +158,12 @@ function()
     awful.spawn(apps.browser)
 end
 ),
+-- Spawn pdf_viewer
+keybind_no_fscr({modkey, "Control"}, "Return",
+function()
+    awful.spawn(apps.pdfviewer)
+end
+),
 -- launch rofi
 keybind_no_fscr({modkey}, "d",
 function()
@@ -182,6 +188,11 @@ awesome.restart),
 keybind({modkey, "Shift"}, "Escape",
 function()
     awesome.quit()
+end),
+-- Hibernate
+keybind({modkey, "Shift", "Control"}, "Escape",
+function()
+    no_turbo_repeat(awful.spawn, scripts.."hibernate.sh")
 end),
 
 -- =========================================

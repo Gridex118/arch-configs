@@ -32,8 +32,9 @@ end
 apps = {
     terminal = "alacritty",
     screenshot = "flameshot full -p ~/Screenshots/",
-    launcher = "rofi -show run -theme Arc-Dark",
+    launcher = "rofi -combi-modi run,drun -show combi -theme Arc-Dark",
     browser = "firefox",
+    pdfviewer = "okular",
 }
 
 -- Autostart
@@ -102,11 +103,12 @@ awful.rules.rules = {
             placement = awful.placement.centered
         }
     },
-  --[[ No Float for Firefox
+  ---[[ No Float 
     {
-        rule = {class = "firefox"},
+        rule_any = { class = { "firefox", "Evince" } },
         properties = {maximized = false, floating = false}
-    }, --]]
+    },
+    --]]
   -- Floating clients.
     {
          rule_any = {
