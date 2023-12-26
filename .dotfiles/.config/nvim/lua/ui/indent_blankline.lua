@@ -1,11 +1,3 @@
-vim.g.indent_blankline_filetype_exclude = {
-    "asm",
-    "packer",
-    "vim",
-    "help",
-    "text"
-}
-
 local highlight = {
     "RainbowRed",
     "RainbowYellow",
@@ -40,3 +32,13 @@ require("ibl").setup {
 }
 
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+
+require "ibl".overwrite {
+    exclude = {
+        filetypes = {
+            'help',
+            'text',
+            'asm',
+        }
+    }
+}
