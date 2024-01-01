@@ -45,6 +45,7 @@ vim.cmd([[
         set foldmethod=expr
         set foldexpr=nvim_treesitter#foldexpr()
         autocmd BufEnter * normal zR
+        autocmd BufRead * normal zR
     augroup END
 
 ]])

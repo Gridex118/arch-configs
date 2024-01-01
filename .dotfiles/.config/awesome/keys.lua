@@ -146,6 +146,27 @@ function()
     awful.spawn("amixer -D pulse sset Master 5%-")
 end
 ),
+-- Music control
+keybind({}, "XF86AudioNext",
+function()
+    awful.spawn("cmus-remote -C player-next")
+end
+),
+keybind({}, "XF86AudioPrev",
+function()
+    awful.spawn("cmus-remote -C player-prev")
+end
+),
+keybind({}, "XF86AudioPlay",
+function()
+    awful.spawn(scripts .. "music.sh")
+end
+),
+keybind({}, "F10",
+function()
+    awful.spawn("alacritty -t cmus -e cmus")
+end
+),
 -- Spawn terminal
 keybind_no_fscr({modkey}, "Return",
 function()
