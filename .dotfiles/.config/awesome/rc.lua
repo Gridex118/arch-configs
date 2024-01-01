@@ -141,6 +141,11 @@ awful.rules.rules = {
          rule_any = {class = {"Pavucontrol"}, name = {"Bluetooth Devices"}},
          properties = {floating = true, width = screen_width * 0.55, height = screen_height * 0.45}
     },
+    -- Cmus opens in tag 7
+    {
+        rule = {name = "cmus"},
+        properties = {tag = "7"}
+    },
 }
 
 -- Signal function to execute when a new client appears.
