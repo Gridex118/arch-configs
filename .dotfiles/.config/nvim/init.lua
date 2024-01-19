@@ -34,21 +34,7 @@ vim.cmd([[
         autocmd BufNewFile,BufRead .zfunctions setfiletype sh
     augroup END
 
-    augroup LaTeX
-        autocmd!
-        "compile latex
-        autocmd FileType tex noremap ztx :!latexmk -quiet -pdf -auxdir=$HOME/.texbuild/ '%:t' 1>/dev/null 2>&1 <CR> <CR>
-    augroup END
-
-    augroup Folding
-        autocmd!
-        set foldmethod=expr
-        set foldexpr=nvim_treesitter#foldexpr()
-        autocmd BufEnter * normal zR
-        autocmd BufRead * normal zR
-    augroup END
-
 ]])
 
-require('keybinds')
+require('keys')
 
