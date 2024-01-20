@@ -182,7 +182,12 @@ end
 -- Spawn pdf_viewer
 keybind_no_fscr({modkey, "Control"}, "Return",
 function()
-    awful.spawn(apps.pdfviewer)
+    awful.spawn(scripts .. "fzathura.sh")
+end
+),
+keybind_no_fscr({modkey, "Control", "Shift"}, "Return",
+function()
+    awful.spawn(scripts .. "fzathura.sh --menu")
 end
 ),
 -- launch rofi

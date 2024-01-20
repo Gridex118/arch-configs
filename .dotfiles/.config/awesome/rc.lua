@@ -34,7 +34,6 @@ apps = {
     screenshot = "flameshot full -p ~/Screenshots/",
     launcher = "rofi -combi-modi run,drun -show combi -theme Arc-Dark",
     browser = "firefox",
-    pdfviewer = "okular",
 }
 
 -- Autostart
