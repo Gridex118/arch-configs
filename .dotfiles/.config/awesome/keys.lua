@@ -119,7 +119,7 @@ function()
 end
 ),
 -- Toggle repeat delay
-keybind({modkey, "Shift"}, "t",
+keybind({modkey}, "t",
 function()
     no_turbo_repeat(awful.spawn, scripts .. "key_delay.sh")
 end
