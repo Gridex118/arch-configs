@@ -1,19 +1,29 @@
-str = require("string")
+local FSHOME = vim.fn.expand("$HOME")
 
--- make pdf from tex file
+local texInfo = {}
+-- all tex files are stored in the $HOME/.authoring/<projectName>/ directory
+_, _, texInfo.projectName = string.find(vim.fn.expand('%:~'), "authoring/([^/]*)/")
+texInfo.rootDir = FSHOME .. "/.authoring/" .. texInfo.projectName
+texInfo.outDir = texInfo.rootDir .. "/pdf/"
+texInfo.auxDir = FSHOME .. "/.texbuild/"
+texInfo.target = vim.fn.expand('%:.')
+
+
+-- make pdf from tex file; intended for single tex files, with no input statements
 local function get_pdf_make_command()
-    local texFile = vim.fn.expand('%:.')
-    -- all tex files are stored in the $HOME/.authoring/*/ directory
-    local _, _, rootDir = string.find(vim.fn.expand('%:~'), "authoring/([^/]*)/")
-    local outDir = vim.fn.expand("$HOME") .. "/.authoring/" .. rootDir .. "/pdf/"
-    -- local outDir = vim.fn.expand('%:h') .. "/pdf/"
-    local auxDir = vim.fn.expand("$HOME") .. "/.texbuild/"
-    local options = " -quiet -pdf -f -auxdir=" .. auxDir .. " -outdir=" .. outDir .. " "
-    local redirection = " 1>/tmp/tex.log 2>&1 "
-    return ":!latexmk" .. options .. texFile .. redirection .. "<CR><CR>"
+    local options = " -quiet -pdf -f -auxdir=" .. texInfo.auxDir .. " -outdir=" .. texInfo.outDir .. " "
+    local redirection = " 2>/tmp/tex.log"
+    return ":!latexmk" .. options .. texInfo.target .. redirection .. "<CR>"
 end
 
+
 vim.keymap.set(
-    'n', "<space>tx", get_pdf_make_command(), { noremap = true, silent = true, }
+    'n', "<space><space>c", get_pdf_make_command(), { noremap = true, silent = true, }
 )
+vim.keymap.set( 'n', "<space><space>m", ":!cd .. && mktex<CR>", { noremap = true, } )
+
+vim.keymap.set( 'n', "<space><space>f", ":set filetype=tex<CR>", { noremap = true, } )
+vim.keymap.set( 'n', "<space>tt", ":b 1 | set filetype=tex<CR>", { noremap = true, } )
+vim.keymap.set( 'n', "<space>tn", ":bnext | set filetype=tex<CR>", { noremap = true, } )
+vim.keymap.set( 'n', "<space>tN", ":bprevious | set filetype=tex<CR>", { noremap = true, } )
 
