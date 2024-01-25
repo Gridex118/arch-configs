@@ -168,30 +168,30 @@ function()
 end
 ),
 -- Spawn terminal
-keybind_no_fscr({modkey}, "Return",
+keybind_no_fscr({altkey}, "Return",
 function()
     awful.spawn(apps.terminal)
 end
 ),
 -- Spawn browser
-keybind_no_fscr({modkey, "Shift"}, "Return",
+keybind_no_fscr({altkey, "Shift"}, "Return",
 function()
     awful.spawn(apps.browser)
 end
 ),
 -- Spawn pdf_viewer
-keybind_no_fscr({modkey, "Control"}, "Return",
+keybind_no_fscr({altkey, "Control"}, "Return",
 function()
     awful.spawn(scripts .. "fzathura.sh")
 end
 ),
-keybind_no_fscr({modkey, "Control", "Shift"}, "Return",
+keybind_no_fscr({altkey, "Control", "Shift"}, "Return",
 function()
     awful.spawn(scripts .. "fzathura.sh --menu")
 end
 ),
 -- launch rofi
-keybind_no_fscr({modkey}, "d",
+keybind_no_fscr({altkey}, "d",
 function()
     awful.spawn(apps.launcher)
 end),
@@ -226,44 +226,22 @@ end),
 -- =========================================
 
 -- Focus client by direction (hjkl keys)
-keybind_no_fscr({modkey}, "j",
+keybind_no_fscr({altkey}, "j",
 function()
     awful.client.focus.bydirection("down")
     raise_client()
 end),
-keybind_no_fscr({modkey}, "k",
+keybind_no_fscr({altkey}, "k",
 function()
     awful.client.focus.bydirection("up")
     raise_client()
 end),
-keybind_no_fscr({modkey}, "h",
+keybind_no_fscr({altkey}, "h",
 function()
     awful.client.focus.bydirection("left")
     raise_client()
 end),
-keybind_no_fscr({modkey}, "l",
-function()
-    awful.client.focus.bydirection("right")
-    raise_client()
-end),
-
--- Focus client by direction (arrow keys)
-keybind_no_fscr({modkey}, "Down",
-function()
-    awful.client.focus.bydirection("down")
-    raise_client()
-end),
-keybind_no_fscr({modkey}, "Up",
-function()
-    awful.client.focus.bydirection("up")
-    raise_client()
-end),
-keybind_no_fscr({modkey}, "Left",
-function()
-    awful.client.focus.bydirection("left")
-    raise_client()
-end),
-keybind_no_fscr({modkey}, "Right",
+keybind_no_fscr({altkey}, "l",
 function()
     awful.client.focus.bydirection("right")
     raise_client()
@@ -284,7 +262,7 @@ end),
 -- =========================================
 
 -- Focus screen by index (cycle through screens)
-keybind_no_fscr({modkey}, "c",
+keybind_no_fscr({altkey}, "c",
 function()
     awful.screen.focus_relative(1)
 end
@@ -454,7 +432,7 @@ end
 ),
 
 -- toggle fullscreen
-keybind({modkey}, "a",
+keybind({altkey}, "a",
 function(c)
     c.fullscreen = not c.fullscreen
     fullscreen = c.fullscreen
@@ -466,7 +444,7 @@ function(c)
 end),
 
 -- close client
-keybind_no_fscr({modkey}, "q",
+keybind_no_fscr({altkey}, "q",
 function(c)
     c:kill()
 end)
@@ -477,7 +455,7 @@ end)
 for i = 1, 9 do
     keys.globalkeys = gears.table.join(keys.globalkeys,
     -- Switch to tag
-    keybind_no_fscr({modkey}, "#" .. i + 9,
+    keybind_no_fscr({altkey}, "#" .. i + 9,
     function()
         local screen = awful.screen.focused()
         local tag = screen.tags[i]
