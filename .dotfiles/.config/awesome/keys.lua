@@ -390,26 +390,6 @@ end)
 
 keys.clientkeys = gears.table.join(
 -- Move to edge or swap by direction
-keybind_no_fscr({modkey, "Shift"}, "Down",
-function(c)
-    move_client(c, "down")
-end
-),
-keybind_no_fscr({modkey, "Shift"}, "Up",
-function(c)
-    move_client(c, "up")
-end
-),
-keybind_no_fscr({modkey, "Shift"}, "Left",
-function(c)
-    move_client(c, "left")
-end
-),
-keybind_no_fscr({modkey, "Shift"}, "Right",
-function(c)
-    move_client(c, "right")
-end
-),
 keybind_no_fscr({modkey, "Shift"}, "j",
 function(c)
     move_client(c, "down")
@@ -464,7 +444,7 @@ for i = 1, 9 do
         end
     end    ),
     -- Move client to tag
-    keybind_no_fscr({modkey, "Shift"}, "#" .. i + 9,
+    keybind_no_fscr({altkey, "Shift"}, "#" .. i + 9,
     function()
         if client.focus then
             local tag = client.focus.screen.tags[i]

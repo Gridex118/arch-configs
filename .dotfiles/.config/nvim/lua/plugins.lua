@@ -23,6 +23,16 @@ require("lazy").setup({
     },
 
     {
+        "akinsho/bufferline.nvim",
+        version = "*",
+        after = "tokyonight.nvim",
+        event = "BufEnter",
+        config = function ()
+            require("ui.bufferline")
+        end,
+    },
+
+    {
         "neovim/nvim-lspconfig",
         config = function()
             require('functionality.lsp')
@@ -58,6 +68,19 @@ require("lazy").setup({
 
     {
         "hrsh7th/vim-vsnip-integ",
+    },
+
+    {
+        "saadparwaiz1/cmp_luasnip",
+    },
+
+    {
+        "L3MON4D3/LuaSnip",
+        tag = "v2.2",
+        after = "nvim-cmp",
+        config = function ()
+            require("functionality.snippets")
+        end,
     },
 
     {
