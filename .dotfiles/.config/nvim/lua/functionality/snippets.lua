@@ -13,14 +13,23 @@ ls.add_snippets(nil, {
     tex = {
         snip({
             trig = "item",
-            namr = "List Item",
-            dscr = "Add \\Item for Itemize or Enumerate",
         },
         {
-            text(
-                {"\\item","\t"}
-            )
+            text( {"\\item","\t"}),
         }),
     },
+    cmake = {
+        snip({
+            trig = "header",
+        },
+        {
+            text({ "cmake_minimum_required(VERSION 3.10)", "project(", }),
+            insert(1, "project name"),
+            text({
+                ")",
+                "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)"
+            }),
+        }),
+    }
 })
 
