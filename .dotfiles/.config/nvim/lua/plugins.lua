@@ -63,14 +63,6 @@ require("lazy").setup({
     },
 
     {
-        "hrsh7th/vim-vsnip",
-    },
-
-    {
-        "hrsh7th/vim-vsnip-integ",
-    },
-
-    {
         "saadparwaiz1/cmp_luasnip",
     },
 
@@ -80,6 +72,13 @@ require("lazy").setup({
         after = "nvim-cmp",
         config = function ()
             require("functionality.snippets")
+        end,
+    },
+    
+    {
+        "rafamadriz/friendly-snippets",
+        config = function ()
+            require("luasnip.loaders.from_vscode").lazy_load()
         end,
     },
 
