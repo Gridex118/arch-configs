@@ -8,6 +8,9 @@ local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
+-- LuaSnip keymaps
+vim.keymap.set({"i", "s"}, "<C-j>", function() ls.jump( 1) end, {silent = true})
+vim.keymap.set({"i", "s"}, "<C-k>", function() ls.jump(-1) end, {silent = true})
 
 ls.add_snippets(nil, {
     tex = {

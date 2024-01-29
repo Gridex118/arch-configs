@@ -1,4 +1,4 @@
-local key_opts = {noremap = true,}
+local key_opts = {noremap = true, silent = true}
 
 local function imap(key, cmd)
     vim.keymap.set('i', key, cmd, key_opts)
@@ -17,3 +17,4 @@ imap("-]",      "-]]<Esc>a")
 vim.keymap.set('n', "zz", ":noh<cr>", key_opts)
 
 vim.keymap.set('n', "<F4>", ":Telescope live_grep <cr>", key_opts)
+
