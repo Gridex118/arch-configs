@@ -127,7 +127,7 @@ end
 -- Toggle network
 keybind({modkey}, "F12",
 function()
-    awful.spawn.with_shell(scripts .. "nettoggle.sh")
+    awful.spawn(scripts .. "nettoggle.sh")
 end
 ),
 -- Sound control
@@ -248,11 +248,11 @@ function()
 end),
 
 -- Focus client by index (cycle through clients)
-keybind_no_fscr({modkey}, "Tab",
+keybind_no_fscr({altkey}, "Tab",
 function()
     awful.client.focus.byidx(1)
 end),
-keybind_no_fscr({modkey, "Shift"}, "Tab",
+keybind_no_fscr({altkey, "Shift"}, "Tab",
 function()
     awful.client.focus.byidx(-1)
 end),
@@ -372,12 +372,12 @@ end),
 -- =========================================
 
 -- select next layout
-keybind_no_fscr({modkey}, "space",
+keybind_no_fscr({altkey}, "space",
 function()
     awful.layout.inc(1)
 end),
 -- select previous layout
-keybind_no_fscr({modkey, "Shift"}, "space",
+keybind_no_fscr({altkey, "Shift"}, "space",
 function()
     awful.layout.inc(-1)
 end)
@@ -390,22 +390,22 @@ end)
 
 keys.clientkeys = gears.table.join(
 -- Move to edge or swap by direction
-keybind_no_fscr({modkey, "Shift"}, "j",
+keybind_no_fscr({altkey, "Shift"}, "j",
 function(c)
     move_client(c, "down")
 end
 ),
-keybind_no_fscr({modkey, "Shift"}, "k",
+keybind_no_fscr({altkey, "Shift"}, "k",
 function(c)
     move_client(c, "up")
 end
 ),
-keybind_no_fscr({modkey, "Shift"}, "h",
+keybind_no_fscr({altkey, "Shift"}, "h",
 function(c)
     move_client(c, "left")
 end
 ),
-keybind_no_fscr({modkey, "Shift"}, "l",
+keybind_no_fscr({altkey, "Shift"}, "l",
 function(c)
     move_client(c, "right")
 end
