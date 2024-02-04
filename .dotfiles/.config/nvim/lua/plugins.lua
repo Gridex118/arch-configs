@@ -76,7 +76,7 @@ require("lazy").setup({
     },
     
     {
-        "rafamadriz/friendly-snippets",
+        "Gridex118/neovim-snippets",
         config = function ()
             require("luasnip.loaders.from_vscode").lazy_load()
         end,
