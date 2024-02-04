@@ -15,11 +15,19 @@ if [ "$1" = "" ] || [ "$1" = "--menu" ]; then
         open_pdf "$LAST_PDF"
     else
         DOCUMENTS=""
-        for file in $HOME/Documents/*/*.pdf; do
-            DOCUMENTS=$DOCUMENTS"$file"'\n'
+        [ -d $HOME/Documents ] || exit -1
+        cd $HOME/Documents
+        for DIR in *; do
+            if [ -d $DIR ]; then
+                cd $DIR
+                for FILE in *.pdf; do
+                    DOCUMENTS=$DOCUMENTS"$DIR/$FILE"'\n'
+                done
+                cd ..
+            fi
         done
         SELECTED_PDF="`echo -e $DOCUMENTS | rofi -i -dmenu`"
-        open_pdf "$SELECTED_PDF"
+        open_pdf "$HOME/Documents/$SELECTED_PDF"
     fi
 else
     open_pdf "$1"

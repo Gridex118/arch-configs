@@ -51,6 +51,7 @@ theme.taglist_bg_urgent = theme.taglist_holder_color
 theme.cnlh_color = '#1A1A1A'
 theme.layout_tile = "~/.config/awesome/icons/tiled.png"
 theme.layout_floating = "~/.config/awesome/icons/floating.png"
+theme.layout_max = "~/.config/awesome/icons/max.png"
 
 -- Notification Sizing
 theme.notification_max_width = dpi(350)

@@ -10,6 +10,7 @@ imap('{',       "{}<Esc>i")
 imap("''",      "''<Esc>i")
 imap('""',      '""<Esc>i')
 imap("{<cr>",   "{<cr>}<Esc>O")
+imap("{<Space>",   "{  }<Esc>hi")
 imap("-[",      "-[[<Esc>a")
 imap("-]",      "-]]<Esc>a")
 
