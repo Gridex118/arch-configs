@@ -141,4 +141,11 @@ require("lazy").setup({
         end,
     },
 
+    {
+        "stevearc/oil.nvim",
+        config = function ()
+            require("functionality.oil")
+        end,
+    },
+
 })
