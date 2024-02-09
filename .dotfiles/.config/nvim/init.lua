@@ -30,8 +30,9 @@ vim.cmd([[
 
     augroup ZshHighlighting
         autocmd!
-        autocmd BufNewFile,BufRead .zalias setfiletype sh
-        autocmd BufNewFile,BufRead .zfunctions setfiletype sh
+        autocmd BufNewFile,BufRead .zalias setfiletype zsh
+        autocmd BufNewFile,BufRead .zfunctions setfiletype zsh
+        autocmd BufNewFile,BufRead .zkeys setfiletype zsh
     augroup END
 
 ]])

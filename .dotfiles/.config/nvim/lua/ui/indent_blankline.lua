@@ -28,17 +28,14 @@ vim.opt.listchars:append "eol:↴"
 
 require("ibl").setup {
     scope = { highlight = highlight },
-    indent = { highlight = highlight }
-}
-
-hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
-
-require "ibl".overwrite {
+    indent = { highlight = highlight },
     exclude = {
         filetypes = {
             'help',
             'text',
             'asm',
         }
-    }
+    },
 }
+
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
