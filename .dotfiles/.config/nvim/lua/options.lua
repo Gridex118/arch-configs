@@ -1,4 +1,5 @@
 vim.opt.termguicolors = true
+vim.opt.guifont = {'MesloLGS NF', ':h10'}
 vim.opt.number = true
 vim.opt.cursorline = true
 vim.opt.ignorecase = true
@@ -10,3 +11,5 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.cmdheight = 0
 vim.opt.foldmethod = "manual"
+vim.opt.splitbelow = true
+vim.opt.autochdir = true

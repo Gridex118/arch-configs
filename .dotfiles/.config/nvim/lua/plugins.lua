@@ -68,7 +68,6 @@ require("lazy").setup({
 
     {
         "L3MON4D3/LuaSnip",
-        tag = "v2.2",
         after = "nvim-cmp",
         config = function ()
             require("functionality.snippets")
@@ -136,6 +135,7 @@ require("lazy").setup({
 
     {
         "lukas-reineke/indent-blankline.nvim",
+        after = "tokyonight.nvim",
         config = function()
             require('ui.indent_blankline')
         end,
@@ -146,6 +146,10 @@ require("lazy").setup({
         config = function ()
             require("functionality.oil")
         end,
+    },
+
+    {
+        'nanotee/zoxide.vim',
     },
 
 })
