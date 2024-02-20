@@ -1,0 +1,20 @@
+#!/bin/bash
+
+PROG_NAME=$(echo "$1" | grep -o "^[^.]*")
+[ -d ~/.authoring/texcode ] || mkdir ~/.authoring/texcode
+ROOT_DIR=~/.authoring/texcode/$PROG_NAME
+[ -d $ROOT_DIR ] || mkdir $ROOT_DIR
+[ -d $ROOT_DIR/pdf ] || mkdir $ROOT_DIR/pdf
+
+# For now, only supports C
+highlight_code_in_tex() {
+    FILE=$1
+    # Highlight Keywords as bold
+    for keyword in {static,inline,do,while,for,if,else,switch,case,default,return}; do
+        sed -i "s/$keyword/\\\textbf{$keyword}/g" $FILE
+    done
+}
+
+TEX_FILE=${ROOT_DIR}/${PROG_NAME}.latex
+[ -f $TEX_FILE ] || cat $1 > $TEX_FILE
+highlight_code_in_tex $TEX_FILE
