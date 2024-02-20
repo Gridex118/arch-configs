@@ -1,0 +1,3 @@
+#!/bin/bash
+
+godot --rendering-driver opengl3

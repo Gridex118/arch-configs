@@ -13,3 +13,4 @@ vim.opt.cmdheight = 0
 vim.opt.foldmethod = "manual"
 vim.opt.splitbelow = true
 vim.opt.autochdir = true
+vim.opt.clipboard = 'unnamedplus'
