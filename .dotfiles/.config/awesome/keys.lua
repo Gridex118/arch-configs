@@ -190,6 +190,12 @@ function()
     awful.spawn(scripts .. "fzathura.sh --menu")
 end
 ),
+-- Spawn Neovide
+keybind_no_fscr({altkey, "Shift"}, "n",
+function()
+    awful.spawn("neovide")
+end
+),
 -- launch rofi
 keybind_no_fscr({altkey}, "d",
 function()

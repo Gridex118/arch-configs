@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DIR_NAME=$1
+[ -d $DIR_NAME ] || mkdir $DIR_NAME
+
+cd $DIR_NAME
+mkdir pdf
+
