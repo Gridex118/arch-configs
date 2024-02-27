@@ -47,5 +47,24 @@ ls.add_snippets(nil, {
 
     },
 
+    clojure = {
+
+        snip({
+            trig = "defn",
+        }, {
+            text({"(defn "}),
+            insert(1, "function"),
+            text({ " ["}),
+            insert(2, ""),
+            text({
+                "]",
+                "  "
+            }),
+            insert(3, ""),
+            text({")"})
+        }),
+
+    }
+
 })
 
