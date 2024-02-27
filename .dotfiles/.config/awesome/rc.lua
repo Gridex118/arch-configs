@@ -105,7 +105,7 @@ awful.rules.rules = {
     },
   ---[[ No Float 
     {
-        rule_any = { class = { "firefox", "Evince" } },
+        rule_any = { class = { "firefox", "Evince", "libreoffice", } },
         properties = {maximized = false, floating = false}
     },
     --]]

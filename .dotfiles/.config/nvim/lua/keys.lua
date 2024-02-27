@@ -25,3 +25,5 @@ vim.keymap.set( 'n', "<space>q", ":bdel<CR>", key_opts )
 
 -- Neovim terminal
 vim.keymap.set("n", "<space>tr", ":split term://zsh || resize -5<CR><CR>i", key_opts)
+
+vim.keymap.set("n", "g?", ":lua vim.diagnostic.open_float()<CR>", key_opts)

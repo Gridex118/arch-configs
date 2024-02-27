@@ -152,4 +152,9 @@ require("lazy").setup({
         'nanotee/zoxide.vim',
     },
 
+    {
+        'guns/vim-sexp',
+        after = "BufEnter",
+    }
+
 })

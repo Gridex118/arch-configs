@@ -6,6 +6,10 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+lspconfig.clojure_lsp.setup {
+    capabilities = capabilities
+}
+
 lspconfig.texlab.setup {
     capabilities = capabilities
 }
@@ -100,6 +104,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = false,
-    signs = false
 }
 )
