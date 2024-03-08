@@ -6,7 +6,7 @@ touch $LOG_FILE
 open_pdf() {
     zathura --fork "$1"
     # record opened PDF
-    [ ! "$1" = "" ] && echo "$1" > $LOG_FILE
+    [[ "$1" = "" || "$1" ]] || echo "$1" > $LOG_FILE
 }
 
 if [ "$1" = "" ] || [ "$1" = "--menu" ]; then
