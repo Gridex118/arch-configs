@@ -120,7 +120,7 @@ require("lazy").setup({
     },
 
     {
-        "williamboman/mason.nvim", 
+        "williamboman/mason.nvim",
         config = function()
             require('mason').setup {}
         end,
@@ -149,12 +149,21 @@ require("lazy").setup({
     },
 
     {
-        'nanotee/zoxide.vim',
+        "nanotee/zoxide.vim",
     },
 
     {
-        'guns/vim-sexp',
+        "guns/vim-sexp",
         after = "BufEnter",
-    }
+    },
+
+    {
+        "Olical/conjure",
+    },
+
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
 })

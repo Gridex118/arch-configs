@@ -4,6 +4,10 @@ local function imap(key, cmd)
     vim.keymap.set('i', key, cmd, key_opts)
 end
 
+local function nmap(key, cmd)
+    vim.keymap.set('n', key, cmd, key_opts)
+end
+
 imap('(',       "()<Esc>i")
 imap('[',       "[]<Esc>i")
 imap('{',       "{}<Esc>i")
@@ -15,15 +19,18 @@ imap("-[",      "-[[<Esc>a")
 imap("-]",      "-]]<Esc>a")
 
 -- vim.keymap.set('i', "jj", "<Esc>", key_opts)
-vim.keymap.set('n', "zz", ":noh<cr>", key_opts)
+nmap("zz", ":noh<cr>")
 
-vim.keymap.set('n', "<Space>/", ":Telescope live_grep <cr>", key_opts)
+nmap("<Space>/", ":Telescope live_grep <cr>")
 
 -- Oil.nvim
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set( 'n', "<space>q", ":bdel<CR>", key_opts )
+nmap("-", "<CMD>Oil<CR>")
+nmap("<space>q", ":bdel<CR>")
 
 -- Neovim terminal
-vim.keymap.set("n", "<space>tr", ":split term://zsh || resize -5<CR><CR>i", key_opts)
+nmap("<space>tr", ":split term://zsh || resize -5<CR><CR>i")
 
-vim.keymap.set("n", "g?", ":lua vim.diagnostic.open_float()<CR>", key_opts)
+nmap("g?", ":lua vim.diagnostic.open_float()<CR>")
+
+-- Trouble
+nmap(" T", ":TroubleToggle document_diagnostics<CR>")

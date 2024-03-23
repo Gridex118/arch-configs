@@ -125,7 +125,7 @@ function()
 end
 ),
 -- Toggle network
-keybind({modkey}, "F12",
+keybind({}, "F12",
 function()
     awful.spawn(scripts .. "nettoggle.sh")
 end
