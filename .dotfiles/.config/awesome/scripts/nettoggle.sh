@@ -4,7 +4,7 @@ LOG_FILE=/tmp/nettoggle.log
 
 WLAN_STATUS=$(awk '{print $4}' <(rfkill | grep wlan))
 if [ $WLAN_STATUS = "blocked" ]; then
-    rfkill unblock wlan
+    rfkill unblock all
 fi
 unset WLAN_STATUS
 
