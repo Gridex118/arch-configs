@@ -12,6 +12,8 @@ local keys = {}
 
 local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
 local fullscreen = false
+local mousekeys = false
+local mousekey_accel = 0
 local last_delay_toggle = 0
 
 -- ===================================================================
@@ -116,6 +118,18 @@ keys.globalkeys = gears.table.join(
 keybind({modkey}, "m",
 function()
     no_turbo_repeat(awful.spawn, scripts .. "mouse.sh")
+end
+),
+-- Toggle mouse keys
+keybind({altkey}, "m",
+function ()
+    mousekey_accel = 0
+    mousekeys = not mousekeys
+    if mousekeys then
+        require('naughty').notify { text = 'Mouse keys on' }
+    else
+        require('naughty').notify { text = 'Mouse keys off' }
+    end
 end
 ),
 -- Toggle repeat delay
@@ -386,7 +400,62 @@ end),
 keybind_no_fscr({altkey, "Shift"}, "space",
 function()
     awful.layout.inc(-1)
-end)
+end),
+
+-- =========================================
+-- MOUSE KYES
+-- =========================================
+
+keybind({modkey}, "l",
+function ()
+    if mousekeys then
+        local move_speed = 10 + mousekey_accel
+        awful.spawn("xdotool mousemove_relative ".. move_speed .." 0")
+        mousekey_accel = mousekey_accel + 0.1
+    end
+end
+),
+keybind({modkey}, "h",
+function ()
+    if mousekeys then
+        local move_speed = 10 + mousekey_accel
+        awful.spawn("xdotool mousemove_relative -- -" .. move_speed .." 0")
+        mousekey_accel = mousekey_accel + 0.1
+    end
+end
+),
+keybind({modkey}, "k",
+function ()
+    if mousekeys then
+        local move_speed = 10 + mousekey_accel
+        awful.spawn("xdotool mousemove_relative -- 0 -" .. move_speed)
+        mousekey_accel = mousekey_accel + 0.1
+    end
+end
+),
+keybind({modkey}, "j",
+function ()
+    if mousekeys then
+        local move_speed = 10 + mousekey_accel
+        awful.spawn("xdotool mousemove_relative 0 " .. move_speed)
+        mousekey_accel = mousekey_accel + 0.1
+    end
+end
+),
+keybind({}, "Scroll_Lock",
+function ()
+    if mousekeys then
+        awful.spawn("xdotool click --delay 0 --repeat 1 1")
+    end
+end
+),
+keybind({}, "Pause",
+function ()
+    if mousekeys then
+        mousekey_accel = 0
+    end
+end
+)
 
 )
 -- ===================================================================
