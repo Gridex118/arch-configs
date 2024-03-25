@@ -431,6 +431,11 @@ function ()
         awful.spawn("xdotool mousemove_relative -- 0 -" .. move_speed)
         mousekey_accel = mousekey_accel + 0.1
     end
+end,
+function ()
+    if mousekeys then
+        mousekey_accel = 0
+    end
 end
 ),
 keybind({modkey}, "j",
