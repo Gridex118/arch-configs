@@ -2,6 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
+local naughty = require("naughty")
 
 -- Define mod keys
 local modkey = "Mod4"
@@ -12,8 +13,8 @@ local keys = {}
 
 local scripts = gears.filesystem.get_configuration_dir() .. "scripts/"
 local fullscreen = false
-local mousekeys = false
-local mousekey_accel = 0
+local mousekeys_active = false
+local mouse_speed = 0
 local last_delay_toggle = 0
 
 -- ===================================================================
@@ -118,18 +119,6 @@ keys.globalkeys = gears.table.join(
 keybind({modkey}, "m",
 function()
     no_turbo_repeat(awful.spawn, scripts .. "mouse.sh")
-end
-),
--- Toggle mouse keys
-keybind({altkey}, "m",
-function ()
-    mousekey_accel = 0
-    mousekeys = not mousekeys
-    if mousekeys then
-        require('naughty').notify { text = 'Mouse keys on' }
-    else
-        require('naughty').notify { text = 'Mouse keys off' }
-    end
 end
 ),
 -- Toggle repeat delay
@@ -400,68 +389,64 @@ end),
 keybind_no_fscr({altkey, "Shift"}, "space",
 function()
     awful.layout.inc(-1)
-end),
+end)
+
+)
 
 -- =========================================
 -- MOUSE KYES
 -- =========================================
 
-keybind({modkey}, "l",
+local function bind_mouse_key(key, direction)
+    return keybind(
+        {modkey}, key, function ()
+            local mouse_displacement = 10 + mouse_speed
+            local xdotool_move_args = ""
+            if direction == "left" then
+                xdotool_move_args = mouse_displacement .. " 0"
+            elseif direction == "right" then
+                xdotool_move_args =  -mouse_displacement .. " 0"
+            elseif direction == "up" then
+                xdotool_move_args =  "0 " .. -mouse_displacement
+            elseif direction == "down" then
+                xdotool_move_args =  "0 " .. mouse_displacement
+            end
+            if mousekeys_active then
+                awful.spawn("xdotool mousemove_relative -- " .. xdotool_move_args)
+                mouse_speed = mouse_speed + 1
+            end
+        end, function ()
+            if mousekeys_active then
+                mouse_speed = 0
+            end
+        end
+    )
+end
+
+keys.globalkeys = gears.table.join(keys.globalkeys,
+-- Toggle mouse keys
+keybind({altkey}, "m",
 function ()
-    if mousekeys then
-        local move_speed = 10 + mousekey_accel
-        awful.spawn("xdotool mousemove_relative ".. move_speed .." 0")
-        mousekey_accel = mousekey_accel + 0.1
+    mouse_speed = 0
+    mousekeys_active = not mousekeys_active
+    if mousekeys_active then
+        naughty.notify {text = 'Mouse keys on'}
+    else
+        naughty.notify {text = 'Mouse keys off'}
     end
 end
 ),
-keybind({modkey}, "h",
-function ()
-    if mousekeys then
-        local move_speed = 10 + mousekey_accel
-        awful.spawn("xdotool mousemove_relative -- -" .. move_speed .." 0")
-        mousekey_accel = mousekey_accel + 0.1
-    end
-end
-),
-keybind({modkey}, "k",
-function ()
-    if mousekeys then
-        local move_speed = 10 + mousekey_accel
-        awful.spawn("xdotool mousemove_relative -- 0 -" .. move_speed)
-        mousekey_accel = mousekey_accel + 0.1
-    end
-end,
-function ()
-    if mousekeys then
-        mousekey_accel = 0
-    end
-end
-),
-keybind({modkey}, "j",
-function ()
-    if mousekeys then
-        local move_speed = 10 + mousekey_accel
-        awful.spawn("xdotool mousemove_relative 0 " .. move_speed)
-        mousekey_accel = mousekey_accel + 0.1
-    end
-end
-),
+bind_mouse_key("l", "left"),
+bind_mouse_key("h", "right"),
+bind_mouse_key("k", "up"),
+bind_mouse_key("j", "down"),
 keybind({}, "Scroll_Lock",
 function ()
-    if mousekeys then
+    if mousekeys_active then
         awful.spawn("xdotool click --delay 0 --repeat 1 1")
     end
 end
-),
-keybind({}, "Pause",
-function ()
-    if mousekeys then
-        mousekey_accel = 0
-    end
-end
 )
-
 )
 -- ===================================================================
 -- Client Key bindings
