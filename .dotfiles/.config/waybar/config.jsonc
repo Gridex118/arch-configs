@@ -66,7 +66,7 @@
             "warning": 30,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}  {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
@@ -88,7 +88,7 @@
     },
     "clock": {
         "timezone": "Asia/Calcutta",
-        "format": "   {:%d <small>%a</small> %H:%M}",
+        "format": "   {:%d <small>%a</small>    %H:%M}",
         //"format": " {:%a %b %d %Y | %H:%M}",
         "format-alt": " {:%A %B %d %Y (%V) | %r}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -99,10 +99,4 @@
         "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
         "interval": 60
     },
-    "custom/custom": {
-        "format": "{}",
-        "exec": "~/.scripts/tools/expand arrow-icon",
-        "on-click": "~/.scripts/tools/expand_toolbar",
-        "return-type": "json"
-    }
 }

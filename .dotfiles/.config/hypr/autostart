@@ -16,39 +16,6 @@ export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 # variables
 scripts=~/.scripts
 
-# gsettings
-gsettings set org.gnome.desktop.interface gtk-theme 'Tokyonight-Dark-BL-LB'
-gsettings set org.gnome.desktop.interface font-name 'CaskaydiaCove Nerd Font 9'
-gsettings set org.gnome.desktop.interface icon-theme 'Tokyonight-Moon'
-gsettings set org.gnome.desktop.interface cursor-theme 'Sweet-cursors'
-
-# For nemo
-gsettings set org.cinnamon.desktop.default-applications.terminal exec kitty
-
-# notification daemon
-swaync &
-
-# waybar
-$scripts/launch_waybar &
-# $scripts/dynamic &
-
-# music daemon
-# mpd &
-# g4music &
-
-# effects
-# $scripts/tools/rgb &
-
-# Applets
-$scripts/appindicator.py &
-blueman-applet &
-nm-applet --indicator &\
-
-# other
-hyprctl setcursor Sweet-cursors 24
-wl-paste --watch cliphist store &
-notify-send -a aurora "hello $(whoami)" &
-libinput-gestures-setup start &
 
 # sleep 1
 # mpd-mpris &
