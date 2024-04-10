@@ -9,7 +9,7 @@ export GRIM_DEFAULT_DIR=~/Screenshots
 scripts=~/.scripts
 
 hyprpaper&
-hypridle&
 waybar&
 eww daemon
 eww open sidebar
+eww open timebar

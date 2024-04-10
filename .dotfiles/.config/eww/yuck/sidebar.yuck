@@ -25,7 +25,7 @@
             (label :text wifi-name :limit-width 14)
             )))
 
-(defwidget pannel []
+(defwidget sidebar-panel []
   (box :class "sidepannel" :orientation "v" :space-evenly "true"
        (box :orientation "v" :space-evenly "false"
             (box :orientation "h" :space-evenly "true"
@@ -52,4 +52,4 @@
                       :height "44%"
                       :anchor "bottom right")
   :wm-ignore false
-  (pannel))
+  (sidebar-panel))

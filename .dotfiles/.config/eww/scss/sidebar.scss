@@ -5,6 +5,17 @@
     padding: .7rem;
     margin: .3rem;
   }
+
+.sidepannel-2 {
+    background-color: $c0;
+    border-radius: 8px;
+    padding: .5rem;
+    padding-top: 1.5rem;
+  }
+
+.roundpannel-2 {
+    color: $c4;
+  }
   
 .roundpannel {
     background-color: $c1;
@@ -65,6 +76,11 @@
     color: $c4;
     font-family: mono;
     font-size: 4.5em;
+  }
+.time-label-2 {
+    color: $c4;
+    font-family: mono;
+    font-size: 23;
   }
   
 .cpu-radial {
