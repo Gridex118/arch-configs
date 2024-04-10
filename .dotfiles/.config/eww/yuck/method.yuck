@@ -1,20 +1,6 @@
 ;; METHOD.YUCK
 ;; this is for methods
 
-(defwidget sliderbar [value reveal action1 action2 label tooltip  utrue ufalse buttontip]
-  (eventbox :onhover {utrue}
-            :onhoverlost {ufalse}
-            :cursor "pointer"
-            (box   :class "scalebutton" :orientation "h" :space-evenly "false"
-                (button :tooltip {buttontip} :onclick {action1} {label})
-        (revealer :transition "slideright" :reveal reveal :duration "350ms"
-        (scale :value {value}
-               :min 0
-               :max 101
-               :tooltip {tooltip}
-               :onchange {action2}
-)))))
-
 (defwidget radialmeter [value text class labelclass tooltip]
     (circular-progress
         :value {value}
@@ -48,6 +34,4 @@
         (input :value "Timer ${inputvalue}" :onchange: "{}" :onaccept "${eww} update timer-name='{}'")
     )
 )
-
-
 
