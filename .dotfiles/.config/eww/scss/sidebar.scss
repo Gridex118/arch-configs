@@ -1,7 +1,8 @@
 // pannels
 .sidepannel {
     background-color: $c0;
-    border-radius: 8px;
+    background: rgba(000, 000, 000, 0.2);
+    border-radius: 4px;
     padding: .7rem;
     margin: .3rem;
   }
@@ -20,14 +21,6 @@
 .roundpannel button:hover {
     color: $c3;
     transition: 0.4s;
-}
-  
-.settingspannel {
-    background-color: $c1;
-    border-radius: 8px;
-    padding: 0px;
-    margin: .3rem;
-    color: $c4;
 }
   
 .settingspannel button {
@@ -49,15 +42,6 @@
 .wifipannel button:hover {
     color: $c3;
   }
-  
-.weatherpannel {
-    background-color: $a1;
-    border-radius: 8px;
-    color: $c4;
-    padding: 12px;
-    font-size: 3em;
-}
-
   
   // sidebar buttons
 .sys {
@@ -83,12 +67,6 @@
     color: $c4;
   }
   
-.spotify-label {
-    font-size: 1em;
-    padding-left: 7px;
-    color: $c6;
-  }
-  
 .time-label {
     color: $c4;
     font-family: mono;
@@ -112,15 +90,4 @@
 .ram-radial-label {
     font-size: 6em;
     padding: 2.5rem;
-  }
-  
-.spotifyimg {
-    border-radius: 10px;
-    background-repeat: no-repeat;
-    padding: .7rem;
-    margin: .3rem;
-    background-position: center;
-    background-size: cover;
-    min-height: 100px;
-    min-width: 100px;
   }

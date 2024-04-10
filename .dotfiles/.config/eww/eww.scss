@@ -1,10 +1,10 @@
 $t1: rgba(#242424, .0); //trans
 
 $c0: #080808; //background
-$c1: #101010; //lighter background
+$c1: rgba(#101010, .2); //lighter background
 $c2: #323232; //lighest background
 
-$a1: #181818; // Accent background
+$a1: rgba(#181818, .2); // Accent background
 
 $c3: #ff9283; //#FF968A; //salmon
 $c4: #ffffff; //#8A96FF; //blue
@@ -18,6 +18,7 @@ $c9: #ffffff; //#4457A; // green
 * {
   all: unset;
   background-color: $t1;
+  background: $t1;
   font-family: Cousine NF
 }
 
