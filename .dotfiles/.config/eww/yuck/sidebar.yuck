@@ -1,0 +1,57 @@
+;; SIDEBAR
+
+(defwidget ram []
+  (box :class "roundpannel" :space-evenly "false" :orientation "v"
+       (radialmeter	:value "${EWW_RAM.used_mem_perc}"
+                    :text ""
+                    :tooltip "RAM: ${EWW_RAM.used_mem_perc}%"
+                    :labelclass "ram-radial-label"
+                    :class "ram-radial")))
+
+(defwidget cpu []
+  (box :class "roundpannel" :space-evenly "false" :orientation "v"
+       (radialmeter  :value "${EWW_CPU.avg}"
+                    :text ""
+                    :tooltip "CPU: ${EWW_CPU.avg}%"
+                    :labelclass "cpu-radial-label"
+                    :class "cpu-radial")))
+
+(defwidget wifi []
+  (box :class "roundpannel" :space-evenly "false" :orientation "v" :vexpand "false" :hexpand "false"
+       (box :class "wifipannel" :space-evenly "true" :orientation "h"
+            (button :valign "start" wifi-icon)
+            )
+       (box :space-evenly "true" :orientation "v"
+            (label :text wifi-text)
+            (label :text wifi-name :limit-width 14)
+            )
+       ))
+
+(defwidget pannel []
+  (box :class "sidepannel" :orientation "v" :space-evenly "true"
+       (box :orientation "v" :space-evenly "false"
+            (box :orientation "h" :space-evenly "true"
+                 (time))
+            (box :orientation "h" :space-evenly "true"
+                 (cpu)
+                 (ram))
+            (box :orientation "h" :space-evenly "true"
+                 (wifi))
+            )))
+
+
+(defwidget time []
+  (box :class "roundpannel" :space-evenly "false" :orientation "v"
+       (label :text clock_time  :class "time-label")
+       (label :text "${clock_day_int}/${clock_month_int}/${clock_year_int} - ${clock_day_1}"  :class "date-label")))
+
+(defwindow sidebar
+  :monitor 0
+  :stacking "bg"
+  :windowtype "normal"
+  :geometry (geometry :x "2%"
+                      :y "6%"
+                      :width "25%"
+                      :height "40%"
+                      :anchor "bottom right")
+  (pannel))

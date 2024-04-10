@@ -1,0 +1,53 @@
+;; METHOD.YUCK
+;; this is for methods
+
+(defwidget sliderbar [value reveal action1 action2 label tooltip  utrue ufalse buttontip]
+  (eventbox :onhover {utrue}
+            :onhoverlost {ufalse}
+            :cursor "pointer"
+            (box   :class "scalebutton" :orientation "h" :space-evenly "false"
+                (button :tooltip {buttontip} :onclick {action1} {label})
+        (revealer :transition "slideright" :reveal reveal :duration "350ms"
+        (scale :value {value}
+               :min 0
+               :max 101
+               :tooltip {tooltip}
+               :onchange {action2}
+)))))
+
+(defwidget radialmeter [value text class labelclass tooltip]
+    (circular-progress
+        :value {value}
+        :class "radial ${class}"
+        :thickness 12
+        :tooltip tooltip
+	    :start-at 0
+        (label :text {text}
+            :class "radial-label ${labelclass}"
+            :limit-width 2
+            :wrap false)))
+
+(defwidget timermeter [value text class labelclass tooltip inputvalue]
+    (box :orientation "v" :space-evenly "false" :spacing 10
+        (circular-progress
+            :value {value}
+            :class "radial ${class}"
+            :thickness 4
+            :tooltip tooltip
+            :start-at 0
+            (label :text {text}
+                :class "radial-label ${labelclass}"
+                :limit-width 12
+                :wrap true)
+        )
+        (box :orientation "h" :space-evenly "true" :class "round-pannel-a"
+            (button :onclick "" "+")
+            (button :onclick "" "")
+            (button :onclick "" "漏")
+        )
+        (input :value "Timer ${inputvalue}" :onchange: "{}" :onaccept "${eww} update timer-name='{}'")
+    )
+)
+
+
+

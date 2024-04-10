@@ -1,0 +1,126 @@
+// pannels
+.sidepannel {
+    background-color: $c0;
+    border-radius: 8px;
+    padding: .7rem;
+    margin: .3rem;
+  }
+  
+.roundpannel {
+    background-color: $c1;
+    border-radius: 8px;
+    padding: .7rem;
+    margin: .3rem;
+    color: $c4;
+  }
+.roundpannel button {
+    transition: 0.4s;
+}
+  
+.roundpannel button:hover {
+    color: $c3;
+    transition: 0.4s;
+}
+  
+.settingspannel {
+    background-color: $c1;
+    border-radius: 8px;
+    padding: 0px;
+    margin: .3rem;
+    color: $c4;
+}
+  
+.settingspannel button {
+    color: $c4;
+    font-size: 2em;
+  }
+  
+.wifipannel {
+    background-color: $c1;
+    border-radius: 8px;
+    color: $c4;
+    font-size: 1em;
+  }
+  
+.wifipannel button {
+    font-size: 5.4em;
+  }
+  
+.wifipannel button:hover {
+    color: $c3;
+  }
+  
+.weatherpannel {
+    background-color: $a1;
+    border-radius: 8px;
+    color: $c4;
+    padding: 12px;
+    font-size: 3em;
+}
+
+  
+  // sidebar buttons
+.sys {
+    background-color: $c1;
+    border-radius: 50px;
+    margin: .3rem;
+    padding: 5px 5px 5px 5px;
+  }
+.sys button {
+    font-size: 3.3em;
+    color: $c3;
+    transition: 0.7s;
+    padding: 9px 5px 5px 5px;
+  }
+  
+.sys button:hover {
+    color: $c7;
+  }
+  
+.date-label {
+    font-size: 1.3em;
+    padding-left: 5px;
+    color: $c4;
+  }
+  
+.spotify-label {
+    font-size: 1em;
+    padding-left: 7px;
+    color: $c6;
+  }
+  
+.time-label {
+    color: $c4;
+    font-family: mono;
+    font-size: 4.5em;
+  }
+  
+.cpu-radial {
+    color: $c5;
+    background-color: $a1;
+  }
+  
+.cpu-radial-label {
+    font-size: 6em;
+    padding: 2.5rem;
+  }
+  
+.ram-radial {
+    color: $c5;
+    background-color: $a1;
+  }
+.ram-radial-label {
+    font-size: 6em;
+    padding: 2.5rem;
+  }
+  
+.spotifyimg {
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    padding: .7rem;
+    margin: .3rem;
+    background-position: center;
+    background-size: cover;
+    min-height: 100px;
+    min-width: 100px;
+  }

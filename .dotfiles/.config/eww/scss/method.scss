@@ -1,0 +1,30 @@
+* scale trough highlight {
+  all: unset;
+  //background-color: $c2;
+  color: #000000;
+  border-radius: 10px;
+}
+
+* scale trough {
+  all: unset;
+  background-color: $c2;
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+* scale trough highlight {
+  background-color: $c6;
+  color: #000000;
+  border-radius: 10px;
+}
+
+* scale trough {
+  background-color: $c2;
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

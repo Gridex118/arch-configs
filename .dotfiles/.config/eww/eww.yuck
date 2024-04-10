@@ -1,0 +1,21 @@
+(defpoll clock_time :interval "1m" "date +\%I:%M")
+(defpoll clock_day_int :interval "12h" "date '+%d'")
+(defpoll clock_month_int :interval "12h" "date '+%m'")
+(defpoll clock_year_int :interval "12h" "date '+%Y'")
+
+(defpoll clock_day_1 :interval "12h" "date '+%A'")
+(defpoll clock_day_2 :interval "12h" "date --date='next day' +'%A'")
+
+(defvar eww "eww -c $HOME/.config/eww/")
+
+(defvar wifi-icon "直")
+(defvar wifi-text "Connected")
+(defpoll wifi-name :interval "10s" "bash scripts/wifi.sh --update")
+
+
+(defvar clock_reveal false)
+(defvar com_reveal false)
+(defvar mic_reveal false)
+
+(include "./yuck/method.yuck")
+(include "./yuck/sidebar.yuck")
