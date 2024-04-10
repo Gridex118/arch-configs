@@ -1,0 +1,24 @@
+;; LEFTBAR
+
+(defwidget leftbar-panel []
+  (box :class "lpanel" :orientation "v" :space-evenly "true"
+       (box :orientation "v" :space-evenly "false"
+            (box :orientation "h" :space-evenly "true"
+                 (leftbar-time)))))
+
+
+(defwidget leftbar-time []
+  (box :class "lpanel-roundpanel" :space-evenly "false" :orientation "v"
+       (label :text time_hours  :class "time-label-2")
+       (label :text time_mins :class "time-label-2")))
+
+(defwindow leftbar
+  :monitor 0
+  :stacking "fg"
+  :windowtype "dock"
+  :exclusive true
+  :geometry (geometry :height "15%"
+                      :x "7px"
+                      :anchor "center left")
+  :wm-ignore false
+  (leftbar-panel))

@@ -1,4 +1,4 @@
-;; SIDEBAR
+;; RESOURCES PANEL
 
 (defwidget ram []
   (box :class "roundpannel" :space-evenly "false" :orientation "v"
@@ -25,8 +25,8 @@
             (label :text wifi-name :limit-width 14)
             )))
 
-(defwidget sidebar-panel []
-  (box :class "sidepannel" :orientation "v" :space-evenly "true"
+(defwidget resources-panel []
+  (box :class "respanel" :orientation "v" :space-evenly "true"
        (box :orientation "v" :space-evenly "false"
             (box :orientation "h" :space-evenly "true"
                  (time))
@@ -42,7 +42,7 @@
        (label :text clock_time  :class "time-label")
        (label :text "${clock_day_int}/${clock_month_int}/${clock_year_int} - ${clock_day_1}"  :class "date-label")))
 
-(defwindow sidebar
+(defwindow resources
   :monitor 0
   :stacking "bg"
   :windowtype "normal"
@@ -52,4 +52,4 @@
                       :height "44%"
                       :anchor "bottom right")
   :wm-ignore false
-  (sidebar-panel))
+  (resources-panel))

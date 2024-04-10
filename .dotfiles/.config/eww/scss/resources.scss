@@ -1,22 +1,11 @@
 // pannels
-.sidepannel {
+.respanel {
     background-color: $c0;
     border-radius: 8px;
     padding: .7rem;
     margin: .3rem;
   }
 
-.sidepannel-2 {
-    background-color: $c0;
-    border-radius: 8px;
-    padding: .5rem;
-    padding-top: 1.5rem;
-  }
-
-.roundpannel-2 {
-    color: $c4;
-  }
-  
 .roundpannel {
     background-color: $c1;
     border-radius: 8px;
@@ -48,7 +37,7 @@
     color: $c3;
   }
   
-  // sidebar buttons
+  // buttons
 .sys {
     background-color: $c1;
     border-radius: 50px;

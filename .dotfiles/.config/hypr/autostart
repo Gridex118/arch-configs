@@ -3,13 +3,11 @@
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP --all &
 
-export GRIM_DEFAULT_DIR=~/Screenshots
-
 # variables
 scripts=~/.scripts
 
 hyprpaper&
 waybar&
 eww daemon
-eww open sidebar
-eww open timebar
+eww open resources
+eww open leftbar

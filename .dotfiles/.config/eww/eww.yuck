@@ -27,5 +27,5 @@
 
 (include "./yuck/method.yuck")
 
-(include "./yuck/timebar.yuck")
-(include "./yuck/sidebar.yuck")
+(include "./yuck/leftbar.yuck")
+(include "./yuck/resources.yuck")
