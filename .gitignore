@@ -1,3 +1,4 @@
 .dotfiles/.config/nvim/plugin/
 *.json
 *.log
+.clj-kondo/

@@ -1,8 +1,7 @@
 // pannels
 .sidepannel {
     background-color: $c0;
-    background: rgba(000, 000, 000, 0.2);
-    border-radius: 4px;
+    border-radius: 8px;
     padding: .7rem;
     margin: .3rem;
   }
@@ -22,11 +21,6 @@
     color: $c3;
     transition: 0.4s;
 }
-  
-.settingspannel button {
-    color: $c4;
-    font-size: 2em;
-  }
   
 .wifipannel {
     background-color: $c1;

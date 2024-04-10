@@ -19,13 +19,11 @@
 (defwidget wifi []
   (box :class "roundpannel" :space-evenly "false" :orientation "v" :vexpand "false" :hexpand "false"
        (box :class "wifipannel" :space-evenly "true" :orientation "h"
-            (button :valign "start" wifi-icon)
-            )
+            (button :valign "start" wifi-icon))
        (box :space-evenly "true" :orientation "v"
             (label :text wifi-text)
             (label :text wifi-name :limit-width 14)
-            )
-       ))
+            )))
 
 (defwidget pannel []
   (box :class "sidepannel" :orientation "v" :space-evenly "true"
@@ -36,8 +34,7 @@
                  (cpu)
                  (ram))
             (box :orientation "h" :space-evenly "true"
-                 (wifi))
-            )))
+                 (wifi)))))
 
 
 (defwidget time []
@@ -49,9 +46,10 @@
   :monitor 0
   :stacking "bg"
   :windowtype "normal"
-  :geometry (geometry :x "2%"
+  :geometry (geometry :x "10"
                       :y "6%"
                       :width "25%"
-                      :height "40%"
+                      :height "44%"
                       :anchor "bottom right")
+  :wm-ignore false
   (pannel))
