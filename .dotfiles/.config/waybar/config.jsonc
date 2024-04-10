@@ -12,10 +12,6 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces"
-        // "cpu",
-        // "memory",
-        // "temperature",
-        // "disk",
     ],
     "modules-center": [
         "clock"
@@ -23,10 +19,6 @@
     "modules-right": [
         "network",
         "battery"
-        // "custom/weather",
-        // "custom/cycle_wall",
-        // "custom/clipboard",
-        // "custom/custom"
     ],
     "hyprland/workspaces": {
         // "format": "{icon} {name}",
@@ -35,21 +27,17 @@
             "active": "",
             "default": ""
         },
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
         "on-click": "activate"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "↕{bandwidthTotalBytes}",
+        "format": "↕ {essid} {bandwidthTotalBytes}",
         "format-disconnected": "{icon} No Internet",
         "format-linked": " {ifname} (No IP)",
-        "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "{icon} Disconnected",
-        "on-click-right": "nm-connection-editor",
         "format-icons": {
             "ethernet": "",
             "disconnected": "⚠",
