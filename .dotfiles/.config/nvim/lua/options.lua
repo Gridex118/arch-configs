@@ -14,3 +14,7 @@ vim.opt.foldmethod = "manual"
 vim.opt.splitbelow = true
 vim.opt.autochdir = true
 vim.opt.clipboard = 'unnamedplus'
+
+if vim.g.neovide then
+    vim.opt.guifont = {'MesloLGS NF:h11'}
+end
