@@ -1,16 +1,13 @@
 <h1 align="center">Dotfiles</h1>
 
-Dotfiles for my AwesomeWM workflow.  
-
-![Screenshot](Screenshots/shots.png)
+Dotfiles for my Hyprland workflow.  
 
 ## Dependencies
-* Awesome
+* Hyprland
 * Rofi
+* Hyprlock
+* Hypridle
+* Waybar
 
 ## Optional Dependencies
-* Picom
-* Conky
 * Unclutter
-* Flameshot
-* i3lock
