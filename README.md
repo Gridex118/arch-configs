@@ -8,6 +8,4 @@ Dotfiles for my Hyprland workflow.
 * Hyprlock
 * Hypridle
 * Waybar
-
-## Optional Dependencies
-* Unclutter
+* Eww
