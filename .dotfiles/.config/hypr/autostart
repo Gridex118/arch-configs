@@ -7,7 +7,6 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT
 scripts=~/.scripts
 
 hyprpaper&
-waybar&
 eww daemon
 eww open resources
 eww open leftbar
