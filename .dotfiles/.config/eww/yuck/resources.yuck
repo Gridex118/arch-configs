@@ -19,11 +19,10 @@
 (defwidget wifi []
   (box :class "roundpannel" :space-evenly "false" :orientation "v" :vexpand "false" :hexpand "false"
        (box :class "wifipannel" :space-evenly "true" :orientation "h"
-            (button :valign "start" wifi-icon))
+            (button :valign "start" :onclick "scripts/wifi.sh" wifi-icon))
        (box :space-evenly "true" :orientation "v"
             (label :text wifi-text)
-            (label :text wifi-name :limit-width 14)
-            )))
+            (label :text wifi-name :limit-width 14))))
 
 (defwidget resources-panel []
   (box :class "respanel" :orientation "v" :space-evenly "true"

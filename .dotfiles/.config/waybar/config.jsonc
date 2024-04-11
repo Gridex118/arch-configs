@@ -1,5 +1,6 @@
 {
     "id": "top",
+    "mode": "dock",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     //"gtk-layer-shell": "false",

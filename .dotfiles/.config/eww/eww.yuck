@@ -16,7 +16,7 @@
 
 (defvar wifi-icon "直")
 (defvar wifi-text "Connected")
-(defpoll wifi-name :interval "3s" "bash scripts/wifi.sh --update")
+(defpoll wifi-name :interval "3s" "bash scripts/wifi.sh")
 
 
 (defvar mic-icon "")
