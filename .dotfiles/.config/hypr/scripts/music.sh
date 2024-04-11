@@ -13,7 +13,7 @@ if [ $(pgrep cmus) ]; then
     fi
     unset PLAYING
 else
-    alacritty -t cmus -e cmus
+    alacritty -t Cmus -e cmus
     echo "playing:true" > $DATA
 fi
 
