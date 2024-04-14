@@ -1,11 +1,11 @@
-if [ -z "$(hyprctl binds | grep killactive)" ]; then
-    hyprctl keyword bind ALT, Q, killactive
-    for w in {1..9}; do
-        hyprctl keyword bind ALT, $w, exec, hyprctl dispatch workspace $w
-    done
-else
-    hyprctl keyword unbind ALT, Q
-    for w in {1..9}; do
-        hyprctl keyword unbind ALT, $w
-    done
-fi
+#!/bin/bash
+
+handle() {
+    if [ "${1:0:10}" == "fullscreen" ]; then
+        if [ "${1:12:1}" == "1" ]; then
+            hyprctl dispatch submap fullscr
+        fi
+    fi
+}
+
+socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
