@@ -2,8 +2,8 @@
 (defvar mic_percent "2")
 (defvar volume_percent "75")
 
-(defpoll clock_time :interval "1m" "date +\%I:%M")
-(defpoll time_hours :interval "1m" "date +\%I")
+(defpoll clock_time :interval "1m" "date +\%H:%M")
+(defpoll time_hours :interval "1m" "date +\%H")
 (defpoll time_mins :interval "1m" "date +\%M")
 (defpoll clock_day_int :interval "12h" "date '+%d'")
 (defpoll clock_month_int :interval "12h" "date '+%m'")

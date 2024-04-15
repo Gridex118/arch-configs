@@ -1,11 +1,8 @@
 #!/bin/bash
 
-handle() {
-    if [ "${1:0:10}" == "fullscreen" ]; then
-        if [ "${1:12:1}" == "1" ]; then
-            hyprctl dispatch submap fullscr
-        fi
-    fi
-}
+hyprctl dispatch fullscreen
 
-socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
+FULLSCR=`hyprctl activeworkspace| grep "hasfullscreen"| awk -F: '{print $2}'| tr -d ' '`
+if [ $FULLSCR = '1' ]; then
+    hyprctl dispatch submap fullscr
+fi
