@@ -2,7 +2,7 @@
 
 (defwidget ram []
   (box :class "roundpannel" :space-evenly "false" :orientation "v"
-       (radialmeter	:value "${EWW_RAM.used_mem_perc}"
+       (radialmeter :value "${EWW_RAM.used_mem_perc}"
                     :text ""
                     :tooltip "RAM: ${EWW_RAM.used_mem_perc}%"
                     :labelclass "ram-radial-label"
@@ -10,7 +10,7 @@
 
 (defwidget cpu []
   (box :class "roundpannel" :space-evenly "false" :orientation "v"
-       (radialmeter  :value "${EWW_CPU.avg}"
+       (radialmeter :value "${EWW_CPU.avg}"
                     :text ""
                     :tooltip "CPU: ${EWW_CPU.avg}%"
                     :labelclass "cpu-radial-label"

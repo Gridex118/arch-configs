@@ -1,31 +1,21 @@
-(defvar light_percent "100")
-(defvar mic_percent "2")
-(defvar volume_percent "75")
+(defpoll clock_time :interval "1m" `date +\%H:%M`)
+(defpoll time_hours :interval "1m" `date +\%H`)
+(defpoll time_mins :interval "1m" `date +\%M`)
+(defpoll clock_day_int :interval "12h" `date '+%d'`)
+(defpoll clock_month_int :interval "12h" `date '+%m'`)
+(defpoll clock_year_int :interval "12h" `date '+%Y'`)
 
-(defpoll clock_time :interval "1m" "date +\%H:%M")
-(defpoll time_hours :interval "1m" "date +\%H")
-(defpoll time_mins :interval "1m" "date +\%M")
-(defpoll clock_day_int :interval "12h" "date '+%d'")
-(defpoll clock_month_int :interval "12h" "date '+%m'")
-(defpoll clock_year_int :interval "12h" "date '+%Y'")
-
-(defpoll clock_day_1 :interval "12h" "date '+%A'")
-(defpoll clock_day_2 :interval "12h" "date --date='next day' +'%A'")
+(defpoll clock_day_1 :interval "12h" `date '+%A'`)
 
 (defvar eww "eww -c $HOME/.config/eww/")
 
 (defvar wifi-icon "直")
 (defvar wifi-text "Connected")
-(defpoll wifi-name :interval "3s" "bash scripts/wifi.sh")
-
-
-(defvar mic-icon "")
-(defvar sound-icon "墳")
-(defvar noti-icon "ﮖ")
+(defpoll wifi-name :interval "2s" `bash scripts/wifi.sh`)
 
 (defvar clock_reveal false)
 
-(include "./yuck/method.yuck")
+(include "./yuck/commons.yuck")
 
 (include "./yuck/leftbar.yuck")
 (include "./yuck/resources.yuck")

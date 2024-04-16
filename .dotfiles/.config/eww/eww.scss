@@ -8,7 +8,7 @@ $a1: rgba(#181818, .2); // Accent background
 
 $c3: #ff9283; //#FF968A; //salmon
 $c4: #ffffff; //#8A96FF; //blue
-$c5: #ffffff; //#9AFF96; //green
+$c5: #50fefc; //#ffffff;
 $c6: #ffffff; //#FD99D6; //pink
 
 $c7: #ffffff; //white
@@ -21,7 +21,7 @@ $c9: #ffffff; //#4457A; // green
   font-family: Cousine NF
 }
 
-@import './scss/method.scss';
+@import './scss/commons.scss';
 // resources panel
 @import './scss/resources.scss';
 // timebar
