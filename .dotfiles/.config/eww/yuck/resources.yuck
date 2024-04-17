@@ -1,20 +1,16 @@
 ;; RESOURCES PANEL
 
 (defwidget ram []
-  (box :class "roundpannel" :space-evenly "false" :orientation "v"
+  (box :class "roundpannel" :space-evenly false :orientation "v"
        (radialmeter :value "${EWW_RAM.used_mem_perc}"
                     :text ""
-                    :tooltip "RAM: ${EWW_RAM.used_mem_perc}%"
-                    :labelclass "ram-radial-label"
-                    :class "ram-radial")))
+                    :tooltip "RAM: ${EWW_RAM.used_mem_perc}%")))
 
 (defwidget cpu []
   (box :class "roundpannel" :space-evenly "false" :orientation "v"
        (radialmeter :value "${EWW_CPU.avg}"
                     :text ""
-                    :tooltip "CPU: ${EWW_CPU.avg}%"
-                    :labelclass "cpu-radial-label"
-                    :class "cpu-radial")))
+                    :tooltip "CPU: ${EWW_CPU.avg}%")))
 
 (defwidget wifi []
   (box :class "roundpannel" :space-evenly "false" :orientation "v" :vexpand "false" :hexpand "false"
@@ -39,7 +35,7 @@
 (defwidget time []
   (box :class "roundpannel" :space-evenly "false" :orientation "v"
        (label :text clock_time  :class "time-label")
-       (label :text "${clock_day_int}/${clock_month_int}/${clock_year_int} - ${clock_day_1}"  :class "date-label")))
+       (label :text "${clock_day_int}/${clock_month_int} - ${clock_day_1}"  :class "date-label")))
 
 (defwindow resources
   :monitor 0

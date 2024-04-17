@@ -17,6 +17,7 @@ require('plugins')
 require('options')
 
 vim.g.maplocalleader = ' ,'
+
 vim.cmd([[
 
     syntax on

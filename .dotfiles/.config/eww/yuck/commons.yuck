@@ -1,4 +1,4 @@
-(defwidget radialmeter [value text class labelclass tooltip]
+(defwidget radialmeter [value text tooltip]
   (circular-progress
     :value {value}
     :thickness 12
@@ -6,6 +6,6 @@
     :tooltip tooltip
     :start-at 0
     (label :text {text}
-           :class "radial-label ${labelclass}"
+           :class "radial-label"
            :limit-width 2
            :wrap false)))

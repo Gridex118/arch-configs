@@ -4,7 +4,7 @@
     border-radius: 8px;
     padding: .7rem;
     margin: .3rem;
-  }
+}
 
 .roundpannel {
     background-color: $c1;
@@ -12,83 +12,54 @@
     padding: .7rem;
     margin: .3rem;
     color: $c4;
-  }
+}
+
 .roundpannel button {
     transition: 0.4s;
 }
-  
+
 .roundpannel button:hover {
     color: $c3;
     transition: 0.4s;
 }
-  
+
 .wifipannel {
     background-color: $c1;
     border-radius: 8px;
     color: $c4;
     font-size: 1em;
-  }
-  
+}
+
 .wifipannel button {
     font-size: 5.4em;
-  }
-  
+}
+
 .wifipannel button:hover {
     color: $c3;
-  }
-  
-  // buttons
-.sys {
-    background-color: $c1;
-    border-radius: 50px;
-    margin: .3rem;
-    padding: 5px 5px 5px 5px;
-  }
-.sys button {
-    font-size: 3.3em;
-    color: $c3;
-    transition: 0.7s;
-    padding: 9px 5px 5px 5px;
-  }
-  
-.sys button:hover {
-    color: $c7;
-  }
-  
+}
+
+// buttons
 .date-label {
     font-size: 1.3em;
     padding-left: 5px;
     color: $c4;
-  }
-  
+}
+
 .time-label {
     color: $c4;
     font-family: mono;
     font-size: 4.5em;
-  }
+}
+
 .time-label-2 {
     color: $c4;
     font-family: mono;
     font-size: 23;
-  }
-  
-.cpu-radial {
-    color: $c5;
-    background-color: $a1;
-  }
-  
-.cpu-radial-label {
+}
+
+.radial-label {
     color: $c4;
     font-size: 6em;
     padding: 2.5rem;
-  }
-  
-.ram-radial {
-    color: $c5;
-    background-color: $a1;
-  }
-.ram-radial-label {
-    color: $c4;
-    font-size: 6em;
-    padding: 2.5rem;
-  }
+}
+
