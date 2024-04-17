@@ -1,8 +1,8 @@
 (defwidget radialmeter [value text class labelclass tooltip]
   (circular-progress
     :value {value}
-    :class {class}
     :thickness 12
+    :style "color: #50fefc;"
     :tooltip tooltip
     :start-at 0
     (label :text {text}
