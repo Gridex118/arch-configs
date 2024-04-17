@@ -1,19 +1,17 @@
-(defpoll clock_time :interval "1m" `date +\%H:%M`)
-(defpoll time_hours :interval "1m" `date +\%H`)
-(defpoll time_mins :interval "1m" `date +\%M`)
-(defpoll clock_day_int :interval "12h" `date '+%d'`)
-(defpoll clock_month_int :interval "12h" `date '+%m'`)
-(defpoll clock_year_int :interval "12h" `date '+%Y'`)
-
-(defpoll clock_day_1 :interval "12h" `date '+%A'`)
-
 (defvar eww "eww -c $HOME/.config/eww/")
+
+(defvar clock-reveal false)
+(defpoll clock-time :interval "1m" `date +\%H:%M`)
+(defpoll clock-hours :interval "1m" `date +\%H`)
+(defpoll clock-mins :interval "1m" `date +\%M`)
+(defpoll clock-day :interval "12h" `date '+%d'`)
+(defpoll clock-month :interval "12h" `date '+%m'`)
+(defpoll clock-year :interval "12h" `date '+%Y'`)
+(defpoll clock-weekday :interval "12h" `date '+%A'`)
 
 (defvar wifi-icon "直")
 (defvar wifi-text "Connected")
 (defpoll wifi-name :interval "2s" `bash scripts/wifi.sh`)
-
-(defvar clock_reveal false)
 
 (include "./commons/commons.yuck")
 

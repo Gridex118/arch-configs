@@ -1,44 +1,10 @@
-// pannels
-.respanel {
+.resource-panel {
     background-color: $c0;
     border-radius: 8px;
     padding: .7rem;
     margin: .3rem;
 }
 
-.roundpannel {
-    background-color: $c1;
-    border-radius: 8px;
-    padding: .7rem;
-    margin: .3rem;
-    color: $c4;
-}
-
-.roundpannel button {
-    transition: 0.4s;
-}
-
-.roundpannel button:hover {
-    color: $c3;
-    transition: 0.4s;
-}
-
-.wifipannel {
-    background-color: $c1;
-    border-radius: 8px;
-    color: $c4;
-    font-size: 1em;
-}
-
-.wifipannel button {
-    font-size: 5.4em;
-}
-
-.wifipannel button:hover {
-    color: $c3;
-}
-
-// buttons
 .date-label {
     font-size: 1.3em;
     padding-left: 5px;
@@ -51,15 +17,9 @@
     font-size: 4.5em;
 }
 
-.time-label-2 {
-    color: $c4;
-    font-family: mono;
-    font-size: 23;
-}
-
 .radial-label {
     color: $c4;
-    font-size: 6em;
+    font-size: 4em;
     padding: 2.5rem;
+    font-family: mono;
 }
-

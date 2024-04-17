@@ -1,50 +1,69 @@
-;; RESOURCES PANEL
+(defwidget time []
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "vertical"
+       (box :space-evenly false
+            :style "padding: .7rem; margin: .3rem;"
+            :halign "center"
+            :orientation "horizontal"
+            (label :text "${clock-hours}:" :class "time-label")
+            (label :text clock-mins :class "time-label" :style "color: #50fefc"))
+       (label :text "${clock-day}/${clock-month} - ${clock-weekday}" 
+              :class "date-label")))
 
 (defwidget ram []
-  (box :class "roundpannel" :space-evenly false :orientation "v"
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "vertical"
        (radialmeter :value "${EWW_RAM.used_mem_perc}"
                     :text ""
                     :tooltip "RAM: ${EWW_RAM.used_mem_perc}%")))
 
 (defwidget cpu []
-  (box :class "roundpannel" :space-evenly "false" :orientation "v"
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "vertical"
        (radialmeter :value "${EWW_CPU.avg}"
                     :text ""
                     :tooltip "CPU: ${EWW_CPU.avg}%")))
 
 (defwidget wifi []
-  (box :class "roundpannel" :space-evenly "false" :orientation "v" :vexpand "false" :hexpand "false"
-       (box :class "wifipannel" :space-evenly "true" :orientation "h"
-            (button :valign "start" :onclick "scripts/wifi.sh" wifi-icon))
-       (box :space-evenly "true" :orientation "v"
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "v"
+       :vexpand false
+       :hexpand false
+       (box :space-evenly false
+            :orientation "vertical"
+            (label :text wifi-icon :style "font-size: 5.4em;")
             (label :text wifi-text)
-            (label :text wifi-name :limit-width 14))))
+            (label :text wifi-name :limit-width 14 :style "color: #50fefc;"))))
 
-(defwidget resources-panel []
-  (box :class "respanel" :orientation "v" :space-evenly "true"
-       (box :orientation "v" :space-evenly "false"
-            (box :orientation "h" :space-evenly "true"
+(defwidget resource-panel []
+  (box :class "resource-panel"
+       :orientation "vertical"
+       :space-evenly true
+       (box :orientation "vertical"
+            :space-evenly false
+            (box :orientation "horizontal"
+                 :space-evenly true
                  (time))
-            (box :orientation "h" :space-evenly "true"
+            (box :orientation "horizontal"
+                 :space-evenly true
                  (cpu)
                  (ram))
-            (box :orientation "h" :space-evenly "true"
+            (box :orientation "h"
+                 :space-evenly true
                  (wifi)))))
-
-
-(defwidget time []
-  (box :class "roundpannel" :space-evenly "false" :orientation "v"
-       (label :text clock_time  :class "time-label")
-       (label :text "${clock_day_int}/${clock_month_int} - ${clock_day_1}"  :class "date-label")))
 
 (defwindow resources
   :monitor 0
   :stacking "bg"
   :windowtype "normal"
+  :wm-ignore false
   :geometry (geometry :x "10"
                       :y "6%"
                       :width "25%"
                       :height "44%"
                       :anchor "bottom right")
-  :wm-ignore false
-  (resources-panel))
+  (resource-panel))
