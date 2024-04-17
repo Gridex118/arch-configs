@@ -15,7 +15,7 @@
 
 (defvar clock_reveal false)
 
-(include "./yuck/commons.yuck")
+(include "./commons/commons.yuck")
 
-(include "./yuck/leftbar.yuck")
-(include "./yuck/resources.yuck")
+(include "./leftbar/leftbar.yuck")
+(include "./resources/resources.yuck")
