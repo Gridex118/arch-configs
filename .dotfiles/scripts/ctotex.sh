@@ -2,7 +2,7 @@
 
 SRC="$1"
 FILENAME="${SRC%.*}".latex
-DST="$HOME/.authoring/texcode/"$FILENAME
+DST="$HOME/authoring/texcode/"$FILENAME
 if [[ -f $DST ]]; then
     rm $DST
 fi
@@ -11,6 +11,8 @@ echo "\\documentclass[14pt]{extarticle}" >> $DST
 echo "\\usepackage[paperwidth=20cm, paperheight=28cm, margin=1cm]{geometry}" >> $DST
 echo "\\usepackage[a4, frame, center, noinfo]{crop}" >> $DST
 echo "\\usepackage[T1]{fontenc}" >> $DST
+echo "\\usepackage{fontspec}" >> $DST
+echo "\\newfontfamily\\meslo[Ligatures=TeX]{MesloLGS NF}" >> $DST
 echo "\\usepackage{textcomp}" >> $DST
 echo "\\usepackage{listings, lstautogobble}" >> $DST
 echo "\\usepackage{nopageno}" >> $DST
@@ -24,6 +26,7 @@ echo "\\date{}" >> $DST
 echo "\\begin{document}" >> $DST
 
 echo "\\maketitle" >> $DST
+echo "\\vspace{-5em}" >> $DST
 
 echo "Aim:" >> $DST
 echo "Aim?"
@@ -36,6 +39,9 @@ cat $SRC >> $DST
 echo "\\end{lstlisting}" >> $DST
 echo "\\vspace{3em}" >> $DST
 echo >> $DST
+echo "{" >> $DST
+echo "\\meslo" >> $DST
 echo "Output:\\\\" >> $DST
+echo "}" >> $DST
 
 echo "\\end{document}" >> $DST

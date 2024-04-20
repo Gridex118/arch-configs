@@ -55,5 +55,5 @@ set recolor-keephue "true"
 set scroll-step 50
 
 # map status bar toggle
-unmap f
-map f toggle_statusbar
+unmap F
+map F toggle_statusbar
