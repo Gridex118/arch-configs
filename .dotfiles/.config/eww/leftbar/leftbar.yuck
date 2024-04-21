@@ -6,7 +6,7 @@
               :style "font-size: 23;")
        (label :text clock-mins
               :class "clock-label"
-              :style "font-size: 23;")))
+              :style "font-size: 23; color: #50fefc;")))
 
 (defwidget leftbar-panel []
   (box :class "lpanel"

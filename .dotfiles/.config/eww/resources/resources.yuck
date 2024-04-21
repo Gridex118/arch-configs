@@ -1,3 +1,13 @@
+(defwidget disk []
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "horizontal"
+       (label :text "Root:"
+              :class "date-label"
+              :style "color: #50fefc;")
+       (label :text "${root-used}iB / ${root-used-perc} Used"
+              :class "date-label")))
+
 (defwidget time []
   (box :class "rounded-box"
        :space-evenly false
@@ -42,9 +52,13 @@
 (defwidget resource-panel []
   (box :class "resource-panel"
        :orientation "vertical"
+       :halign "center"
        :space-evenly true
        (box :orientation "vertical"
             :space-evenly false
+            (box :orientation "horizontal"
+                 :space-evenly false
+                 (disk))
             (box :orientation "horizontal"
                  :space-evenly true
                  (time))

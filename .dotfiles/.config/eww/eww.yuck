@@ -13,6 +13,9 @@
 (defvar wifi-text "Connected")
 (defpoll wifi-name :interval "2s" `bash scripts/wifi.sh`)
 
+(defpoll root-used :interval "30s" `df -h | grep sda10 | awk '{print $3}'`)
+(defpoll root-used-perc :interval "30s" `df -h | grep sda10 | awk '{print $5}'`)
+
 (include "./commons/commons.yuck")
 
 (include "./leftbar/leftbar.yuck")
