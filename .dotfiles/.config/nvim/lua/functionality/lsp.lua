@@ -80,6 +80,10 @@ lspconfig.cssls.setup {
     capabilities = capabilities
 }
 
+lspconfig.hls.setup {
+    capabilities = capabilities
+}
+
 lspconfig.cmake.setup {
     capabilities = capabilities
 }

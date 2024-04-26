@@ -1,7 +1,8 @@
 #!/bin/bash
 
 SRC="$1"
-FILENAME="${SRC%.*}".latex
+TITLE="${SRC%.*}"
+FILENAME="$TITLE".latex
 DST="$HOME/authoring/texcode/"$FILENAME
 if [[ -f $DST ]]; then
     rm $DST
@@ -45,3 +46,8 @@ echo "Output:\\\\" >> $DST
 echo "}" >> $DST
 
 echo "\\end{document}" >> $DST
+
+cd ~/authoring/texcode
+latexmk -quiet -lualatex -f -auxdir=$HOME/.texbuild/ -outdir=$HOME/authoring/texcode/pdf/ $FILENAME
+zathura pdf/"$TITLE".pdf&
+nvim $FILENAME
