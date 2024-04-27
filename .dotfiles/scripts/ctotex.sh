@@ -17,6 +17,9 @@ echo "\\newfontfamily\\meslo[Ligatures=TeX]{MesloLGS NF}" >> $DST
 echo "\\usepackage{textcomp}" >> $DST
 echo "\\usepackage{listings, lstautogobble}" >> $DST
 echo "\\usepackage{nopageno}" >> $DST
+echo "\\usepackage{algorithm}" >> $DST
+echo "\\usepackage{algorithmic}" >> $DST
+echo "\\usepackage{caption}" >> $DST
 echo "\\setlength\\parindent{0px}" >> $DST
 echo "\\lstset{basicstyle=\ttfamily, upquote=true, language=c, breaklines=true, autogobble=true, showstringspaces=false}" >> $DST
 
@@ -29,7 +32,7 @@ echo "\\begin{document}" >> $DST
 echo "\\maketitle" >> $DST
 echo "\\vspace{-5em}" >> $DST
 
-echo "Aim:" >> $DST
+echo -n "Aim: " >> $DST
 echo "Aim?"
 cat >> $DST
 echo >> $DST
