@@ -24,6 +24,8 @@ local function get_pdf_make_command()
     return ":!latexmk" .. options .. texInfo.target .. redirection .. "<CR>"
 end
 
+vim.opt.spell = true
+
 vim.keymap.set( 'n', "<space><space>c", get_pdf_make_command(), { noremap = true, silent = true, } )
 
 if texInfo.isProject then

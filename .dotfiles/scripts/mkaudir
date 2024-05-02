@@ -5,4 +5,5 @@ DIR_NAME=$1
 
 cd $DIR_NAME
 mkdir pdf
-
+mkdir assets
+touch cfg.cfg

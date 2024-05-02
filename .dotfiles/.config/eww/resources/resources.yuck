@@ -1,3 +1,10 @@
+(defwidget uptime []
+  (box :class "rounded-box"
+       :space-evenly false
+       :orientation "horizontal"
+       (label :text {uptime}
+              :class "date-label")))
+
 (defwidget disk []
   (box :class "rounded-box"
        :space-evenly false
@@ -56,6 +63,9 @@
        :space-evenly true
        (box :orientation "vertical"
             :space-evenly false
+            (box :orientation "horizontal"
+                 :space-evenly false
+                 (uptime))
             (box :orientation "horizontal"
                  :space-evenly false
                  (disk))

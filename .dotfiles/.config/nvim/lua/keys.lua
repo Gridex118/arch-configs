@@ -19,9 +19,11 @@ imap("-[",      "-[[<Esc>a")
 imap("-]",      "-]]<Esc>a")
 
 -- vim.keymap.set('i', "jj", "<Esc>", key_opts)
-nmap("zz", ":noh<cr>")
+nmap("zz", ":nohl<CR>")
 
-nmap("<Space>/", ":Telescope live_grep <cr>")
+-- Telescope
+nmap("<Space>/", ":Telescope live_grep <CR>")
+nmap("<Space><Space>o", ":lua require'telescope.builtin'.oldfiles{}<CR>")
 
 -- Oil.nvim
 nmap("-", "<CMD>Oil<CR>")
