@@ -20,6 +20,7 @@ imap("-]",      "-]]<Esc>a")
 
 -- vim.keymap.set('i', "jj", "<Esc>", key_opts)
 nmap("zz", ":nohl<CR>")
+nmap("<Space>wr", ":set wrap<CR>")
 
 -- Telescope
 nmap("<Space>/", ":Telescope live_grep <CR>")

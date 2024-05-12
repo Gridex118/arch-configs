@@ -5,5 +5,6 @@ bufferline.setup({
         numbers = function (opts)
             return string.format("%s", opts.id)
         end,
+        close_command = false,
     },
 })
