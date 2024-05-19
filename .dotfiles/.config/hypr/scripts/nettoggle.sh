@@ -13,9 +13,11 @@ toggle_connection() {
     if [ -z "$(iw dev wlan0 link | grep $SSID)" ]; then
         iwctl station wlan0 connect $SSID >> /dev/null 2>&1 || return 1
         echo "connected to $SSID" > $LOG_FILE
+        notify-send "connected to $SSID"
     else
         iwctl station wlan0 disconnect
         echo "disconnected from $SSID" > $LOG_FILE
+        notify-send "disconnected from $SSID"
     fi
     unset SSID
     return 0

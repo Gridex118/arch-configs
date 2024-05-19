@@ -6,6 +6,4 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT
 hyprpaper&
 udiskie&
 swaync&
-eww daemon
-eww open resources
-eww open leftbar
+eww open-many resources leftbar
