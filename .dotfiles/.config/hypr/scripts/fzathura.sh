@@ -26,7 +26,7 @@ if [ "$1" = "" ] || [ "$1" = "--menu" ]; then
                 cd ..
             fi
         done
-        SELECTED_PDF="`echo -e $DOCUMENTS | rofi -i -dmenu`"
+        SELECTED_PDF="`echo -e $DOCUMENTS | rofi -i -dmenu -theme ~/.config/rofi/themes/dmenu.rasi`"
         open_pdf "$HOME/Documents/$SELECTED_PDF"
     fi
 else

@@ -26,5 +26,3 @@ configuration {
   }
 
 }
-
-@import "~/.config/rofi/themes/adi.rasi"
