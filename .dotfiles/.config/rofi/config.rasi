@@ -1,4 +1,5 @@
 configuration {
+
     modi: "drun,run,window";
     case-sensitive: false;
     cycle: true;
@@ -15,14 +16,14 @@ configuration {
     kb-accept-entry: "Alt+q,Return,KP_Enter";
     kb-row-down: "Down,Alt+Tab";
 
-  timeout {
+    timeout {
       action: "kb-cancel";
       delay:  0;
-  }
+    }
 
-  filebrowser {
+    filebrowser {
       directories-first: true;
       sorting-method:    "name";
-  }
+    }
 
 }
