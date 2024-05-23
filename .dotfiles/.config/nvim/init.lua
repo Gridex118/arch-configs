@@ -38,6 +38,12 @@ vim.cmd([[
         autocmd BufNewFile,BufRead .zkeys setfiletype zsh
     augroup END
 
+    augroup RunCode
+        autocmd!
+        autocmd BufNewFile,BufRead *.c,*.py,*.bf,*.asm
+                \ noremap <space><space>r :!runcode.sh % <CR>
+    augroup END
+
 ]])
 
 require('keys')
