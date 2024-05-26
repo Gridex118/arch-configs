@@ -16,7 +16,7 @@ function runccpp {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
-    gcc -Wall $SRC -o $OUT&& $OUT
+    gcc -Wall -Wextra $SRC -o $OUT&& $OUT
     unset SRC
     unset OUT
 }

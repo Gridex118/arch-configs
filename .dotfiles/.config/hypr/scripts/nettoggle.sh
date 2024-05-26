@@ -11,7 +11,7 @@ unset WLAN_STATUS
 toggle_connection() {
     SSID=$1
     if [ -z "$(iw dev wlan0 link | grep $SSID)" ]; then
-        iwctl station wlan0 connect $SSID >> /dev/null 2>&1 || return 1
+        iwctl station wlan0 connect $SSID || return 1
         echo "connected to $SSID" > $LOG_FILE
         notify-send "connected to $SSID"
     else
