@@ -1,3 +1,7 @@
+(defpoll root-used :interval "30s" `df -h | grep sda10 | awk '{print $3}'`)
+(defpoll root-used-perc :interval "30s" `df -h | grep sda10 | awk '{print $5}'`)
+(defpoll uptime :interval "1m" `uptime --pretty`)
+
 (defwidget uptime []
   (box :class "rounded-box"
        :space-evenly false

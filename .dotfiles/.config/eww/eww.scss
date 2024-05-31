@@ -18,6 +18,13 @@ $c8: #444444;
   font-family: MesloLGS NF;
 }
 
-@import './commons/commons.scss';
+.rounded-box {
+    background-color: $c1;
+    border-radius: 8px;
+    padding: .7rem;
+    margin: .3rem;
+    color: $c4;
+}
+
 @import './resources/resources.scss';
 @import './leftbar/leftbar.scss';
