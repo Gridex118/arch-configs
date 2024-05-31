@@ -31,6 +31,12 @@ vim.cmd([[
         autocmd FileType asm set tabstop=24 shiftwidth=24 softtabstop=24
     augroup END
 
+    augroup AutoPairOptions
+        autocmd!
+        autocmd FileType tex let AutoPairs["`"] = "'"
+        autocmd FileType tex let AutoPairs["``"] = "\""
+    augroup END
+
     augroup ZshHighlighting
         autocmd!
         autocmd BufNewFile,BufRead .zalias setfiletype zsh
