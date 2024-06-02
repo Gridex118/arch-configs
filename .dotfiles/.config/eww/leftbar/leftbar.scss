@@ -4,3 +4,16 @@
     padding: .5rem;
     padding-top: 1.5rem;
 }
+
+.workspace-entry.empty {
+    color: #305050;
+}
+.workspace-entry.occupied {
+    color: #808080;
+}
+.workspace-entry.current.empty {
+    color: #f0f0f0;
+}
+.workspace-entry.current.occupied {
+    color: #50fefc;
+}

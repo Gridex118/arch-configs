@@ -1,6 +1,7 @@
 (defwidget leftbar-time []
   (box :space-evenly false
        :orientation "vertical"
+       :style "padding-top: 2px; padding-bottom: 2px;"
        (label :text clock-hours
               :class "clock-label"
               :style "font-size: 23;")
@@ -8,10 +9,28 @@
               :class "clock-label"
               :style "font-size: 23; color: #50fefc;")))
 
+(deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces.sh")
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace.sh")
+(defwidget workspaces []
+  (eventbox
+   :onscroll "bash ~/.config/eww/scripts/change-active-workspace.sh {} ${current_workspace}"
+   :class "workspaces-widget"
+   (box :space-evenly true
+        :orientation "vertical"
+        (label :text "${workspaces}${current_workspace}" :visible false)
+               (for workspace in workspaces
+                 (eventbox
+                  :onclick "hyprctl dispatch workspace ${workspace.id}"
+                  (box
+                    :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+                    (label :text "${workspace.id}")))))))
+
 (defwidget leftbar-panel []
   (box :class "lpanel"
        :orientation "vertical"
-       (leftbar-time)))
+       :space-evenly false
+       (leftbar-time)
+       (workspaces)))
 
 (defwindow leftbar
   :monitor 0
