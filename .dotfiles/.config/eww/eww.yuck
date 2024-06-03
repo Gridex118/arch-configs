@@ -27,3 +27,4 @@
 
 (include "./leftbar/leftbar.yuck")
 (include "./resources/resources.yuck")
+(include "./topbar/topbar.yuck")
