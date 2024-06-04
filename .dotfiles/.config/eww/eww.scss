@@ -26,6 +26,13 @@ $c8: #444444;
     color: $c4;
 }
 
+.radial-label {
+    color: $c4;
+    font-size: 4em;
+    padding: 2.5rem;
+    font-family: mono;
+}
+
 @import './resources/resources.scss';
 @import './leftbar/leftbar.scss';
 @import './topbar/topbar.scss';

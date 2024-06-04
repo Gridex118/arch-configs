@@ -1,30 +1,26 @@
 (defwidget topbar-date []
-  (box
-    :class "topbar-box"
-    :space-evenly false
-    :orientation "horizontal"
-    (label :text "${clock-day} ${clock-month} ${clock-year}"
-           :style "font-size: 17px;")))
+  (box :class "topbar-box"
+       :space-evenly false
+       :orientation "horizontal"
+       (label :text "${clock-day}-${clock-month}-${clock-year}"
+        :style "font-size: 17px;")))
 
 (defwidget topbar-battery []
-  (box
-    :class "topbar-box"
-    (label :text "Battery: ${EWW_BATTERY.BAT1.capacity}%")))
+  (box :class "topbar-box"
+       (label :text "Battery: ${EWW_BATTERY.BAT1.capacity}% -- ${EWW_BATTERY.BAT1.status}")))
 
 (defwidget topbar-wifi []
-  (box
-    :class "topbar-box"
-    (label :text "Wifi: ${wifi-name}")))
+  (box :class "topbar-box"
+       (label :text "Wifi: ${wifi-name}")))
 
 (defwidget topbar-widgets []
-  (box
-    :orientation "horizontal"
-    :space-evenly false
-    (topbar-date)
-    (box :style "padding-right: 10px;")
-    (topbar-battery)
-    (box :style "padding-right: 10px;")
-    (topbar-wifi)))
+  (box :orientation "horizontal"
+       :space-evenly false
+       (topbar-date)
+       (box :style "padding-right: 10px;")
+       (topbar-battery)
+       (box :style "padding-right: 10px;")
+       (topbar-wifi)))
 
 
 (defwindow topbar
