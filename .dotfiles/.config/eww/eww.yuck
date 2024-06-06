@@ -10,6 +10,7 @@
 (defpoll clock-mins :interval "1m" `date +\%M`)
 (defpoll clock-day :interval "12h" `date '+%d'`)
 (defpoll clock-month :interval "12h" `date '+%m'`)
+(defpoll clock-month-name :interval "12h" `date '+%B'`)
 (defpoll clock-year :interval "12h" `date '+%Y'`)
 (defpoll clock-weekday :interval "12h" `date '+%A'`)
 

@@ -2,7 +2,7 @@
   (box :class "topbar-box"
        :space-evenly false
        :orientation "horizontal"
-       (label :text "${clock-day}-${clock-month}"
+       (label :text "${clock-month-name} ${clock-day}"
         :style "font-size: 17px;")))
 
 (defwidget topbar-battery []
@@ -20,9 +20,9 @@
   (box :orientation "horizontal"
        :space-evenly false
        (topbar-date)
-       (box :style "padding-right: 10px;")
+       (box :width 200)
        (topbar-battery)
-       (box :style "padding-right: 10px;")
+       (box :width 200)
        (topbar-wifi)))
 
 
