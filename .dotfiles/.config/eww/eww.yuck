@@ -13,6 +13,7 @@
 (defpoll clock-month-name :interval "12h" `date '+%B'`)
 (defpoll clock-year :interval "12h" `date '+%Y'`)
 (defpoll clock-weekday :interval "12h" `date '+%A'`)
+(defpoll clock-weekday-abbr :interval "12h" `date '+%a'`)
 
 (defwidget radialmeter [value text tooltip]
   (circular-progress

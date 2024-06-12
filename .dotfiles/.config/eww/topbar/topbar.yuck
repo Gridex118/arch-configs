@@ -1,10 +1,3 @@
-(defwidget topbar-date []
-  (box :class "topbar-box"
-       :space-evenly false
-       :orientation "horizontal"
-       (label :text "${clock-month-name} ${clock-day}"
-        :style "font-size: 17px;")))
-
 (defwidget topbar-battery []
   (transform :scale-y "10%"
              :tooltip "${EWW_BATTERY.BAT1.capacity}"
@@ -12,17 +5,25 @@
                   :width 650
                   :style "background-color: ${EWW_BATTERY.BAT1.status == 'Charging' ? '#aaff00' : EWW_BATTERY.BAT1.capacity > 60? '#50fef8' : EWW_BATTERY.BAT1.capacity < 30 ? '#ff2c2c' : '#ffff8f'};")))
 
+(defwidget topbar-date []
+  (box :class "topbar-box"
+       :space-evenly false
+       :orientation "horizontal"
+       (label :text "${clock-month-name} ${clock-day} - ${clock-weekday-abbr}"
+        :style "font-size: 14px;")))
+
 (defwidget topbar-wifi []
   (box :class "topbar-box"
-       (label :text "Wifi: ${wifi-name}")))
+       :tooltip "${wifi-name}"
+       (label :text "${wifi-icon}")))
 
 (defwidget topbar-widgets []
   (box :orientation "horizontal"
        :space-evenly false
-       (topbar-date)
        (box :width 200)
        (topbar-battery)
-       (box :width 200)
+       (box :width 100)
+       (topbar-date)
        (topbar-wifi)))
 
 
