@@ -9,7 +9,7 @@
   (box :class "topbar-box"
        :space-evenly false
        :orientation "horizontal"
-       (label :text "${clock-month-name} ${clock-day} - ${clock-weekday-abbr}"
+       (label :text "${clock-weekday-abbr}, ${clock-month-name} ${clock-day}"
         :style "font-size: 14px;")))
 
 (defwidget topbar-wifi []
