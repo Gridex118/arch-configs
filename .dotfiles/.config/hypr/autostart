@@ -3,6 +3,7 @@
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP --all &
 
+fcitx5 -d
 hyprpaper&
 udiskie&
 swaync&

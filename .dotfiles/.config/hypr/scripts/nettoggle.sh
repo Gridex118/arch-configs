@@ -1,5 +1,7 @@
 #!/bin/bash
 
+iwctl station wlan0 scan on
+
 LOG_FILE=/tmp/nettoggle.log
 
 WLAN_STATUS=$(awk '{print $4}' <(rfkill | grep wlan))
