@@ -7,7 +7,7 @@
               :style "font-size: 20;")
        (label :text clock-mins
               :class "clock-label"
-              :style "font-size: 20; color: #50fefc;")))
+              :style "font-size: 20; color: #50fefc; padding-bottom: 10px;")))
 
 (deflisten workspaces :initial "[]" "bash ~/.config/eww/scripts/get-workspaces.sh")
 (deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace.sh")
