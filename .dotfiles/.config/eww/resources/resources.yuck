@@ -1,14 +1,17 @@
-(defpoll root-used :interval "30s" `df -h | grep sda10 | awk '{print $3}'`)
-(defpoll root-used-perc :interval "30s" `df -h | grep sda10 | awk '{print $5}'`)
-(defpoll uptime :interval "1m" `uptime --pretty`)
-
+(defpoll up-time
+  :interval "1m"
+  `uptime --pretty| awk -F'up ' '{print $2}'| sed "s/hours/hr/; s/minutes/min/"`)
 (defwidget uptime []
   (box :class "rounded-box"
        :space-evenly false
        :orientation "horizontal"
-       (label :text {uptime}
+       (label :text {up-time}
+              :width 300
               :class "date-label")))
 
+(defpoll root-used
+  :interval "30s"
+  `df -h| grep "sda10"| awk '{print $3"iB / "$5" Used"}'`)
 (defwidget disk []
   (box :class "rounded-box"
        :space-evenly false
@@ -16,7 +19,7 @@
        (label :text "Root:"
               :class "date-label"
               :style "color: #50fefc;")
-       (label :text "${root-used}iB / ${root-used-perc} Used"
+       (label :text "${root-used}"
               :class "date-label")))
 
 (defwidget time []

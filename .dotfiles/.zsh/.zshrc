@@ -14,6 +14,9 @@ compinit
 # zoxide
 eval "$(zoxide init zsh)"
 
+# fzf
+eval "$(fzf --zsh)"
+
 # theme
 source ~/.zsh/themes/p10k/powerlevel10k.zsh-theme
 

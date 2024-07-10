@@ -3,7 +3,12 @@
              :tooltip "${EWW_BATTERY.BAT1.capacity}"
              (box :class "topbar-battery-indicator"
                   :width 650
-                  :style "background-color: ${EWW_BATTERY.BAT1.status == 'Charging' ? '#aaff00' : EWW_BATTERY.BAT1.capacity > 60? '#50fef8' : EWW_BATTERY.BAT1.capacity < 30 ? '#ff2c2c' : '#ffff8f'};")))
+                  :style "background-color:
+                            ${EWW_BATTERY.BAT1.status == 'Charging' ? '#aaff00'    ; Charging -> Green
+                            : EWW_BATTERY.BAT1.capacity > 80 ? '#ffffff'           ; Greater than 80% -> white
+                            : EWW_BATTERY.BAT1.capacity > 60 ? '#50fef8'           ; Between 60% and 80% -> Cyan(?)
+                            : EWW_BATTERY.BAT1.capacity > 30 ? '#ffff8f'           ; Between 30% and 60% -> Yellow
+                            : '#ff2c2c'};")))                                      ; Below 30% -> Red
 
 (defwidget topbar-date []
   (eventbox :onclick '~/.config/eww/scripts/reww.sh' (box :class "topbar-box"

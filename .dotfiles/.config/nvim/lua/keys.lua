@@ -34,6 +34,3 @@ nmap("<space>q", ":bdel<CR>")
 nmap("<space>tr", ":split term://zsh || resize -5<CR><CR>i")
 
 nmap("g?", ":lua vim.diagnostic.open_float()<CR>")
-
--- Trouble
-nmap("<space>T", ":TroubleToggle document_diagnostics<CR>")

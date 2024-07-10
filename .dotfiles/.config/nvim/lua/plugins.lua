@@ -73,7 +73,7 @@ require("lazy").setup({
             require("functionality.snippets")
         end,
     },
-    
+
     {
         "Gridex118/neovim-snippets",
         config = function ()
@@ -164,6 +164,15 @@ require("lazy").setup({
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
+        cmd = "Trouble",
+        keys = {
+            {
+                "<space>T",
+                "<cmd>Trouble diagnostics toggle<cr>",
+                desc = "Diagnostics",
+            },
+        },
     },
 
     {
