@@ -1,3 +1,9 @@
+(deflisten current-submap :initial "Global" "bash ~/.config/eww/scripts/get-current-submap.sh")
+(defwidget topbar-submapline []
+  (box :class "topbar-box"
+       (label :text "Submap:")
+      (label :text "${current-submap}" :style "color: #50fef8;")))
+
 (defwidget topbar-battery []
   (transform :scale-y "10%"
              :tooltip "${EWW_BATTERY.BAT1.capacity}"
@@ -25,9 +31,10 @@
 (defwidget topbar-widgets []
   (box :orientation "horizontal"
        :space-evenly false
-       (box :width 200)
+       (topbar-submapline)
+       (box :width 150)
        (topbar-battery)
-       (box :width 100)
+       (box :width 150)
        (topbar-date)
        (topbar-wifi)))
 
