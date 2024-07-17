@@ -6,9 +6,9 @@ handle_submap () {
     if [[ -n "$(grep 'submap' <(echo $1))" ]]; then
         SUBMAP="$(awk -F'>>' -e '/^submap>>/ {print $2}' <(echo $1))"
         if [[ -z $SUBMAP ]]; then
-            echo "Global" >> $SUBMAP_LOG
+            echo "Global" > $SUBMAP_LOG
         else
-            echo ${SUBMAP^} >> $SUBMAP_LOG
+            echo ${SUBMAP^} > $SUBMAP_LOG
         fi
     fi
     cat $SUBMAP_LOG
