@@ -17,21 +17,20 @@ MOUSE_BASE=10
 MOUSE_ACCEL=$(($MOUSE_ACCEL + 10))
 
 case "$1" in
-    h|1)
+    h)
         ydotool mousemove -- -$(($MOUSE_BASE + $MOUSE_ACCEL)) 0
     ;;
-    j|2)
+    j)
         ydotool mousemove -- 0 $(($MOUSE_BASE + $MOUSE_ACCEL))
     ;;
-    k|3)
+    k)
         ydotool mousemove -- 0 -$(($MOUSE_BASE + $MOUSE_ACCEL))
     ;;
-    l|4)
+    l)
         ydotool mousemove -- $(($MOUSE_BASE + $MOUSE_ACCEL)) 0
     ;;
     click)
-        ydotool click 0x40
-        ydotool click 0x80
+        ydotool click 0xC0
     ;;
     reset)
         MOUSE_ACCEL=0
