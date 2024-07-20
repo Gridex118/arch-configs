@@ -1,40 +1,40 @@
 #!/bin/bash
 
-ACCEL_LOG=/tmp/mouse_accel
+SPEED_LOG=/tmp/mouse_SPEED
 
-if [[ -f $ACCEL_LOG ]]; then
-    MOUSE_ACCEL=$(cat $ACCEL_LOG)
+if [[ -f $SPEED_LOG ]]; then
+    MOUSE_SPEED=$(cat $SPEED_LOG)
 else
-    MOUSE_ACCEL=0
+    MOUSE_SPEED=0
 fi
 
-if [[ $MOUSE_ACCEL -ge 40 ]]; then
-    MOUSE_ACCEL=0
+if [[ $MOUSE_SPEED -ge 40 ]]; then
+    MOUSE_SPEED=0
 fi
 
 MOUSE_BASE=10
 
-MOUSE_ACCEL=$(($MOUSE_ACCEL + 10))
+MOUSE_SPEED=$(($MOUSE_SPEED + 10))
 
 case "$1" in
     h)
-        ydotool mousemove -- -$(($MOUSE_BASE + $MOUSE_ACCEL)) 0
+        ydotool mousemove -- -$(($MOUSE_BASE + $MOUSE_SPEED)) 0
     ;;
     j)
-        ydotool mousemove -- 0 $(($MOUSE_BASE + $MOUSE_ACCEL))
+        ydotool mousemove -- 0 $(($MOUSE_BASE + $MOUSE_SPEED))
     ;;
     k)
-        ydotool mousemove -- 0 -$(($MOUSE_BASE + $MOUSE_ACCEL))
+        ydotool mousemove -- 0 -$(($MOUSE_BASE + $MOUSE_SPEED))
     ;;
     l)
-        ydotool mousemove -- $(($MOUSE_BASE + $MOUSE_ACCEL)) 0
+        ydotool mousemove -- $(($MOUSE_BASE + $MOUSE_SPEED)) 0
     ;;
     click)
         ydotool click 0xC0
     ;;
     reset)
-        MOUSE_ACCEL=0
+        MOUSE_SPEED=0
     ;;
 esac
 
-echo $MOUSE_ACCEL > $ACCEL_LOG
+echo $MOUSE_SPEED > $SPEED_LOG
