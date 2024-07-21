@@ -32,6 +32,12 @@ case "$1" in
     click)
         ydotool click 0xC0
     ;;
+    hold)
+        ydotool click 0x40
+    ;;
+    release)
+        ydotool click 0x80
+    ;;
     reset)
         MOUSE_SPEED=0
     ;;

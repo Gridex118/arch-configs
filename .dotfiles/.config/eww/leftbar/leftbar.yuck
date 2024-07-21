@@ -37,7 +37,7 @@
 
 (defwindow leftbar
   :monitor 0
-  :stacking "fg"
+  :stacking "bg"
   :windowtype "dock"
   :exclusive true
   :wm-ignore false
