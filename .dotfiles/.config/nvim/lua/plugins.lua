@@ -1,4 +1,5 @@
 require("lazy").setup({
+
     {
         "folke/tokyonight.nvim",
         lazy = false,
