@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPEED_LOG=/tmp/mouse_SPEED
+SPEED_LOG=/tmp/mouse_speed
 
 if [[ -f $SPEED_LOG ]]; then
     MOUSE_SPEED=$(cat $SPEED_LOG)

@@ -1,7 +1,7 @@
 <h1 align="center">Dotfiles</h1>
 
 Dotfiles for my Hyprland workflow.  
-![Screenshot](Screenshots/Screenshot.png)
+![Screenshot](Screenshot.png)
 
 ## Dependencies
 * Hyprland
