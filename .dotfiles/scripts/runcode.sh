@@ -12,11 +12,20 @@ function runbf {
     unset NAME
 }
 
-function runccpp {
+function runc {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
     gcc -Wall -Wextra -O0 -g $SRC -o $OUT&& $OUT
+    unset SRC
+    unset OUT
+}
+
+function runcpp {
+    SRC=$1
+    mkdir -p build
+    OUT=build/"${SRC%.*}".out
+    g++ -Wall -Wextra -O0 -g $SRC -o $OUT&& $OUT
     unset SRC
     unset OUT
 }
@@ -30,7 +39,8 @@ fi
 
 
 case $LANG in
-    c) runccpp $1;;
+    c) runc $1;;
+    cpp) runcpp $1;;
     asm) runbinary $1;;
     bf) runbf $1;;
     py) python $1;;

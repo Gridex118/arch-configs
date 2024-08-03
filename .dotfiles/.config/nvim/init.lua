@@ -46,7 +46,7 @@ vim.cmd([[
 
     augroup RunCode
         autocmd!
-        autocmd BufNewFile,BufRead *.c,*.py,*.bf,*.asm
+        autocmd BufNewFile,BufRead *.cpp,*.c,*.py,*.bf,*.asm
                 \ noremap <space><space>r :!runcode.sh % <CR>
     augroup END
 

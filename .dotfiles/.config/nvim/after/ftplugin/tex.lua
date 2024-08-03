@@ -1,3 +1,9 @@
+if TEX_AFTER then
+    return
+end
+
+TEX_AFTER = true
+
 local FSHOME = vim.fn.expand("$HOME")
 
 local texInfo = {}

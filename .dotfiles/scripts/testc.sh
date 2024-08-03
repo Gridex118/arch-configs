@@ -20,9 +20,14 @@ fi
 echo
 echo "#include <stdio.h>" >> $FILE
 for lib in "$@"; do
-    if [[ $lib = "math" ]]; then
+    case "$lib" in
+        math)
         COMPILER_FLAGS=$COMPILER_FLAGS" -lm"
-    fi
+        ;;
+        SDL*)
+        COMPILER_FLAGS=$COMPILER_FLAGS" -lSDL2"
+        ;;
+    esac
     echo "#include <${lib}.h>" >> $FILE
 done
 echo "int main(void) {" >> $FILE
