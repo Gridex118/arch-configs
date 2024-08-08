@@ -90,6 +90,7 @@ lspconfig.cmake.setup {
 
 lspconfig.ccls.setup {
     capabilities = capabilities,
+    filetypes = { "c",  },
     init_options = {
         compilationDatabaseDirectory = "build";
         index = {
@@ -99,6 +100,14 @@ lspconfig.ccls.setup {
             excludeArgs = { "-frounding-math"} ;
         };
     }
+}
+
+lspconfig.clangd.setup {
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--header-insertion=never";
+    },
 }
 
 lspconfig.tsserver.setup {}
