@@ -108,6 +108,11 @@ require("lazy").setup({
     },
 
     {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim treesitter',
+    },
+
+    {
         "nvim-telescope/telescope.nvim",
         event = "VimEnter"
     },
