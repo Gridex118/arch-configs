@@ -5,5 +5,5 @@ if [[ $(pgrep ydotoold) ]]; then
     hyprctl dispatch submap reset
 else
     ydotoold&
-    hyprctl dispatch submap mouse
+    hyprctl dispatch submap $1
 fi
