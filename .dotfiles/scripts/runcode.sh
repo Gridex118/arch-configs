@@ -16,7 +16,11 @@ function runc {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
-    gcc -Wall -Wextra -O0 -g $SRC -o $OUT&& $OUT
+    GCCARGS="-Wall -Wextra -pedantic -g -O0"
+    if [[ -n "$(grep 'math' $SRC)" ]]; then
+        GCCARGS=$GCCARGS" -lm"
+    fi
+    gcc $GCCARGS $SRC -o $OUT&& $OUT
     unset SRC
     unset OUT
 }

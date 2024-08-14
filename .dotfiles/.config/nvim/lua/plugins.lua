@@ -15,6 +15,10 @@ require("lazy").setup({
     },
 
     {
+        "rcarriga/nvim-notify",
+    },
+
+    {
         "nvim-lualine/lualine.nvim",
         after = "tokyonight.nvim",
         event = "BufEnter",
@@ -114,7 +118,10 @@ require("lazy").setup({
 
     {
         "nvim-telescope/telescope.nvim",
-        event = "VimEnter"
+        config = function ()
+            require('ui.telescope')
+        end,
+        event = "VimEnter",
     },
 
     {

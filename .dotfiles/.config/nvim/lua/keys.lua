@@ -25,6 +25,8 @@ nmap("<Space>wr", ":set wrap<CR>")
 -- Telescope
 nmap("<Space>/", ":Telescope live_grep <CR>")
 nmap("<Space><Space>o", ":lua require'telescope.builtin'.oldfiles{}<CR>")
+nmap("<Space>'", ":Telescope marks<CR>")
+nmap("<Space>o", ":Telescope jumplist<CR>")
 
 -- Oil.nvim
 nmap("-", "<CMD>Oil<CR>")
@@ -33,4 +35,5 @@ nmap("<space>q", ":bdel<CR>")
 -- Neovim terminal
 nmap("<space>tr", ":split term://zsh || resize -5<CR><CR>i")
 
+-- diagnostics
 nmap("g?", ":lua vim.diagnostic.open_float()<CR>")
