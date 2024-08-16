@@ -1,5 +1,10 @@
 #!/bin/bash
 
+NC='\033[0m'
+RED='\033[0;31m'
+CYAN='\033[0;36m'
+
+
 function runbinary {
     NAME=${1%.*}
     nasm -felf64 ${NAME}.asm -o bin/${NAME}.o && ld bin/${NAME}.o -o bin/${NAME}.out && bin/${NAME}.out
@@ -20,7 +25,9 @@ function runc {
     if [[ -n "$(grep 'math' $SRC)" ]]; then
         GCCARGS=$GCCARGS" -lm"
     fi
-    gcc $GCCARGS $SRC -o $OUT&& $OUT
+    echo -e "Running with flags: ${RED}${GCCARGS}${NC}"
+    gcc $GCCARGS $SRC -o $OUT
+    $OUT || exit -1
     unset SRC
     unset OUT
 }
@@ -29,7 +36,10 @@ function runcpp {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
-    g++ -Wall -Wextra -O0 -g $SRC -o $OUT&& $OUT
+    GPPARGS="-Wall -Wextra -pedantic -g -O0"
+    echo -e "Running with flags: ${RED}${GPPARGS}${NC}"
+    g++ $GPPARGS $SRC -o $OUT
+    $OUT || exit -1
     unset SRC
     unset OUT
 }
