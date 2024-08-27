@@ -12,15 +12,27 @@
 (defpoll root-used
   :interval "30s"
   `df -h| grep "sda10"| awk '{print $3"iB / "$5" Used"}'`)
+(defpoll home-used
+  :interval "30s"
+  `df -h| grep "sda12"| awk '{print $3"iB / "$5" Used"}'`)
 (defwidget disk []
-  (box :class "rounded-box"
-       :space-evenly false
-       :orientation "horizontal"
-       (label :text "Root:"
-              :class "date-label"
-              :style "color: #50fefc;")
-       (label :text "${root-used}"
-              :class "date-label")))
+  (box :orientation "vertical"
+       (box :class "rounded-box"
+            :space-evenly false
+            :orientation "horizontal"
+            (label :text "Root:"
+                   :class "date-label"
+                   :style "color: #50fefc;")
+            (label :text "${root-used}"
+                   :class "date-label"))
+       (box :class "rounded-box"
+            :space-evenly false
+            :orientation "horizontal"
+            (label :text "Home:"
+                   :class "date-label"
+                   :style "color: #50fefc;")
+            (label :text "${home-used}"
+                   :class "date-label"))))
 
 (defwidget time []
   (box :class "rounded-box"
