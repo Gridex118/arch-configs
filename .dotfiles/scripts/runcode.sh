@@ -27,6 +27,7 @@ function runc {
     fi
     echo -e "Running with flags: ${RED}${GCCARGS}${NC}"
     gcc $GCCARGS $SRC -o $OUT
+    echo
     $OUT || exit -1
     unset SRC
     unset OUT
@@ -39,6 +40,7 @@ function runcpp {
     GPPARGS="-Wall -Wextra -pedantic -g -O0"
     echo -e "Running with flags: ${RED}${GPPARGS}${NC}"
     g++ $GPPARGS $SRC -o $OUT
+    echo
     $OUT || exit -1
     unset SRC
     unset OUT

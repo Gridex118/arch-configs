@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #########################
-WM="awesome"
+WM="xmonad"
 
 #########################
 if [ -f ~/.xinitrc ]; then

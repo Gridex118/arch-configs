@@ -88,6 +88,7 @@ lspconfig.cmake.setup {
     capabilities = capabilities
 }
 
+--[[
 lspconfig.ccls.setup {
     capabilities = capabilities,
     filetypes = { "c",  },
@@ -101,6 +102,7 @@ lspconfig.ccls.setup {
         };
     }
 }
+--]]
 
 lspconfig.clangd.setup {
     capabilities = capabilities,
