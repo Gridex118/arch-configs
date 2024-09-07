@@ -34,7 +34,7 @@ foreground = "#c0caf5"
 TERM = "xterm-256color"
 
 [font]
-size = 10.6
+size = 12
 
 [font.normal]
 family = "MesloLGS NF"

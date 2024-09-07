@@ -112,7 +112,6 @@ lspconfig.clangd.setup {
     },
 }
 
-lspconfig.tsserver.setup {}
 lspconfig.bashls.setup {}
 
 lspconfig.rust_analyzer.setup {
