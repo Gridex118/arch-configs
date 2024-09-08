@@ -52,7 +52,7 @@ $cpu% ${goto 280}${cpubar cpu0 10,140}
 ${color2}RAM :${color grey} $mem/$memmax\
  ${color1}${goto 240}$memperc% ${goto 280}${membar 10,140}
 ${color2}Battery :${color grey} \
- ${color1}${goto 240}${battery_percent BAT1}% ${goto 280}${battery_bar 10,140 BAT1}
+ ${color1}${goto 240}${battery_percent BAT0}% ${goto 280}${battery_bar 10,140 BAT0}
 
 ${color white}CPU1: ${color1}${cpu cpu1}% ${cpubar cpu1 10,100}\
   ${color white}${goto 220}CPU2: ${color1}${cpu cpu2}% ${cpubar cpu2 10,100}
