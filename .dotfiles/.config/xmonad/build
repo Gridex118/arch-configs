@@ -1,0 +1,19 @@
+#!/bin/bash
+
+SRC_DIR="$HOME/.config/xmonad"
+EXE_NAME="xmonad-alex"
+
+output="$1"
+
+cd "$SRC_DIR"
+
+d="$(dirname "$output")"
+f="$(basename "$output")"
+
+cabal install exe:"$EXE_NAME"       \
+      --enable-executable-stripping \
+      --enable-optimization=2      \
+      --installdir="$d"             \
+      --overwrite-policy=always
+
+ln -sf "$EXE_NAME" "$output"

@@ -15,11 +15,11 @@ conky.config = {
     draw_outline = false,
     draw_shades = false,
     use_xft = true,
-    font = 'DejaVu Sans Mono:size=12',
-    gap_x = 20,
+    font = 'MesloLGS NF:size=18',
+    gap_x = 80,
     gap_y = 30,
     minimum_height = 5,
-    maximum_width = 400,
+    maximum_width = 1000,
     net_avg_samples = 2,
     no_buffers = true,
     out_to_console = false,
@@ -47,21 +47,18 @@ Uptime:$color $uptime
 ${color1}${font Roboto Mono:style=Bold}\
 SYSTEM$color $hr\
 ${font}
-${color2}CPU : ${color1}${goto 240}\
-$cpu% ${goto 280}${cpubar cpu0 10,140}
+${color2}CPU : ${color1}${goto 320}\
+$cpu% ${goto 380}${cpubar cpu0 15,140}
 ${color2}RAM :${color grey} $mem/$memmax\
- ${color1}${goto 240}$memperc% ${goto 280}${membar 10,140}
+ ${color1}${goto 320}$memperc% ${goto 380}${membar 15,140}
 ${color2}Battery :${color grey} \
- ${color1}${goto 240}${battery_percent BAT0}% ${goto 280}${battery_bar 10,140 BAT0}
-
-${color white}CPU1: ${color1}${cpu cpu1}% ${cpubar cpu1 10,100}\
-  ${color white}${goto 220}CPU2: ${color1}${cpu cpu2}% ${cpubar cpu2 10,100}
-${color white}CPU3: ${color1}${cpu cpu3}% ${cpubar cpu3 10,100}\
-  ${color white}${goto 220}CPU4: ${color1}${cpu cpu4}% ${cpubar cpu4 10,100}
+ ${color1}${goto 320}${battery_percent BAT0}% ${goto 380}${battery_bar 15,140 BAT0}
 
 ${color2}Disk : ${color grey}\
  ${goto 90}${fs_used /}/${fs_size /}${color}\
- ${goto 250}${color grey}${color1}${fs_used_perc /}% ${fs_bar 10,120 /}
+ ${goto 320}${color grey}${color1}${fs_used_perc /}%${goto 380}${fs_bar 15,140 /}
+ ${goto 90}${fs_used /home}/${fs_size /home}${color}\
+ ${goto 320}${color grey}${color1}${fs_used_perc /home}%${goto 380}${fs_bar 15,140 /home}
 ${color1}${font Roboto Regular:style=Bold}\
 
 NETWORKING$color${font} $hr 
@@ -71,12 +68,12 @@ ${color2}wlan0:\
 ${color}${font} ${wireless_essid wlan0}
 ${color2}Down: ${color}${downspeed wlan0} \
 ${goto 250}${color2}Up: ${color}${upspeed wlan0}
-${downspeedgraph wlan0 30,195 00ffff 19A094} \
-${upspeedgraph wlan0 30,195 00ffff 19A094}
+${downspeedgraph wlan0 40,195 00ffff 19A094} \
+${upspeedgraph wlan0 40,195 00ffff 19A094}
 
 ${color1}${font Roboto Mono:style=Bold}\
 PROCESSES$color$font $hr
-Total:$processes  Running:$running_processes
+Total:$processes             Running:$running_processes
 ${color2} Name               PID   CPU%   MEM%
 ${color} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
