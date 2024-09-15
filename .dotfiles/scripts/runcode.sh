@@ -21,7 +21,7 @@ function runc {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
-    GCCARGS="-Wall -Wextra -pedantic -g -O0"
+    GCCARGS="-Wall -Wextra -g -O0"
     if [[ -n "$(grep 'math' $SRC)" ]]; then
         GCCARGS=$GCCARGS" -lm"
     fi
@@ -37,7 +37,7 @@ function runcpp {
     SRC=$1
     mkdir -p build
     OUT=build/"${SRC%.*}".out
-    GPPARGS="-Wall -Wextra -pedantic -g -O0"
+    GPPARGS="-Wall -Wextra -g -O0"
     echo -e "Running with flags: ${RED}${GPPARGS}${NC}"
     g++ $GPPARGS $SRC -o $OUT
     echo
