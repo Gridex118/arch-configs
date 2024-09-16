@@ -44,15 +44,9 @@ Config { font         = "MesloLGS NF 13"
                                          , "--normal"   , "#f7768e"
                                          , "--high"     , "darkred"
                                          ] 50
-                    , Run DynNetwork     [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s"
-                                         , "--Low"      , "1000"       -- units: B/s
-                                         , "--High"     , "5000"       -- units: B/s
-                                         , "--low"      , "#b09af7"
-                                         , "--normal"   , "#bb9af7"
-                                         , "--high"     , "#a08a50"
-                                         ] 10
+                    , Run Wireless    "wlan0" [ "--template" , "<essid>" ] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "              <fc=#f7768e>%XMonadLog%</fc>      <box type=Bottom width=2 mb=2 color=#f7768e><fc=#f7768e>%coretemp%</fc></box>   <box type=Bottom width=2 mb=2 color=#9ece6a><fc=#9ece6a><action=`alacritty -e htop`>%cpu%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#e0af68><fc=#e0af68><action=`alacritty -e htop`>%memory%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#bb9af7><fc=#bb9af7>%uparrow%  %dynnetwork%</fc></box>    <box type=Bottom width=2 mb=2 color=#f7768e><fc=#f7768e>%baticon%  %battery%</fc></box>    <box type=Bottom width=2 mb=2 color=#9ece6a><fc=#9ece6a><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box>"
+       , template = "              <fc=#f7768e>%XMonadLog%</fc>      <box type=Bottom width=2 mb=2 color=#f7768e><fc=#f7768e>%coretemp%</fc></box>   <box type=Bottom width=2 mb=2 color=#9ece6a><fc=#9ece6a><action=`alacritty -e htop`>%cpu%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#e0af68><fc=#e0af68><action=`alacritty -e htop`>%memory%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#bb9af7><fc=#bb9af7>%uparrow%  %wlan0wi%</fc></box>    <box type=Bottom width=2 mb=2 color=#f7768e><fc=#f7768e>%baticon%  %battery%</fc></box>    <box type=Bottom width=2 mb=2 color=#9ece6a><fc=#9ece6a><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box>"
        }

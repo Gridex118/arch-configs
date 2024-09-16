@@ -2,18 +2,31 @@ import XMonad
 
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
+import XMonad.Layout.SimpleFloat
+import XMonad.Layout.PerWorkspace
 
+import XMonad.Hooks.ManageHelpers (doCenterFloat)
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.StatusBar
-import XMonad.Hooks.StatusBar.PP
 
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Loggers
 
-myLayout = tiled ||| Mirror tiled ||| Full
+import XMonad.Actions.Submap (submap)
+
+import Data.Map (fromList)
+
+
+myManageHook = composeAll
+    [ className =? "pavucontrol" --> doCenterFloat
+    ]
+
+myLayoutHook =
+    onWorkspace "7" simpleFloat $
+    tiled ||| Mirror tiled ||| Full
     where
         tiled = Tall nmaster delta ratio
         nmaster = 1
@@ -58,7 +71,8 @@ main = xmonad
     . withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
     $ def
         { modMask = mod4Mask
-        , layoutHook = avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] myLayout
+        , layoutHook = avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] myLayoutHook
+        , manageHook = myManageHook <+> manageHook def
         , startupHook = myStartupHook
         , terminal = "alacritty"
         , borderWidth = 0
@@ -67,12 +81,18 @@ main = xmonad
         [ "M-p"
         ]
         `additionalKeysP`
-        [ ("M-d", spawn "~/.config/rofi/implements/launcher.sh")
+        [ ("M-S-d", spawn "~/.config/rofi/implements/launcher.sh")
+        -- The Application submap
+        , ("M-d", submap . fromList $
+                [ ((0, xK_z), spawn "~/.config/rofi/implements/fzathura.sh")
+                , ((shiftMask, xK_z), spawn "~/.config/rofi/implements/fzathura.sh --menu")
+                , ((0, xK_g), spawn "gimp")
+                , ((0, xK_v), spawn "pavucontrol")
+                , ((0, xK_p), spawn "firefox --private-window")
+                ])
         , ("M-q", kill)
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
-        , ("M-C-<Return>", spawn "~/.config/rofi/implements/fzathura.sh")
-        , ("M-C-S-<Return>", spawn "~/.config/rofi/implements/fzathura.sh --menu")
         , ("M-<Print>", spawn "flameshot gui")
         , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
         ]
