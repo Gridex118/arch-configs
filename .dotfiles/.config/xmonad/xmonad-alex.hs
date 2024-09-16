@@ -20,11 +20,12 @@ myLayout = tiled ||| Mirror tiled ||| Full
         ratio = 1/2
         delta = 3/100
 
+-- XMobar workspaces; copied from the wiki, works fine, so will not bother modifying further
 myXmobarPP :: PP
 myXmobarPP = def
     { ppSep             = magenta " • "
     , ppTitleSanitize   = xmobarStrip
-    , ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    , ppCurrent         = white . wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
@@ -66,10 +67,12 @@ main = xmonad
         [ "M-p"
         ]
         `additionalKeysP`
-        [ ("M-d", spawn "~/.config/rofi/launcher.sh")
+        [ ("M-d", spawn "~/.config/rofi/implements/launcher.sh")
         , ("M-q", kill)
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
+        , ("M-C-<Return>", spawn "~/.config/rofi/implements/fzathura.sh")
+        , ("M-C-S-<Return>", spawn "~/.config/rofi/implements/fzathura.sh --menu")
         , ("M-<Print>", spawn "flameshot gui")
         , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
         ]
