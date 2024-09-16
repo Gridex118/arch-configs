@@ -28,7 +28,7 @@ myXmobarPP = def
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-    , ppOrder           = \[ws, l, _, _] -> [ws, l]
+    , ppOrder           = \[ws, _, _, _] -> [ws]
     , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
     where
@@ -63,11 +63,13 @@ main = xmonad
         , borderWidth = 0
         }
         `removeKeysP`
-        [ "M-S-c"
+        [ "M-p"
         ]
         `additionalKeysP`
         [ ("M-d", spawn "~/.config/rofi/launcher.sh")
         , ("M-q", kill)
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
+        , ("M-<Print>", spawn "flameshot gui")
+        , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
         ]
