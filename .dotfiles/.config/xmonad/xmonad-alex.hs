@@ -1,4 +1,6 @@
 import XMonad
+import XMonad.StackSet (swapMaster)
+import System.Exit
 
 import XMonad.Layout.Gaps
 import XMonad.Layout.Spacing
@@ -13,15 +15,16 @@ import XMonad.Hooks.StatusBar
 
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Loggers
 
 import XMonad.Actions.Submap (submap)
 
 import Data.Map (fromList)
+import XMonad.Actions.GridSelect (goToSelected)
 
 
 myManageHook = composeAll
     [ className =? "pavucontrol" --> doCenterFloat
+    , className =? "qemu" --> doCenterFloat
     ]
 
 myLayoutHook =
@@ -42,14 +45,8 @@ myXmobarPP = def
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
-    , ppOrder           = \[ws, _, _, _] -> [ws]
-    , ppExtras          = [logTitles formatFocused formatUnfocused]
     }
     where
-        formatFocused   = wrap (white    "[") (white    "]") . magenta . ppWindow
-        formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue    . ppWindow
-        ppWindow :: String -> String
-        ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
         blue, lowWhite, magenta, red, white, yellow :: String -> String
         magenta  = xmobarColor "#ff79c6" ""
         blue     = xmobarColor "#bd93f9" ""
@@ -79,6 +76,7 @@ main = xmonad
         }
         `removeKeysP`
         [ "M-p"
+        , "M-S-q"
         ]
         `additionalKeysP`
         [ ("M-S-d", spawn "~/.config/rofi/implements/launcher.sh")
@@ -95,4 +93,7 @@ main = xmonad
         , ("M-S-<Return>", spawn "firefox")
         , ("M-<Print>", spawn "flameshot gui")
         , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
+        , ("M-g", goToSelected def)
+        , ("M-m", windows swapMaster)
+        , ("M-S-<Escape>", io exitSuccess)
         ]
