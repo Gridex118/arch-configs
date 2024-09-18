@@ -4,3 +4,4 @@
 .clj-kondo/
 .ccls*
 .lsp/
+.dotfiles/.config/xmonad/dist-newstyle/

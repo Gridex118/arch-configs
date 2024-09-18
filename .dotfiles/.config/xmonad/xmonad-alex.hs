@@ -44,6 +44,7 @@ myXmobarPP = def
     , ppCurrent         = white . wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
     , ppHidden          = white . wrap " " ""
     , ppHiddenNoWindows = lowWhite . wrap " " ""
+    , ppOrder           = \(ws:_) -> [ws]
     , ppUrgent          = red . wrap (yellow "!") (yellow "!")
     }
     where
