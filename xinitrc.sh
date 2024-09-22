@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #########################
-WM="xmonad"
+WM="~/.cache/xmonad/xmonad-x86_64-linux"
 
 #########################
 if [ -f ~/.xinitrc ]; then
@@ -49,6 +49,17 @@ echo "    done" >> ~/.xinitrc
 echo "    unset f" >> ~/.xinitrc
 echo "fi" >> ~/.xinitrc
 echo "" >> ~/.xinitrc
+
+#########################
+echo "# Decoration" >> ~/.xinitrc
+echo "nitrogen --restore&" >> ~/.xinitrc
+echo "xsetroot -cursor_name left_ptr" >> ~/.xinitrc
+echo "xrdb ~/.Xresources" >> ~/.xinitrc
+echo "unclutter&" >> ~/.xinitrc
+
+#########################
+echo "# Xss lock" >> ~/.xinitrc
+echo "xss-lock --transfer-sleep-lock -- ~/.local/bin/transfer-sleep-lock-generic-delay.sh --nofork&" >> ~/.xinitrc
 
 #########################
 echo "# Start WM" >> ~/.xinitrc
