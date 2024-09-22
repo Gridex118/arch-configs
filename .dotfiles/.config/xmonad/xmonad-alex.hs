@@ -25,6 +25,8 @@ import XMonad.Actions.GridSelect (goToSelected)
 myManageHook = composeAll
     [ className =? "pavucontrol" --> doCenterFloat
     , className =? "qemu" --> doCenterFloat
+    , className =? "feh" --> doCenterFloat
+    , stringProperty "WM_NAME" =? "Quit GIMP" --> doCenterFloat
     ]
 
 myLayoutHook =
