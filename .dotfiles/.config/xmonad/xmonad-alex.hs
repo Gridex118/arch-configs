@@ -30,7 +30,7 @@ myManageHook = composeAll
     ]
 
 myLayoutHook =
-    onWorkspace "7" simpleFloat $
+    onWorkspace "9" simpleFloat $
     tiled ||| Mirror tiled ||| Full
     where
         tiled = Tall nmaster delta ratio

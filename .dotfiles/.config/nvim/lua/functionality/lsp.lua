@@ -49,6 +49,16 @@ lspconfig.pyright.setup {
     capabilities = capabilities
 }
 
+require'lspconfig'.rust_analyzer.setup{
+    settings = {
+        ['rust-analyzer'] = {
+            diagnostics = {
+                enable = false;
+            }
+        }
+    }
+}
+
 lspconfig.clojure_lsp.setup {
     capabilities = capabilities
 }
@@ -123,11 +133,3 @@ lspconfig.arduino_language_server.setup {
         "-fqbn", "arduino:avr:uno",
     },
 }
-
-lspconfig.rust_analyzer.setup {
-    -- Server-specific settings. See `:help lspconfig-setup`
-    settings = {
-        ['rust-analyzer'] = {},
-    },
-}
-
