@@ -87,6 +87,7 @@ main = xmonad
         , ("M-d", submap . fromList $
                 [ ((0, xK_z), spawn "~/.config/rofi/implements/fzathura.sh")
                 , ((shiftMask, xK_z), spawn "~/.config/rofi/implements/fzathura.sh --menu")
+                , ((0, xK_w), spawn "wezterm")
                 , ((0, xK_g), spawn "gimp")
                 , ((0, xK_v), spawn "pavucontrol")
                 , ((0, xK_p), spawn "firefox --private-window")
