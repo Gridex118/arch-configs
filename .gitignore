@@ -4,4 +4,5 @@
 .clj-kondo/
 .ccls*
 .lsp/
-.dotfiles/.config/xmonad/dist-newstyle/*/
+.dotfiles/.config/xmonad/dist-newstyle/
+.dotfiles/.config/xmonad/dist-newstyle/cache/
