@@ -80,6 +80,7 @@ main = xmonad
         `removeKeysP`
         [ "M-p"
         , "M-S-q"
+        , "M-S-c"
         ]
         `additionalKeysP`
         [ ("M-S-d", spawn "~/.config/rofi/implements/launcher.sh")
@@ -98,6 +99,7 @@ main = xmonad
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
         , ("M-<Print>", spawn "flameshot gui")
+        , ("M-S-<Print>", spawn "flameshot full")
         , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
         , ("M-g", goToSelected def)
         , ("M-m", windows swapMaster)
