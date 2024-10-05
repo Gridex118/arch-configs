@@ -57,8 +57,6 @@ ${color2}Battery :${color grey} \
 ${color2}Disk : ${color grey}\
  ${goto 90}${fs_used /}/${fs_size /}${color}\
  ${goto 320}${color grey}${color1}${fs_used_perc /}%${goto 380}${fs_bar 15,140 /}
- ${goto 90}${fs_used /home}/${fs_size /home}${color}\
- ${goto 320}${color grey}${color1}${fs_used_perc /home}%${goto 380}${fs_bar 15,140 /home}
 ${color1}${font Roboto Regular:style=Bold}\
 
 NETWORKING$color${font} $hr 

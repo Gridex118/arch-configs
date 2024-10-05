@@ -93,6 +93,8 @@ main = xmonad
                 , ((0, xK_p), spawn "firefox --private-window")
                 ])
         , ("M-q", kill)
+        , ("M-S-r", spawn "xmonad --recompile&& xmonad --restart")
+        , ("M-S-n", spawn "iwctl station wlan0 scan on")
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
         , ("M-<Print>", spawn "flameshot gui")
