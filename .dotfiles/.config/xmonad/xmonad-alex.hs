@@ -93,13 +93,18 @@ main = xmonad
                 , ((0, xK_v), spawn "pavucontrol")
                 , ((0, xK_p), spawn "firefox --private-window")
                 ])
+        -- The Games submap
+        , ("M-a", submap . fromList $
+                [ ((0, xK_r), spawn "~/.local/bin/rpcs3-v0.0.33-17020-d51d5ce8_linux64.AppImage")
+                ]
+        )
         , ("M-q", kill)
         , ("M-S-r", spawn "xmonad --recompile&& xmonad --restart")
         , ("M-S-n", spawn "iwctl station wlan0 scan on")
         , ("M-<Return>", spawn "alacritty")
         , ("M-S-<Return>", spawn "firefox")
+        , ("M-C-<Print>", spawn "flameshot full")
         , ("M-<Print>", spawn "flameshot gui")
-        , ("M-S-<Print>", spawn "flameshot full")
         , ("M-S-p", spawn "if [ `pgrep picom` ]; then pkill picom; else picom -b; fi")
         , ("M-g", goToSelected def)
         , ("M-m", windows swapMaster)

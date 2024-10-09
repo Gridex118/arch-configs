@@ -1,10 +1,9 @@
 clear
 
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then
-    if [ `date '+%m'` -ne '12' ]; then
+    systemd-inhibit \
+        --what=handle-power-key \
+        --why="Restrict power key in Graphical environment" \
         startx &>/dev/null
-        logout
-    else
-        exec startx &>/dev/null
-    fi
+    logout
 fi
