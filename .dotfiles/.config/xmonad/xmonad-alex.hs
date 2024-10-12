@@ -31,7 +31,8 @@ myManageHook = composeAll
 
 myLayoutHook =
     onWorkspace "9" simpleFloat $
-    tiled ||| Mirror tiled ||| Full
+    onWorkspace "8" (avoidStruts Full ||| tiled) $
+    avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] tiled ||| Mirror tiled ||| Full
     where
         tiled = Tall nmaster delta ratio
         nmaster = 1
@@ -71,7 +72,7 @@ main = xmonad
     . withEasySB (statusBarProp "xmobar" (pure myXmobarPP)) defToggleStrutsKey
     $ def
         { modMask = mod4Mask
-        , layoutHook = avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] myLayoutHook
+        , layoutHook = myLayoutHook
         , manageHook = myManageHook <+> manageHook def
         , startupHook = myStartupHook
         , terminal = "alacritty"
