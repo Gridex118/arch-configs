@@ -16,7 +16,7 @@ import XMonad.Hooks.StatusBar
 import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 import XMonad.Util.SpawnOnce
 
-import XMonad.Actions.Submap (submap)
+import XMonad.Actions.Submap (visualSubmap, subName)
 
 import Data.Map (fromList)
 import XMonad.Actions.GridSelect (goToSelected)
@@ -32,7 +32,7 @@ myManageHook = composeAll
 myLayoutHook =
     onWorkspace "9" simpleFloat $
     onWorkspace "8" (avoidStruts Full ||| tiled) $
-    avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] tiled ||| Mirror tiled ||| Full
+    avoidStruts $ spacingWithEdge 4 $ gaps [(U, 5), (R, 3), (D, 3), (L, 3)] $ tiled ||| Mirror tiled ||| Full
     where
         tiled = Tall nmaster delta ratio
         nmaster = 1
@@ -62,8 +62,10 @@ myXmobarPP = def
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "xmobar"
+    spawnOnce "redshift"
     spawnOnce "picom -b"
     spawnOnce "conky"
+    spawnOnce "/usr/lib/notification-daemon-1.0/notification-daemon"
 
 main :: IO ()
 main = xmonad
@@ -86,17 +88,17 @@ main = xmonad
         `additionalKeysP`
         [ ("M-S-d", spawn "~/.config/rofi/implements/launcher.sh")
         -- The Application submap
-        , ("M-d", submap . fromList $
-                [ ((0, xK_z), spawn "~/.config/rofi/implements/fzathura.sh")
-                , ((shiftMask, xK_z), spawn "~/.config/rofi/implements/fzathura.sh --menu")
-                , ((0, xK_w), spawn "wezterm")
-                , ((0, xK_g), spawn "gimp")
-                , ((0, xK_v), spawn "pavucontrol")
-                , ((0, xK_p), spawn "firefox --private-window")
+        , ("M-d", visualSubmap def $ fromList
+                [ ((0, xK_z), subName "Zathura" $ spawn "~/.config/rofi/implements/fzathura.sh")
+                , ((shiftMask, xK_z), subName "Zathura -- selector" $ spawn "~/.config/rofi/implements/fzathura.sh --menu")
+                , ((0, xK_w), subName "Wezterm" $ spawn "wezterm")
+                , ((0, xK_g), subName "Gimp" $ spawn "gimp")
+                , ((0, xK_v), subName "Volume" $ spawn "pavucontrol")
+                , ((0, xK_p), subName "Private Window" $ spawn "firefox --private-window")
                 ])
         -- The Games submap
-        , ("M-a", submap . fromList $
-                [ ((0, xK_r), spawn "~/.local/bin/rpcs3-v0.0.33-17020-d51d5ce8_linux64.AppImage")
+        , ("M-a", visualSubmap def $ fromList
+                [ ((0, xK_r), subName "RPCS3" $ spawn "~/.local/bin/rpcs3-v0.0.33-17020-d51d5ce8_linux64.AppImage")
                 ]
         )
         , ("M-q", kill)
